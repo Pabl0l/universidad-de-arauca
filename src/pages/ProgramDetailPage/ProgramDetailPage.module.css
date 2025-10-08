@@ -18,7 +18,7 @@
   color: var(--color-amarillo-sol);
 }
 
-.facultyHeader {
+.programHeader {
   text-align: center;
   margin-bottom: 2rem;
   padding: 1.5rem;
@@ -27,14 +27,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.facultyHeader h1 {
+.programHeader h1 {
   font-family: var(--font-merriweather);
   color: var(--color-amarillo-sol);
   margin-bottom: 0.5rem;
   font-size: 3rem;
 }
 
-.facultyHeader .slogan {
+.programHeader .slogan {
   font-family: var(--font-montserrat);
   color: #555;
   margin-bottom: 1rem;
@@ -42,28 +42,32 @@
   font-style: italic;
 }
 
-.facultyHeader .dean {
-  font-family: var(--font-montserrat);
-  color: #777;
-  font-size: 1rem;
-}
-
-.bentoGrid {
+.contentGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 3fr 2fr; /* Left column for description and study plan, right for focus and profile */
   gap: 1.5rem;
 }
 
-.bentoBox {
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sideColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section {
   background-color: var(--color-blanco);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
 }
 
-.bentoBox h2 {
+.section h2 {
   font-family: var(--font-merriweather);
   font-size: 1.8rem;
   color: var(--color-negro);
@@ -71,54 +75,12 @@
   text-align: center;
 }
 
-.descriptionBox p {
+.section p {
   font-family: var(--font-montserrat);
   font-size: 1rem;
   color: #444;
   line-height: 1.7;
   text-align: left;
-  flex-grow: 1;
-}
-
-.programsBox .programsList {
-  list-style: none;
-  padding: 0;
-  flex-grow: 1;
-}
-
-.programsBox .programsList li {
-  margin-bottom: 0.5rem;
-}
-
-.programsBox .programsList li a {
-  font-family: var(--font-montserrat);
-  font-size: 1.1rem;
-  color: var(--color-negro);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.programsBox .programsList li a:hover {
-  color: var(--color-amarillo-sol);
-}
-
-.projectsBox .list,
-.facilitiesBox .list {
-  list-style: none;
-  padding: 0;
-  flex-grow: 1;
-}
-
-.projectsBox .list li,
-.facilitiesBox .list li {
-  background-color: var(--color-neutro-fondo);
-  border: 1px solid #eee;
-  border-radius: 5px;
-  padding: 0.8rem;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-montserrat);
-  font-size: 0.95rem;
-  color: var(--color-negro);
 }
 
 .studyPlanButton {
@@ -142,44 +104,56 @@
 .studyPlanButton:hover {
   background-color: #333333;
 }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+}
+
 @media (max-width: 768px) {
-  .facultyHeader h1 {
+  .programHeader h1 {
     font-size: 2.2rem;
   }
 
-  .facultyHeader .slogan {
+  .programHeader .slogan {
     font-size: 1.1rem;
   }
 
-  .bentoBox h2 {
+  .section h2 {
     font-size: 1.5rem;
   }
 
-  .descriptionBox p,
-  .programsBox .programsList li a,
-  .projectsBox .list li,
-  .facilitiesBox .list li {
-    font-size: 0.9rem;
+  .section p {
+    font-size: 0.95rem;
+  }
+
+  .studyPlanButton {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .facultyHeader h1 {
+  .programHeader h1 {
     font-size: 1.8rem;
   }
 
-  .facultyHeader .slogan {
+  .programHeader .slogan {
     font-size: 0.9rem;
   }
 
-  .bentoBox h2 {
+  .section h2 {
     font-size: 1.3rem;
   }
 
-  .descriptionBox p,
-  .programsBox .programsList li a,
-  .projectsBox .list li,
-  .facilitiesBox .list li {
-    font-size: 0.85rem;
+  .section p {
+    font-size: 0.9rem;
+  }
+
+  .studyPlanButton {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
   }
 }

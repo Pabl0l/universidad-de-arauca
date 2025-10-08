@@ -1,5 +1,5 @@
 📰 Noticias Destacadas
-🔬 UnAr lanza su primer Laboratorio de Energías Limpias: Un hito para el futuro energético del Llano
+🔬 UNAR lanza su primer Laboratorio de Energías Limpias: Un hito para el futuro energético del Llano
 
 Fecha de publicación: 25 de octubre de 2024
 

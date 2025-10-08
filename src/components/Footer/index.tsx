@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <p>&copy; {new Date().getFullYear()} Universidad de Arauca (UnAr). Todos los derechos reservados.</p>
+        <p>&copy; {new Date().getFullYear()} Universidad de Arauca (UNAR). Todos los derechos reservados.</p>
       </div>
     </footer>
   );

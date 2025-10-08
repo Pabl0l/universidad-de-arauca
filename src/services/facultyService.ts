@@ -55,6 +55,7 @@ export const faculties: IFaculty[] = [
         graduateProfile: 'Será un profesional capaz de crear soluciones tecnológicas a medida, liderar proyectos de transformación digital y gestionar sistemas de información complejos, siempre con una visión ética y de servicio a la comunidad.',
       },
     ],
+    slug: ""
   },
   {
     name: 'Artes “Mauricio Lezama”',
@@ -80,6 +81,7 @@ export const faculties: IFaculty[] = [
     emblematicProjects: [
       'Cine por la Paz: Llevando la pantalla donde nace la historia.',
     ],
+    slug: ""
   },
   {
     name: 'Ciencias de la Salud',
@@ -132,6 +134,7 @@ export const faculties: IFaculty[] = [
       'Laboratorio de Salud Pública',
       'Consultorios Jurisdiccionales',
     ],
+    slug: ""
   },
   {
     name: 'Ciencias Sociales y Jurídicas',
@@ -184,6 +187,7 @@ export const faculties: IFaculty[] = [
       'Archivo Histórico Regional "Arauca Viva"',
       'Salón de Juicios Orales Simulados',
     ],
+    slug: ""
   },
   {
     name: 'Educación y Ciencias Básicas',
@@ -229,5 +233,6 @@ export const faculties: IFaculty[] = [
       'Centro de Recursos para la Enseñanza (CRE)',
       'Estudio de Grabación Pedagógico "La Voz del Maestro"',
     ],
+    slug: ""
   },
 ];

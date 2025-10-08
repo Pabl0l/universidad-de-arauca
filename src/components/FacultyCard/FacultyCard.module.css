@@ -43,6 +43,7 @@
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  box-shadow: 4px 4px 0 var(--color-amarillo-sol);
 }
 
 .detailsButton:hover {

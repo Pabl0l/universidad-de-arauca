@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <h1>“La educación siembra paz, el conocimiento la hace florecer.”</h1>
-          <p>Bienvenido a la Universidad de Arauca (UnAr), una institución pública comprometida con el desarrollo sostenible, la innovación social y la construcción de paz desde el corazón de la Orinoquía.</p>
+          <p>Bienvenido a la Universidad de Arauca (UNAR), una institución pública comprometida con el desarrollo sostenible, la innovación social y la construcción de paz desde el corazón de la Orinoquía.</p>
           <p>Nacimos del sueño de una región que decidió cambiar la violencia por conocimiento, las fronteras por puentes, y los conflictos por oportunidades.</p>
           <p>Hoy formamos profesionales que transforman su territorio con ciencia, cultura y esperanza.</p>
           <button className={styles.callToAction}>Conoce nuestros programas</button>
@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
         <h2>Noticias destacadas</h2>
         <div className={styles.gridContainer}>
           <NewsCard
-            title="UnAr lanza su primer Laboratorio de Energías Limpias"
+            title="UNAR lanza su primer Laboratorio de Energías Limpias"
             description="El laboratorio promueve la investigación en biogás y energía solar con estudiantes de Ingeniería Mecánica y Ambiental."
           />
           <NewsCard
@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
           <EventCard
             date="5 dic 2025"
             title="Concierto de Fin de Año"
-            description="Presentación del Coro UnAr y grupos musicales de la Facultad de Artes."
+            description="Presentación del Coro UNAR y grupos musicales de la Facultad de Artes."
           />
         </div>
       </section>

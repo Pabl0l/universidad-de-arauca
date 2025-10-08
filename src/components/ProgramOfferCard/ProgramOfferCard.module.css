@@ -1,0 +1,32 @@
+.programOfferCard {
+  background-color: var(--color-neutro-fondo);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.programOfferCard:hover {
+  transform: translateY(-5px);
+}
+
+.facultyImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 4;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.facultyName {
+  color: var(--color-negro);
+  font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+}

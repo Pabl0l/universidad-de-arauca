@@ -15,3 +15,23 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-merriweather);
 }
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-rojo-guarapo);
+  color: var(--color-blanco);
+  padding: 15px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 4px 4px 0 var(--color-negro);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.floating-button:hover {
+  background-color: #cc0000; /* A slightly darker red */
+}

@@ -8,6 +8,7 @@ interface IProgram {
 
 interface IFaculty {
   name: string;
+  slug: string;
   dean: string;
   slogan: string;
   description: string;

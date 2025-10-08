@@ -16,18 +16,19 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          {/* Placeholder for UnAr Logo */}
-          <Link to="/"><span>UnAr</span></Link>
+          {/* Placeholder for UNAR Logo */}
+          <Link to="/">
+            <img src="/images/banner_b.webp" alt="UNAR Logo" className={styles.unarLogo} />
+          </Link>
         </div>
         <nav className={styles.nav}>
           <ul>
-            <li><Link to="/noticias">Noticias</Link></li>
+            <li><Link to="/">Inicio</Link></li>
+            <li><Link to="/admisiones">Admisiones</Link></li>
             <li><Link to="/facultades">Facultades</Link></li>
             <li><Link to="/eventos">Eventos</Link></li>
-            <li><Link to="/admisiones">Admisiones</Link></li>
+            <li><Link to="/noticias">Noticias</Link></li>
             <li><Link to="/vida-universitaria">Vida Universitaria</Link></li>
-            <li><Link to="/programas-academicos">Programas Académicos</Link></li>
-            <li><Link to="/campus-virtual">Campus Virtual</Link></li>
           </ul>
         </nav>
       </div>

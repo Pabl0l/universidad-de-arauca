@@ -14,7 +14,7 @@ import NewsCard from '../../components/NewsCard';
 const NoticiasPage: React.FC = () => {
   const newsItems = [
     {
-      title: "UnAr lanza su primer Laboratorio de Energías Limpias",
+      title: "UNAR lanza su primer Laboratorio de Energías Limpias",
       description: "El laboratorio promueve la investigación en biogás y energía solar con estudiantes de Ingeniería Mecánica y Ambiental.",
     },
     {
@@ -27,11 +27,11 @@ const NoticiasPage: React.FC = () => {
     },
     {
       title: "Nueva Convocatoria de Becas para Posgrados",
-      description: "La UnAr abre inscripciones para becas completas en maestrías y doctorados en áreas estratégicas para la región.",
+      description: "La UNAR abre inscripciones para becas completas en maestrías y doctorados en áreas estratégicas para la región.",
     },
     {
       title: "Seminario Internacional de Agroindustria Sostenible",
-      description: "Expertos de Latinoamérica se reunirán en la UnAr para debatir sobre las últimas tendencias en producción agrícola y pecuaria.",
+      description: "Expertos de Latinoamérica se reunirán en la UNAR para debatir sobre las últimas tendencias en producción agrícola y pecuaria.",
     },
   ];
 

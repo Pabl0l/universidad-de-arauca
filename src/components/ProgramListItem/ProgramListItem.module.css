@@ -1,0 +1,30 @@
+.listItem {
+  list-style: none;
+  margin-bottom: 0.5rem;
+  background-color: var(--color-neutro-fondo);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.listItem:hover {
+  background-color: var(--color-amarillo-sol);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.listItem a {
+  font-family: var(--font-montserrat);
+  font-size: 1.1rem;
+  color: var(--color-negro);
+  text-decoration: none;
+  display: block; /* Make the entire area clickable */
+  padding: 0.5rem 0;
+}
+
+.listItem a:hover {
+  color: var(--color-negro); /* Keep text black on hover */
+}

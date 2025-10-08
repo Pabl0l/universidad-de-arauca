@@ -4,15 +4,311 @@
   padding: 0 1rem;
 }
 
-.container h1 {
+.admisionesHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--color-blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.admisionesHeader h1 {
   font-family: var(--font-merriweather);
+  color: var(--color-amarillo-sol);
+  margin-bottom: 1rem;
+  font-size: 2.8rem;
+}
+
+.introText {
+  font-family: var(--font-montserrat);
+  color: #555;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.bentoBox {
+  background-color: var(--color-blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.bentoBox h2 {
+  font-family: var(--font-merriweather);
+  font-size: 1.8rem;
   color: var(--color-negro);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.container p {
+.bentoBox p {
   font-family: var(--font-montserrat);
-  color: var(--color-negro);
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.programOffersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: var(--color-neutro-fondo);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
   text-align: center;
+}
+
+.card h3 {
+  font-family: var(--font-merriweather);
+  font-size: 1.2rem;
+  color: var(--color-negro);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-family: var(--font-montserrat);
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.requirementsList,
+.datesList,
+.processList {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.requirementsList li,
+.datesList li,
+.processList li {
+  font-family: var(--font-montserrat);
+  font-size: 1rem;
+  color: var(--color-negro);
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  text-align: left;
+}
+
+.requirementsList li::before,
+.datesList li::before {
+  content: '\2022'; /* Bullet point */
+  color: var(--color-amarillo-sol);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.processList {
+  counter-reset: list-item;
+}
+
+.processList li {
+  counter-increment: list-item;
+}
+
+.processList li::before {
+  content: counter(list-item) ". ";
+  color: var(--color-amarillo-sol);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+
+
+.callToAction {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-family: var(--font-montserrat);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: fit-content;
+  margin: 1.5rem auto 0 auto;
+  box-shadow: 4px 4px 0 var(--color-amarillo-sol);
+}
+
+.callToAction:hover {
+  background-color: #333333;
+}
+
+.spanTwoColumns {
+  grid-column: span 2; /* Make this item span two columns */
+}
+
+.spanThreeColumns {
+    grid-column: span 3;
+}
+
+.whyUNARBoxContent {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.whyUNARImageContainer {
+    flex: 1;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.whyUNARTextContainer {
+    flex: 2;
+}
+
+.carouselContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.fechasImportantesBox {
+    padding: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admisionesHeader h1 {
+    font-size: 2.2rem;
+  }
+
+  .introText {
+    font-size: 1rem;
+  }
+
+  .bentoBox h2 {
+    font-size: 1.5rem;
+  }
+
+  .bentoBox p,
+  .programList li,
+  .requirementsList li,
+  .datesList li,
+  .processList li {
+    font-size: 0.95rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .callToAction {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .spanThreeColumns,
+  .spanTwoColumns {
+    grid-column: span 1; /* On smaller screens, revert to single column */
+  }
+}
+
+@media (max-width: 480px) {
+  .admisionesHeader h1 {
+    font-size: 1.8rem;
+  }
+
+  .introText {
+    font-size: 0.9rem;
+  }
+
+  .bentoBox h2 {
+    font-size: 1.3rem;
+  }
+
+  .bentoBox p,
+  .programList li,
+  .requirementsList li,
+  .datesList li,
+  .processList li {
+    font-size: 0.9rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+
+  .callToAction {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
 }

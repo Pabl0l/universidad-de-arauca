@@ -3,9 +3,13 @@
   margin: 0;
 }
 
+h1{
+  text-shadow: 3px 3px 0px black;
+  color: var(--color-blanco);
+}
+
 .hero {
   background-color: var(--color-amarillo-sol);
-  color: var(--color-negro);
   text-align: center;
   padding: 4rem 1rem;
   display: flex;
@@ -28,7 +32,9 @@
 .hero p {
   font-family: var(--font-montserrat);
   font-size: 1.3rem;
+  font-weight: 500;
   margin-bottom: 2rem;
+  color: var(--color-negro);
 }
 
 .callToAction {
@@ -42,6 +48,8 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background-color: var(--color-negro);
+  box-shadow: 4px 4px 0 #fff;
 }
 
 .callToAction:hover {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -11,6 +11,7 @@ import AdmisionesPage from './pages/AdmisionesPage';
 import VidaUniversitariaPage from './pages/VidaUniversitariaPage';
 import ProgramasAcademicosPage from './pages/ProgramasAcademicosPage';
 import CampusVirtualPage from './pages/CampusVirtualPage';
+import { ProgramDetailPage } from './pages/ProgramDetailPage';
 
 /**
  * @typedef {object} AppProps
@@ -31,11 +32,15 @@ const App: React.FC = () => {
         <Route path="/eventos" element={<EventosPage />} />
         <Route path="/facultades" element={<FacultadesPage />} />
         <Route path="/facultades/:facultyName" element={<FacultyDetailPage />} />
+        <Route path="/facultades/:facultyName/:programName" element={<ProgramDetailPage />} />
         <Route path="/admisiones" element={<AdmisionesPage />} />
         <Route path="/vida-universitaria" element={<VidaUniversitariaPage />} />
         <Route path="/programas-academicos" element={<ProgramasAcademicosPage />} />
         <Route path="/campus-virtual" element={<CampusVirtualPage />} />
       </Routes>
+      <Link to="/admisiones#proceso-de-inscripcion" className="floating-button">
+        ¡Inscríbete ya!
+      </Link>
       <Footer />
     </Router>
   );

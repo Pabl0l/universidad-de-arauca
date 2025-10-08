@@ -6,9 +6,10 @@
 
 .container h1 {
   font-family: var(--font-merriweather);
-  color: var(--color-negro);
+  color: var(--color-amarillo-sol);
   margin-bottom: 1.5rem;
   text-align: center;
+  font-size: 2.5rem;
 }
 
 .container p {
@@ -16,10 +17,38 @@
   color: var(--color-negro);
   text-align: center;
   margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .facultiesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  padding-bottom: 3rem; /* Add some space at the bottom */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container h1 {
+    font-size: 2rem;
+  }
+
+  .container p {
+    font-size: 1rem;
+  }
+
+  .facultiesGrid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 1.8rem;
+  }
+
+  .container p {
+    font-size: 0.9rem;
+  }
 }

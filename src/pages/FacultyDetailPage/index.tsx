@@ -1,8 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import styles from './FacultyDetailPage.module.css';
 import { faculties } from '../../services/facultyService';
-import ProgramCard from '../../components/ProgramCard';
+import ProgramListItem from '../../components/ProgramListItem';
+
 
 /**
  * @typedef {object} FacultyDetailPageProps
@@ -24,46 +25,37 @@ const FacultyDetailPage: React.FC = () => {
       <div className={styles.container}>
         <h1>Facultad no encontrada</h1>
         <p>Lo sentimos, la facultad que buscas no existe.</p>
+        <Link to="/facultades" className={styles.backLink}>Volver a Facultades</Link>
       </div>
     );
   }
 
   return (
     <div className={styles.container}>
-      <h1>{faculty.name}</h1>
-      <p className={styles.slogan}>{faculty.slogan}</p>
-      <p className={styles.description}>{faculty.description}</p>
+      <Link to="/facultades" className={styles.backLink}>&larr; Volver a Facultades</Link>
+      <header className={styles.facultyHeader}>
+        <h1>Facultad de {faculty.name}</h1>
+        <p className={styles.slogan}>{faculty.slogan}</p>
+        <p className={styles.dean}>Decano: {faculty.dean}</p>
+      </header>
 
-      <section className={styles.section}>
-        <h2>Programas Académicos</h2>
-        <div className={styles.programsGrid}>
-          {faculty.programs.map((program) => (
-            <ProgramCard key={program.name} program={program} />
-          ))}
-        </div>
-      </section>
+      <div className={styles.bentoGrid}>
+        <section className={`${styles.bentoBox} ${styles.descriptionBox}`}>
+          <h2>Descripción</h2>
+          <p>{faculty.description}</p>
+        </section>
 
-      {faculty.emblematicProjects && faculty.emblematicProjects.length > 0 && (
-        <section className={styles.section}>
-          <h2>Proyectos Emblemáticos</h2>
-          <ul className={styles.list}>
-            {faculty.emblematicProjects.map((project, index) => (
-              <li key={index}>{project}</li>
+        <section className={`${styles.bentoBox} ${styles.programsBox}`}>
+          <h2>Programas Académicos</h2>
+          <ul className={styles.programsList}>
+            {faculty.programs.map((program) => (
+              <ProgramListItem key={program.name} facultyName={faculty.name} program={program} />
             ))}
           </ul>
         </section>
-      )}
 
-      {faculty.facilities && faculty.facilities.length > 0 && (
-        <section className={styles.section}>
-          <h2>Instalaciones y Espacios de Estudio</h2>
-          <ul className={styles.list}>
-            {faculty.facilities.map((facility, index) => (
-              <li key={index}>{facility}</li>
-            ))}
-          </ul>
-        </section>
-      )}
+        
+      </div>
     </div>
   );
 };
