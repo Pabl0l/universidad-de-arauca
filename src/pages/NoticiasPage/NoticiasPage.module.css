@@ -1,0 +1,25 @@
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.container h1 {
+  font-family: var(--font-merriweather);
+  color: var(--color-negro);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.container p {
+  font-family: var(--font-montserrat);
+  color: var(--color-negro);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}

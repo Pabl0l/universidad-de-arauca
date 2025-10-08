@@ -1,0 +1,69 @@
+.homePage {
+  padding: 0;
+  margin: 0;
+}
+
+.hero {
+  background-color: var(--color-amarillo-sol);
+  color: var(--color-negro);
+  text-align: center;
+  padding: 4rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px; /* Adjust as needed */
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-family: var(--font-merriweather);
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-family: var(--font-montserrat);
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.callToAction {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-family: var(--font-montserrat);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.callToAction:hover {
+  background-color: #333333; /* A slightly lighter black */
+}
+
+.section {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-family: var(--font-merriweather);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-negro);
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}

@@ -1,0 +1,63 @@
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.container h1 {
+  font-family: var(--font-merriweather);
+  color: var(--color-negro);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.container .slogan {
+  font-family: var(--font-montserrat);
+  color: #555;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.container .description {
+  font-family: var(--font-montserrat);
+  color: var(--color-negro);
+  text-align: justify;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.section {
+  margin-top: 3rem;
+}
+
+.section h2 {
+  font-family: var(--font-merriweather);
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--color-negro);
+}
+
+.programsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.list li {
+  background-color: var(--color-blanco);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  font-family: var(--font-montserrat);
+  color: var(--color-negro);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}

@@ -1,0 +1,50 @@
+.card {
+  background-color: var(--color-blanco);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-montserrat);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h3 {
+  font-family: var(--font-merriweather);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-negro);
+}
+
+.card .slogan {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.card .dean {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.detailsButton {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-family: var(--font-montserrat);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.detailsButton:hover {
+  background-color: #333333;
+}

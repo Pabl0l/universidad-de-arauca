@@ -1,0 +1,40 @@
+.header {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo span {
+  font-family: var(--font-merriweather);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-amarillo-sol);
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-blanco);
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--color-amarillo-sol);
+}

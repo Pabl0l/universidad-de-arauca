@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  padding: 1.5rem 0;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer p {
+  font-family: var(--font-montserrat);
+  font-size: 0.9rem;
+}

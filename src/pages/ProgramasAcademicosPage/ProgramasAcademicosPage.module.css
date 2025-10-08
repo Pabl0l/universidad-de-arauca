@@ -1,0 +1,18 @@
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.container h1 {
+  font-family: var(--font-merriweather);
+  color: var(--color-negro);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.container p {
+  font-family: var(--font-montserrat);
+  color: var(--color-negro);
+  text-align: center;
+}

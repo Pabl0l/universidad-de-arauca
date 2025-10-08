@@ -1,0 +1,15 @@
+:root {
+  /* Primary Palette */
+  --color-amarillo-sol: #F5C518;
+  --color-negro: #000000;
+  --color-blanco: #FFFFFF;
+  --color-neutro-fondo: #F5F5F5; /* This is a light grey, close to white */
+
+  /* Secondary Palette (for occasional use) */
+  --color-verde-llanura: #2E8B57;
+  --color-rojo-guarapo: #B22222;
+  --color-azul-rio-arauca: #1E90FF;
+
+  --font-merriweather: 'Merriweather', serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
