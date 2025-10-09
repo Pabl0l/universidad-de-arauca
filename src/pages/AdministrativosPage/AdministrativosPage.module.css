@@ -21,35 +21,20 @@
   padding-bottom: 0.5rem;
 }
 
+.section h3 {
+  font-family: var(--font-merriweather);
+  font-size: 1.5rem;
+  color: var(--color-negro);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .section p {
   font-family: var(--font-montserrat);
   font-size: 1rem;
   line-height: 1.7;
   color: #444;
   margin-bottom: 1rem;
-}
-
-.valuesList {
-  list-style: none;
-  padding: 0;
-}
-
-.valuesList li {
-  font-family: var(--font-montserrat);
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #333;
-  margin-bottom: 0.5rem;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.valuesList li::before {
-  content: '\2022'; /* Bullet point */
-  color: var(--color-verde-llanura);
-  position: absolute;
-  left: 0;
-  font-weight: bold;
 }
 
 .hierarchyList,
@@ -60,7 +45,18 @@
   margin-top: 1rem;
 }
 
+.hierarchyList li,
+.facultyList li,
+.contactList li {
+  font-family: var(--font-montserrat);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
 .hierarchyList li strong,
-.facultyList li strong {
+.facultyList li strong,
+.contactList li strong {
   color: var(--color-negro);
 }

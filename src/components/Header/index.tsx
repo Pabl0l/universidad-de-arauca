@@ -53,6 +53,7 @@ const Header: React.FC = () => {
             <li><Link to="/facultades" onClick={() => window.scrollTo(0, 0)}>Facultades</Link></li>
             <li><Link to="/noticias" onClick={() => window.scrollTo(0, 0)}>Noticias</Link></li>
             <li><Link to="/acercade" onClick={() => window.scrollTo(0, 0)}>Sobre la Universidad</Link></li>
+            <li><Link to="/administrativos" onClick={() => window.scrollTo(0, 0)}>Administrativos</Link></li>
           </ul>
         </nav>
       </div>

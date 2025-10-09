@@ -13,6 +13,145 @@
 }
 
 .footer p {
+
   font-family: var(--font-montserrat);
+
   font-size: 0.9rem;
+
 }
+
+
+
+.contactInfo {
+
+
+
+  margin-top: 1rem;
+
+
+
+  display: flex;
+
+
+
+  justify-content: center;
+
+
+
+  gap: 1.5rem; /* Space between items */
+
+
+
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+
+
+
+}
+
+
+
+
+
+
+
+.contactInfo p {
+
+
+
+
+
+
+
+  margin-bottom: 0;
+
+
+
+
+
+
+
+  display: flex;
+
+
+
+
+
+
+
+  align-items: center;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.icon {
+
+
+
+
+
+
+
+  width: 1.2em; /* Adjust size as needed */
+
+
+
+
+
+
+
+  height: 1.2em;
+
+
+
+
+
+
+
+  margin-right: 0.5em;
+
+
+
+
+
+
+
+  fill: var(--color-blanco); /* Make icons white */
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
