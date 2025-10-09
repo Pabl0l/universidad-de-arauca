@@ -1,17 +1,79 @@
-@import './styles/variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --font-merriweather: 'Merriweather', serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+
+  --color-verde-llanura: #2E8B57;
+  --color-amarillo-sol: #F5C518;
+  --color-rojo-guarapo: #B22222;
+  --color-azul-rio-arauca: #1E90FF;
+  --color-negro: #000000;
+  --color-blanco: #FFFFFF;
+  --color-neutro-fondo: #F5F5F5;
+}
+
+body.high-contrast {
+  --color-verde-llanura: #00FF00;
+  --color-amarillo-sol: #FFFF00;
+  --color-rojo-guarapo: #FF0000;
+  --color-azul-rio-arauca: #00FFFF;
+  --color-negro: #FFFFFF;
+  --color-blanco: #000000;
+  --color-neutro-fondo: #121212;
+}
+
+body.readable-font {
+    --font-merriweather: 'Atkinson Hyperlegible', sans-serif;
+    --font-montserrat: 'Atkinson Hyperlegible', sans-serif;
+}
+
+body.grayscale {
+  filter: grayscale(100%);
+}
+
+body.invert-colors {
+  filter: invert(100%);
+}
+
+body.highlight-links a {
+  background-color: var(--color-amarillo-sol);
+  color: var(--color-negro);
+  padding: 2px 4px;
+  border-radius: 3px;
 }
 
 body {
   font-family: var(--font-montserrat);
-  color: var(--color-negro);
   background-color: var(--color-neutro-fondo);
-  padding-top: 75px; /* Add padding to account for fixed header */
+  color: var(--color-negro);
+  margin: 0;
+  padding: 0;
 }
+
+a {
+  color: var(--color-azul-rio-arauca);
+  text-decoration: none;
+}
+
+.pageHeaderBox {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pageHeaderBox h1 {
+  font-family: var(--font-merriweather);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pageHeaderBox p {
+  font-size: 1.1rem;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-merriweather);
@@ -42,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .floating-button {
-position: fixed;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: var(--color-rojo-guarapo);

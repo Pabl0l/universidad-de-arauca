@@ -12,6 +12,7 @@ import SobreLaUniversidadPage from './pages/SobreLaUniversidadPage';
 import AdministrativosPage from './pages/AdministrativosPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { AccessibilityMenu } from './components';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/administrativos" element={<AdministrativosPage />} />
       </Routes>
       <Link to="/admisiones#proceso-de-inscripcion" className="floating-button">¡Inscríbete ahora!</Link>
+      <AccessibilityMenu />
       <Footer />
     </Router>
   );
