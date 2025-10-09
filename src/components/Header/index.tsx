@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
+import { AccessibilityContext } from '../../contexts/AccessibilityContext';
 
 /**
  * @typedef {object} HeaderProps
@@ -14,6 +15,13 @@ import styles from './Header.module.css';
 const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const accessibilityContext = useContext(AccessibilityContext);
+
+  if (!accessibilityContext) {
+    return null; // or handle the case where context is not available
+  }
+
+  const { isHighContrast, isInvertColors } = accessibilityContext;
 
   const handleScroll = () => {
     if (typeof window !== 'undefined') {
@@ -37,13 +45,15 @@ const Header: React.FC = () => {
     }
   }, [lastScrollY]); // Rerun when lastScrollY changes
 
+  const bannerSrc = (isHighContrast || isInvertColors) ? "/images/banner_t.webp" : "/images/banner_b.webp";
+
   return (
     <header className={`${styles.header} ${!isVisible ? styles.hidden : ''}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
           {/* Placeholder for UNAR Logo */}
           <Link to="/">
-            <img src="/images/banner_b.webp" alt="UNAR Logo" className={styles.unarLogo} />
+            <img src={bannerSrc} alt="UNAR Logo" className={styles.unarLogo} />
           </Link>
         </div>
         <nav className={styles.nav}>

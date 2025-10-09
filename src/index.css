@@ -28,12 +28,28 @@ body.readable-font {
     --font-montserrat: 'Atkinson Hyperlegible', sans-serif;
 }
 
-body.grayscale .page-content {
-  filter: grayscale(100%);
+body.grayscale {
+  --color-verde-llanura: #6A6A6A;
+  --color-amarillo-sol: #C8C8C8;
+  --color-rojo-guarapo: #444444;
+  --color-azul-rio-arauca: #787878;
+  --color-negro: #000000;
+  --color-blanco: #FFFFFF;
+  --color-neutro-fondo: #F5F5F5;
+}
+
+body.invert-colors {
+  --color-verde-llanura: #D174A8;
+  --color-amarillo-sol: #0A3AE7;
+  --color-rojo-guarapo: #4DDDDD;
+  --color-azul-rio-arauca: #E16F00;
+  --color-negro: #FFFFFF;
+  --color-blanco: #000000;
+  --color-neutro-fondo: #0A0A0A;
 }
 
 body.highlight-links a {
-  background-color: var(--color-amarillo-sol);
+  background-color: #FF00FF;
   color: var(--color-negro);
   padding: 2px 4px;
   border-radius: 3px;

@@ -5,10 +5,12 @@ interface IAccessibilityContext {
   isReadableFont: boolean;
   isGrayscale: boolean;
   isHighlightLinks: boolean;
+  isInvertColors: boolean;
   toggleHighContrast: () => void;
   toggleReadableFont: () => void;
   toggleGrayscale: () => void;
   toggleHighlightLinks: () => void;
+  toggleInvertColors: () => void;
   resetAccessibility: () => void;
 }
 
@@ -19,10 +21,19 @@ export const AccessibilityProvider: React.FC<{ children: ReactNode }> = ({ child
   const [isReadableFont, setIsReadableFont] = useState(false);
   const [isGrayscale, setIsGrayscale] = useState(false);
   const [isHighlightLinks, setIsHighlightLinks] = useState(false);
+  const [isInvertColors, setIsInvertColors] = useState(false);
 
   const toggleHighContrast = () => {
-    setIsHighContrast(prev => !prev);
-    document.body.classList.toggle('high-contrast');
+    const newHighContrast = !isHighContrast;
+    setIsHighContrast(newHighContrast);
+    document.body.classList.toggle('high-contrast', newHighContrast);
+
+    if (newHighContrast) {
+      setIsGrayscale(false);
+      document.body.classList.remove('grayscale');
+      setIsInvertColors(false);
+      document.body.classList.remove('invert-colors');
+    }
   };
 
   const toggleReadableFont = () => {
@@ -31,8 +42,16 @@ export const AccessibilityProvider: React.FC<{ children: ReactNode }> = ({ child
   };
 
   const toggleGrayscale = () => {
-    setIsGrayscale(prev => !prev);
-    document.body.classList.toggle('grayscale');
+    const newGrayscale = !isGrayscale;
+    setIsGrayscale(newGrayscale);
+    document.body.classList.toggle('grayscale', newGrayscale);
+
+    if (newGrayscale) {
+      setIsHighContrast(false);
+      document.body.classList.remove('high-contrast');
+      setIsInvertColors(false);
+      document.body.classList.remove('invert-colors');
+    }
   };
 
   const toggleHighlightLinks = () => {
@@ -40,11 +59,25 @@ export const AccessibilityProvider: React.FC<{ children: ReactNode }> = ({ child
     document.body.classList.toggle('highlight-links');
   };
 
+  const toggleInvertColors = () => {
+    const newInvertColors = !isInvertColors;
+    setIsInvertColors(newInvertColors);
+    document.body.classList.toggle('invert-colors', newInvertColors);
+
+    if (newInvertColors) {
+      setIsHighContrast(false);
+      document.body.classList.remove('high-contrast');
+      setIsGrayscale(false);
+      document.body.classList.remove('grayscale');
+    }
+  };
+
   const resetAccessibility = () => {
     setIsHighContrast(false);
     setIsReadableFont(false);
     setIsGrayscale(false);
     setIsHighlightLinks(false);
+    setIsInvertColors(false);
     document.body.className = '';
     const root = document.documentElement;
     root.style.fontSize = '';
@@ -55,12 +88,14 @@ export const AccessibilityProvider: React.FC<{ children: ReactNode }> = ({ child
     isReadableFont,
     isGrayscale,
     isHighlightLinks,
+    isInvertColors,
     toggleHighContrast,
     toggleReadableFont,
     toggleGrayscale,
     toggleHighlightLinks,
+    toggleInvertColors,
     resetAccessibility,
-  }), [isHighContrast, isReadableFont, isGrayscale, isHighlightLinks]);
+  }), [isHighContrast, isReadableFont, isGrayscale, isHighlightLinks, isInvertColors]);
 
   return (
     <AccessibilityContext.Provider value={value}>
