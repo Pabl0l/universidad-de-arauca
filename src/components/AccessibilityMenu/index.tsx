@@ -1,9 +1,27 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef, useContext } from 'react';
 import styles from './AccessibilityMenu.module.css';
+import { AccessibilityContext } from '../../contexts/AccessibilityContext';
 
 const AccessibilityMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const context = useContext(AccessibilityContext);
+
+  if (!context) {
+    return null; // or some fallback UI
+  }
+
+  const { 
+    isHighContrast,
+    isReadableFont,
+    isGrayscale,
+    isHighlightLinks,
+    toggleHighContrast, 
+    toggleReadableFont, 
+    toggleGrayscale, 
+    toggleHighlightLinks, 
+    resetAccessibility 
+  } = context;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -40,38 +58,6 @@ const AccessibilityMenu: React.FC = () => {
     }
   }, []);
 
-  const toggleHighContrast = useCallback(() => {
-    document.body.classList.toggle('high-contrast');
-  }, []);
-
-  const toggleReadableFont = useCallback(() => {
-    document.body.classList.toggle('readable-font');
-  }, []);
-
-  const toggleGrayscale = useCallback(() => {
-    document.body.classList.toggle('grayscale');
-  }, []);
-
-  const toggleInvertColors = useCallback(() => {
-    document.body.classList.toggle('invert-colors');
-  }, []);
-
-  const toggleHighlightLinks = useCallback(() => {
-    document.body.classList.toggle('highlight-links');
-  }, []);
-
-  const resetAccessibility = useCallback(() => {
-    const root = document.documentElement;
-    root.style.fontSize = ''; // Reset to default
-    document.body.classList.remove(
-      'high-contrast',
-      'readable-font',
-      'grayscale',
-      'invert-colors',
-      'highlight-links'
-    );
-  }, []);
-
   return (
     <>
       <button className={styles.floatingButton} onClick={toggleMenu} aria-label="Menú de Accesibilidad">
@@ -83,7 +69,6 @@ const AccessibilityMenu: React.FC = () => {
           <button onClick={toggleHighContrast}>Alto Contraste</button>
           <button onClick={toggleReadableFont}>Fuente Legible</button>
           <button onClick={toggleGrayscale}>Escala de Grises</button>
-          <button onClick={toggleInvertColors}>Invertir Colores</button>
           <button onClick={toggleHighlightLinks}>Resaltar Enlaces</button>
           <button onClick={resetAccessibility}>Restablecer</button>
         </div>

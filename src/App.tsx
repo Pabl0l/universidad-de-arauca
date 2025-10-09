@@ -17,22 +17,24 @@ import { AccessibilityMenu } from './components';
 function App() {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/facultades" element={<FacultadesPage />} />
-        <Route path="/facultades/:facultySlug" element={<FacultyDetailPage />} />
-        <Route path="/noticias" element={<NoticiasPage />} />
-        <Route path="/admisiones" element={<AdmisionesPage />} />
-        <Route path="/campus-virtual" element={<CampusVirtualPage />} />
-        <Route path="/programas-academicos" element={<ProgramasAcademicosPage />} />
-        <Route path="/programas-academicos/:programSlug" element={<ProgramDetailPage />} />
-        <Route path="/acercade" element={<SobreLaUniversidadPage />} />
-        <Route path="/administrativos" element={<AdministrativosPage />} />
-      </Routes>
+      <div className="page-content">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/facultades" element={<FacultadesPage />} />
+          <Route path="/facultades/:facultySlug" element={<FacultyDetailPage />} />
+          <Route path="/noticias" element={<NoticiasPage />} />
+          <Route path="/admisiones" element={<AdmisionesPage />} />
+          <Route path="/campus-virtual" element={<CampusVirtualPage />} />
+          <Route path="/programas-academicos" element={<ProgramasAcademicosPage />} />
+          <Route path="/programas-academicos/:programSlug" element={<ProgramDetailPage />} />
+          <Route path="/acercade" element={<SobreLaUniversidadPage />} />
+          <Route path="/administrativos" element={<AdministrativosPage />} />
+        </Routes>
+        <Footer />
+      </div>
       <Link to="/admisiones#proceso-de-inscripcion" className="floating-button">¡Inscríbete ahora!</Link>
       <AccessibilityMenu />
-      <Footer />
     </Router>
   );
 }

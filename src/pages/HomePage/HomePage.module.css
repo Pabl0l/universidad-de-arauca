@@ -11,7 +11,7 @@ h1{
 .hero {
   background-color: var(--color-amarillo-sol);
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 0 1rem 4rem 1rem; /* Removed top padding */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,5 +63,6 @@ h1{
 
 .homePageHeaderBox {
   max-width: 800px; /* Make it narrower */
-  margin: 0 auto;
+  margin: auto;
+  margin-top: 8rem;
 }
