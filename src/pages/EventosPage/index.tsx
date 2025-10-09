@@ -13,8 +13,10 @@ import styles from './EventosPage.module.css';
 const EventosPage: React.FC = () => {
   return (
     <div className={styles.container}>
-      <h1>Eventos</h1>
-      <p>Consulta los próximos eventos de la Universidad de Arauca.</p>
+      <header className="pageHeaderBox">
+        <h1>Eventos</h1>
+        <p>Consulta los próximos eventos de la Universidad de Arauca.</p>
+      </header>
     </div>
   );
 };

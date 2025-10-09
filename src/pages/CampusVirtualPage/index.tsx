@@ -13,8 +13,10 @@ import styles from './CampusVirtualPage.module.css';
 const CampusVirtualPage: React.FC = () => {
   return (
     <div className={styles.container}>
-      <h1>Campus Virtual</h1>
-      <p>Accede a la plataforma virtual de la Universidad de Arauca.</p>
+      <header className="pageHeaderBox">
+        <h1>Campus Virtual</h1>
+        <p>Accede a la plataforma virtual de la Universidad de Arauca.</p>
+      </header>
     </div>
   );
 };

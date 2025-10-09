@@ -3,6 +3,16 @@
   color: var(--color-blanco);
   padding: 1rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Make header fixed */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
+}
+
+.hidden {
+  transform: translateY(-100%); /* Hide the header by moving it up */
 }
 
 .container {

@@ -15,8 +15,10 @@ import FacultyCard from '../../components/FacultyCard';
 const FacultadesPage: React.FC = () => {
   return (
     <div className={styles.container}>
-      <h1>Nuestras Facultades</h1>
-      <p>Explora las facultades de la Universidad de Arauca y sus programas académicos.</p>
+      <header className="pageHeaderBox">
+        <h1>Nuestras Facultades</h1>
+        <p>Explora las facultades de la Universidad de Arauca y sus programas académicos.</p>
+      </header>
       <div className={styles.facultiesGrid}>
         {faculties.map((faculty: IFaculty) => (
           <FacultyCard key={faculty.name} faculty={faculty} />

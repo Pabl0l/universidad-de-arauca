@@ -70,9 +70,9 @@ const AdmisionesPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <header className={styles.admisionesHeader}>
+      <header className="pageHeaderBox">
         <h1>Admisiones a la Universidad de Arauca (UNAR)</h1>
-        <p className={styles.introText}>¡Bienvenido a tu futuro en la Orinoquía! En la UNAR, te ofrecemos una educación de calidad, comprometida con la transformación social y el desarrollo sostenible de nuestra región.</p>
+        <p>¡Bienvenido a tu futuro en la Orinoquía! En la UNAR, te ofrecemos una educación de calidad, comprometida con la transformación social y el desarrollo sostenible de nuestra región.</p>
       </header>
 
       <div className={styles.bentoGrid }>
@@ -122,32 +122,32 @@ const AdmisionesPage: React.FC = () => {
           </div>
         </section>
 
-        <section className={`${styles.bentoBox} ${styles.requisitosBox}`}>
-          <h2>Requisitos de Admisión</h2>
-          <p>Para ingresar a la Universidad de Arauca, generalmente necesitarás:</p>
-          <ul className={styles.requirementsList}>
-            <li>Haber culminado tus estudios de bachillerato.</li>
-            <li>Presentar el examen de admisión institucional o resultados de pruebas estandarizadas (ej. ICFES Saber 11).</li>
-            <li>Documentos de identidad y soportes académicos.</li>
-            <li>Cumplir con los requisitos específicos de cada programa.</li>
-          </ul>
-          <button className={styles.callToAction}>Ver Requisitos Detallados</button>
-        </section>
+        <div className={`${styles.twoColumnSectionWrapper} ${styles.spanThreeColumns}`}>
+          <section className={`${styles.bentoBox} ${styles.requisitosBox}`}>
+            <h2>Requisitos de Admisión</h2>
+            <p>Para ingresar a la Universidad de Arauca, generalmente necesitarás:</p>
+            <ul className={styles.requirementsList}>
+              <li>Haber culminado tus estudios de bachillerato.</li>
+              <li>Presentar el examen de admisión institucional o resultados de pruebas estandarizadas (ej. ICFES Saber 11).</li>
+              <li>Documentos de identidad y soportes académicos.</li>
+              <li>Cumplir con los requisitos específicos de cada programa.</li>
+            </ul>
+            <button className={styles.callToAction}>Ver Requisitos Detallados</button>
+          </section>
 
-        
-
-        <section id="proceso-de-inscripcion" className={`${styles.bentoBox} ${styles.procesoInscripcionBox} ${highlightInscription ? styles.highlightInscription : ''} ${styles.spanTwoColumns}`}>
-          <h2>Proceso de Inscripción</h2>
-          <p>Sigue estos sencillos pasos para postularte:</p>
-          <ol className={styles.processList}>
-            <li>Crea tu usuario en nuestro portal de admisiones.</li>
-            <li>Diligencia el formulario de inscripción.</li>
-            <li>Adjunta los documentos requeridos.</li>
-            <li>Realiza el pago de los derechos de inscripción.</li>
-            <li>Presenta el examen de admisión.</li>
-          </ol>
-          <button className={styles.callToAction}>Iniciar Proceso de Inscripción</button>
-        </section>
+          <section id="proceso-de-inscripcion" className={`${styles.bentoBox} ${styles.procesoInscripcionBox} ${highlightInscription ? styles.highlightInscription : ''}`}>
+            <h2>Proceso de Inscripción</h2>
+            <p>Sigue estos sencillos pasos para postularte:</p>
+            <ol className={styles.processList}>
+              <li>Crea tu usuario en nuestro portal de admisiones.</li>
+              <li>Diligencia el formulario de inscripción.</li>
+              <li>Adjunta los documentos requeridos.</li>
+              <li>Realiza el pago de los derechos de inscripción.</li>
+              <li>Presenta el examen de admisión (si aplica).</li>
+            </ol>
+            <button className={styles.callToAction}>Iniciar Proceso de Inscripción</button>
+          </section>
+        </div>
         
       </div>
     </div>

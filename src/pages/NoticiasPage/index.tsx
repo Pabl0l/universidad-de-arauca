@@ -37,8 +37,10 @@ const NoticiasPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Noticias</h1>
-      <p>Aquí encontrarás las últimas noticias de la Universidad de Arauca.</p>
+      <header className="pageHeaderBox">
+        <h1>Noticias</h1>
+        <p>Aquí encontrarás las últimas noticias de la Universidad de Arauca.</p>
+      </header>
       <div className={styles.newsGrid}>
         {newsItems.map((news, index) => (
           <NewsCard key={index} title={news.title} description={news.description} />

@@ -13,8 +13,10 @@ import styles from './ProgramasAcademicosPage.module.css';
 const ProgramasAcademicosPage: React.FC = () => {
   return (
     <div className={styles.container}>
-      <h1>Programas Académicos</h1>
-      <p>Conoce la oferta académica de pregrado y posgrado de la Universidad de Arauca.</p>
+      <header className="pageHeaderBox">
+        <h1>Programas Académicos</h1>
+        <p>Conoce la oferta académica de pregrado y posgrado de la Universidad de Arauca.</p>
+      </header>
     </div>
   );
 };

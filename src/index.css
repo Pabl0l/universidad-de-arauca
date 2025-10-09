@@ -10,26 +10,53 @@ body {
   font-family: var(--font-montserrat);
   color: var(--color-negro);
   background-color: var(--color-neutro-fondo);
+  padding-top: 75px; /* Add padding to account for fixed header */
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-merriweather);
 }
 
+.pageHeaderBox {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--color-blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pageHeaderBox h1 {
+  font-family: var(--font-merriweather);
+  color: var(--color-amarillo-sol);
+  margin-bottom: 1rem;
+  font-size: 2.8rem;
+}
+
+.pageHeaderBox p {
+  font-family: var(--font-montserrat);
+  color: #555;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
 .floating-button {
-  position: fixed;
+position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: var(--color-rojo-guarapo);
   color: var(--color-blanco);
   padding: 15px 25px;
-  border-radius: 50px;
+  border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
   box-shadow: 4px 4px 0 var(--color-negro);
   z-index: 1000;
   transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .floating-button:hover {
