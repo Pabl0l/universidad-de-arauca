@@ -1,51 +1,84 @@
 .card {
-  background-color: var(--color-blanco);
-  border: 1px solid #e0e0e0;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 4;
   border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  font-family: var(--font-montserrat);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.contentOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  color: var(--color-blanco);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.card h3 {
+.card:hover .contentOverlay {
+  opacity: 1;
+}
+
+.contentOverlay h3 {
   font-family: var(--font-merriweather);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
-  color: var(--color-negro);
+  color: var(--color-blanco);
 }
 
-.card .slogan {
-  font-size: 1rem;
-  color: #555;
+.contentOverlay .slogan {
+  font-size: 1.1rem;
+  color: #e0e0e0;
   margin-bottom: 1rem;
-  flex-grow: 1;
 }
 
-.card .dean {
-  font-size: 0.9rem;
-  color: #777;
+.contentOverlay .dean {
+  font-size: 1rem;
+  color: #ccc;
   margin-bottom: 1.5rem;
 }
 
 .detailsButton {
-  background-color: var(--color-negro);
-  color: var(--color-blanco);
+  background-color: var(--color-amarillo-sol);
+  color: var(--color-negro);
   border: none;
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
   font-family: var(--font-montserrat);
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  box-shadow: 4px 4px 0 var(--color-amarillo-sol);
+  box-shadow: 4px 4px 0 var(--color-rojo-guarapo);
 }
 
 .detailsButton:hover {
-  background-color: #333333;
+  background-color: #e0b000;
 }

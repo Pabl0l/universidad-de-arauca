@@ -69,4 +69,4 @@ const ProgramDetailPage: React.FC = () => {
   );
 };
 
-export { ProgramDetailPage };
+export default ProgramDetailPage;

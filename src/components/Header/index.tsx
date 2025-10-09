@@ -51,9 +51,8 @@ const Header: React.FC = () => {
             <li><Link to="/">Inicio</Link></li>
             <li><Link to="/admisiones">Admisiones</Link></li>
             <li><Link to="/facultades">Facultades</Link></li>
-            <li><Link to="/eventos">Eventos</Link></li>
             <li><Link to="/noticias">Noticias</Link></li>
-            <li><Link to="/vida-universitaria">Vida Universitaria</Link></li>
+            <li><Link to="/acercade">Sobre la Universidad</Link></li>
           </ul>
         </nav>
       </div>
