@@ -15,6 +15,7 @@ import { AccessibilityContext } from '../../contexts/AccessibilityContext';
 const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const accessibilityContext = useContext(AccessibilityContext);
 
   if (!accessibilityContext) {
@@ -45,6 +46,10 @@ const Header: React.FC = () => {
     }
   }, [lastScrollY]); // Rerun when lastScrollY changes
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prev => !prev);
+  };
+
   const bannerSrc = (isHighContrast || isInvertColors) ? "/images/banner_t.webp" : "/images/banner_b.webp";
 
   return (
@@ -56,14 +61,17 @@ const Header: React.FC = () => {
             <img src={bannerSrc} alt="UNAR Logo" className={styles.unarLogo} />
           </Link>
         </div>
-        <nav className={styles.nav}>
+        <button className={styles.hamburger} onClick={toggleMobileMenu} aria-label="Toggle navigation">
+          <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+        </button>
+        <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`}>
           <ul>
-            <li><Link to="/" onClick={() => window.scrollTo(0, 0)}>Inicio</Link></li>
-            <li><Link to="/admisiones" onClick={() => window.scrollTo(0, 0)}>Admisiones</Link></li>
-            <li><Link to="/facultades" onClick={() => window.scrollTo(0, 0)}>Facultades</Link></li>
-            <li><Link to="/noticias" onClick={() => window.scrollTo(0, 0)}>Noticias</Link></li>
-            <li><Link to="/acercade" onClick={() => window.scrollTo(0, 0)}>Sobre la Universidad</Link></li>
-            <li><Link to="/administrativos" onClick={() => window.scrollTo(0, 0)}>Administrativos</Link></li>
+            <li><Link to="/" onClick={() => { window.scrollTo(0, 0); setIsMobileMenuOpen(false); }}>Inicio</Link></li>
+            <li><Link to="/admisiones" onClick={() => { window.scrollTo(0, 0); setIsMobileMenuOpen(false); }}>Admisiones</Link></li>
+            <li><Link to="/facultades" onClick={() => { window.scrollTo(0, 0); setIsMobileMenuOpen(false); }}>Facultades</Link></li>
+            <li><Link to="/noticias" onClick={() => { window.scrollTo(0, 0); setIsMobileMenuOpen(false); }}>Noticias</Link></li>
+            <li><Link to="/acercade" onClick={() => { window.scrollTo(0, 0); setIsMobileMenuOpen(false); }}>Sobre la Universidad</Link></li>
+            <li><Link to="/administrativos" onClick={() => { window.scrollTo(0, 0); setIsMobileMenuOpen(false); }}>Administrativos</Link></li>
           </ul>
         </nav>
       </div>
