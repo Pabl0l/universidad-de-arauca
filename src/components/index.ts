@@ -6,3 +6,4 @@ export * from './NewsCard';
 export * from './ProgramCard';
 export * from './ProgramListItem';
 export * from './ProgramOfferCard';
+export { default as EnrollButton } from './EnrollButton';

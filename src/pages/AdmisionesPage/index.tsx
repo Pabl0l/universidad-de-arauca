@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './AdmisionesPage.module.css';
 import { ProgramOfferCard } from '../../components';
 
@@ -30,8 +31,10 @@ const programOffers: IProgramOffer[] = faculties.map(faculty => ({
  */
 const AdmisionesPage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [highlightInscription, setHighlightInscription] = useState(false);
   const images = ["/fechas1.webp", "/fechas2.webp", "/fechas3.webp"];
   const alts = ["Flyer con fechas de inscripción", "Flyer con fecha de examen de admisión", "Flyer con fechas de matrícula"];
+  const location = useLocation();
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -47,6 +50,24 @@ const AdmisionesPage: React.FC = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [nextSlide]);
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        if (id === 'proceso-de-inscripcion') {
+          setHighlightInscription(true);
+          const timer = setTimeout(() => {
+            setHighlightInscription(false);
+          }, 500);
+          return () => clearTimeout(timer);
+        }
+      }
+    }
+  }, [location]);
+
   return (
     <div className={styles.container}>
       <header className={styles.admisionesHeader}>
@@ -115,7 +136,7 @@ const AdmisionesPage: React.FC = () => {
 
         
 
-        <section id="proceso-de-inscripcion" className={`${styles.bentoBox} ${styles.procesoInscripcionBox} ${styles.spanTwoColumns}`}>
+        <section id="proceso-de-inscripcion" className={`${styles.bentoBox} ${styles.procesoInscripcionBox} ${highlightInscription ? styles.highlightInscription : ''} ${styles.spanTwoColumns}`}>
           <h2>Proceso de Inscripción</h2>
           <p>Sigue estos sencillos pasos para postularte:</p>
           <ol className={styles.processList}>
@@ -123,7 +144,7 @@ const AdmisionesPage: React.FC = () => {
             <li>Diligencia el formulario de inscripción.</li>
             <li>Adjunta los documentos requeridos.</li>
             <li>Realiza el pago de los derechos de inscripción.</li>
-            <li>Presenta el examen de admisión (si aplica).</li>
+            <li>Presenta el examen de admisión.</li>
           </ol>
           <button className={styles.callToAction}>Iniciar Proceso de Inscripción</button>
         </section>

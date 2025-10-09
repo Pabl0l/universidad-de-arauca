@@ -42,6 +42,7 @@
   display: flex;
   flex-direction: column;
   overflow: visible;
+  transition: transform 0.5s ease-in-out; /* Add transition for smooth animation */
 }
 
 .bentoBox h2 {
@@ -81,7 +82,7 @@
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-  text-align: center;
+  text-align: left;
 }
 
 .card h3 {
@@ -235,6 +236,10 @@
 
 .fechasImportantesBox {
     padding: 0;
+}
+
+.highlightInscription {
+  transform: scale(1.02);
 }
 
 /* Responsive adjustments */
