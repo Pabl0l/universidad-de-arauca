@@ -4,24 +4,32 @@
   padding: 0 1rem;
 }
 
-.section {
-  background-color: var(--color-blanco);
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-  margin-bottom: 2rem;
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.section h2 {
+.bentoBox {
+  background-color: var(--color-blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bentoBox h2 {
   font-family: var(--font-merriweather);
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--color-negro);
   margin-bottom: 1.5rem;
   border-bottom: 2px solid var(--color-amarillo-sol);
   padding-bottom: 0.5rem;
 }
 
-.section h3 {
+.bentoBox h3 {
   font-family: var(--font-merriweather);
   font-size: 1.5rem;
   color: var(--color-negro);
@@ -29,12 +37,14 @@
   margin-bottom: 1rem;
 }
 
-.section p {
+.bentoBox p,
+.hierarchyList li,
+.facultyList li,
+.contactList li {
   font-family: var(--font-montserrat);
   font-size: 1rem;
   line-height: 1.7;
   color: #444;
-  margin-bottom: 1rem;
 }
 
 .hierarchyList,
@@ -45,18 +55,45 @@
   margin-top: 1rem;
 }
 
-.hierarchyList li,
-.facultyList li,
-.contactList li {
-  font-family: var(--font-montserrat);
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
 .hierarchyList li strong,
 .facultyList li strong,
 .contactList li strong {
   color: var(--color-negro);
+}
+
+.spanTwoColumns {
+    grid-column: span 2;
+}
+
+.spanThreeColumns {
+    grid-column: span 3;
+}
+
+.subGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bentoBox h2 {
+    font-size: 1.5rem;
+  }
+
+  .bentoBox p,
+  .hierarchyList li,
+  .facultyList li,
+  .contactList li {
+    font-size: 0.95rem;
+  }
 }

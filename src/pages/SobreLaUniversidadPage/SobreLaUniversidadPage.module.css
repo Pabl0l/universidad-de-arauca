@@ -29,6 +29,38 @@
   margin-bottom: 1rem;
 }
 
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.spanTwoColumns {
+  grid-column: span 2;
+}
+
+.spanThreeColumns {
+  grid-column: span 3;
+}
+
+.subGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+}
 .valuesList {
   list-style: none;
   padding: 0;
