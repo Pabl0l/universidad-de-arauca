@@ -48,11 +48,11 @@ const Header: React.FC = () => {
         </div>
         <nav className={styles.nav}>
           <ul>
-            <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/admisiones">Admisiones</Link></li>
-            <li><Link to="/facultades">Facultades</Link></li>
-            <li><Link to="/noticias">Noticias</Link></li>
-            <li><Link to="/acercade">Sobre la Universidad</Link></li>
+            <li><Link to="/" onClick={() => window.scrollTo(0, 0)}>Inicio</Link></li>
+            <li><Link to="/admisiones" onClick={() => window.scrollTo(0, 0)}>Admisiones</Link></li>
+            <li><Link to="/facultades" onClick={() => window.scrollTo(0, 0)}>Facultades</Link></li>
+            <li><Link to="/noticias" onClick={() => window.scrollTo(0, 0)}>Noticias</Link></li>
+            <li><Link to="/acercade" onClick={() => window.scrollTo(0, 0)}>Sobre la Universidad</Link></li>
           </ul>
         </nav>
       </div>

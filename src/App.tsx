@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './index.css';
 import HomePage from './pages/HomePage';
 import FacultadesPage from './pages/FacultadesPage';
@@ -26,6 +26,7 @@ function App() {
         <Route path="/programas-academicos/:programSlug" element={<ProgramDetailPage />} />
         <Route path="/acercade" element={<SobreLaUniversidadPage />} />
       </Routes>
+      <Link to="/admisiones#proceso-de-inscripcion" className="floating-button">¡Inscríbete ahora!</Link>
     </Router>
   );
 }
