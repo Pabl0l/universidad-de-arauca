@@ -1,9 +1,9 @@
 .footer {
   background-color: var(--color-negro);
   color: var(--color-blanco);
-  padding: 1.5rem 0;
+  padding: 1rem 0; /* Adjusted for mobile-first */
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem; /* Adjusted for mobile-first */
 }
 
 .container {
@@ -13,145 +13,49 @@
 }
 
 .footer p {
-
   font-family: var(--font-montserrat);
-
-  font-size: 0.9rem;
-
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Responsive font size */
 }
-
-
 
 .contactInfo {
-
-
-
-  margin-top: 1rem;
-
-
-
+  margin-top: 0.8rem; /* Adjusted for mobile-first */
   display: flex;
-
-
-
   justify-content: center;
-
-
-
-  gap: 1.5rem; /* Space between items */
-
-
-
+  gap: 1rem; /* Adjusted for mobile-first */
   flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-
-
-
 }
-
-
-
-
-
-
 
 .contactInfo p {
-
-
-
-
-
-
-
   margin-bottom: 0;
-
-
-
-
-
-
-
   display: flex;
-
-
-
-
-
-
-
   align-items: center;
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .icon {
-
-
-
-
-
-
-
-  width: 1.2em; /* Adjust size as needed */
-
-
-
-
-
-
-
-  height: 1.2em;
-
-
-
-
-
-
-
-  margin-right: 0.5em;
-
-
-
-
-
-
-
+  width: 1em; /* Adjusted for mobile-first */
+  height: 1em;
+  margin-right: 0.4em; /* Adjusted for mobile-first */
   fill: var(--color-blanco); /* Make icons white */
-
-
-
-
-
-
-
 }
 
+@media (min-width: 769px) {
+  .footer {
+    padding: 1.5rem 0; /* Revert to original for desktop */
+    margin-top: 2rem; /* Revert to original for desktop */
+  }
 
+  .footer p {
+    font-size: 0.9rem; /* Revert to original for desktop */
+  }
 
+  .contactInfo {
+    margin-top: 1rem; /* Revert to original for desktop */
+    gap: 1.5rem; /* Revert to original for desktop */
+  }
 
-
-
-
-
-
-
-
-
+  .icon {
+    width: 1.2em; /* Revert to original for desktop */
+    height: 1.2em;
+    margin-right: 0.5em; /* Revert to original for desktop */
+  }
+}

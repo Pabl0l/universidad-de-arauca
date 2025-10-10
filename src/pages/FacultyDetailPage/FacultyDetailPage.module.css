@@ -1,17 +1,18 @@
 .container {
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 2rem auto; /* Adjusted for mobile-first */
   padding: 0 1rem;
 }
 
 .backLink {
   display: inline-block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Adjusted for mobile-first */
   color: var(--color-negro);
   text-decoration: none;
   font-family: var(--font-montserrat);
   font-weight: 500;
   transition: color 0.3s ease;
+  font-size: 0.9rem; /* Adjusted for mobile-first */
 }
 
 .backLink:hover {
@@ -20,8 +21,8 @@
 
 .facultyHeader {
   text-align: center;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
+  margin-bottom: 1.5rem; /* Adjusted for mobile-first */
+  padding: 1rem; /* Adjusted for mobile-first */
   background-color: var(--color-blanco);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -31,49 +32,49 @@
   font-family: var(--font-merriweather);
   color: var(--color-amarillo-sol);
   margin-bottom: 0.5rem;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
 }
 
 .facultyHeader .slogan {
   font-family: var(--font-montserrat);
   color: #555;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
+  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
+  font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive font size */
   font-style: italic;
 }
 
 .facultyHeader .dean {
   font-family: var(--font-montserrat);
   color: #777;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
 }
 
 .bentoGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for smaller screens */
+  gap: 1rem; /* Adjusted for mobile-first */
 }
 
 .bentoBox {
   background-color: var(--color-blanco);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
+  padding: 1rem; /* Adjusted for mobile-first */
   display: flex;
   flex-direction: column;
 }
 
 .bentoBox h2 {
   font-family: var(--font-merriweather);
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 4vw, 1.8rem); /* Responsive font size */
   color: var(--color-negro);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
   text-align: center;
 }
 
 .descriptionBox p {
   font-family: var(--font-montserrat);
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
   color: #444;
   line-height: 1.7;
   text-align: left;
@@ -87,12 +88,12 @@
 }
 
 .programsBox .programsList li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
 }
 
 .programsBox .programsList li a {
   font-family: var(--font-montserrat);
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responsive font size */
   color: var(--color-negro);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -114,10 +115,10 @@
   background-color: var(--color-neutro-fondo);
   border: 1px solid #eee;
   border-radius: 5px;
-  padding: 0.8rem;
-  margin-bottom: 0.5rem;
+  padding: 0.6rem; /* Adjusted for mobile-first */
+  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
   font-family: var(--font-montserrat);
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem); /* Responsive font size */
   color: var(--color-negro);
 }
 
@@ -125,14 +126,14 @@
   background-color: var(--color-negro);
   color: var(--color-blanco);
   border: none;
-  padding: 0.9rem 1.8rem;
-  font-size: 1.1rem;
+  padding: 0.7rem 1.4rem; /* Adjusted for mobile-first */
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responsive font size */
   font-family: var(--font-montserrat);
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 1.5rem;
+  margin-top: 1rem; /* Adjusted for mobile-first */
   display: block;
   width: fit-content;
   margin-left: auto;
@@ -142,44 +143,115 @@
 .studyPlanButton:hover {
   background-color: #333333;
 }
-@media (max-width: 768px) {
+
+/* Desktop adjustments */
+@media (min-width: 769px) {
+  .container {
+    margin: 4rem auto; /* Revert to original for desktop */
+  }
+
+  .backLink {
+    margin-bottom: 1.5rem; /* Revert to original for desktop */
+    font-size: 1rem; /* Revert to original for desktop */
+  }
+
+  .facultyHeader {
+    margin-bottom: 2rem; /* Revert to original for desktop */
+    padding: 1.5rem; /* Revert to original for desktop */
+  }
+
   .facultyHeader h1 {
-    font-size: 2.2rem;
+    font-size: 3rem; /* Revert to original for desktop */
   }
 
   .facultyHeader .slogan {
-    font-size: 1.1rem;
+    margin-bottom: 1rem; /* Revert to original for desktop */
+    font-size: 1.3rem; /* Revert to original for desktop */
+  }
+
+  .facultyHeader .dean {
+    font-size: 1rem; /* Revert to original for desktop */
+  }
+
+  .bentoGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Revert to original for desktop */
+    gap: 1.5rem; /* Revert to original for desktop */
+  }
+
+  .bentoBox {
+    padding: 1.5rem; /* Revert to original for desktop */
   }
 
   .bentoBox h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Revert to original for desktop */
+    margin-bottom: 1rem; /* Revert to original for desktop */
+  }
+
+  .descriptionBox p {
+    font-size: 1rem; /* Revert to original for desktop */
+  }
+
+  .programsBox .programsList li {
+    margin-bottom: 0.5rem; /* Revert to original for desktop */
+  }
+
+  .programsBox .programsList li a {
+    font-size: 1.1rem; /* Revert to original for desktop */
+  }
+
+  .projectsBox .list li,
+  .facilitiesBox .list li {
+    padding: 0.8rem; /* Revert to original for desktop */
+    margin-bottom: 0.5rem; /* Revert to original for desktop */
+    font-size: 0.95rem; /* Revert to original for desktop */
+  }
+
+  .studyPlanButton {
+    padding: 0.9rem 1.8rem; /* Revert to original for desktop */
+    font-size: 1.1rem; /* Revert to original for desktop */
+    margin-top: 1.5rem; /* Revert to original for desktop */
+  }
+}
+
+/* Existing media queries, adjusted to be mobile-first */
+@media (max-width: 768px) {
+  .facultyHeader h1 {
+    font-size: clamp(1.8rem, 5vw, 2.2rem); /* Use clamp for fluid font size */
+  }
+
+  .facultyHeader .slogan {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Use clamp for fluid font size */
+  }
+
+  .bentoBox h2 {
+    font-size: clamp(1.3rem, 4vw, 1.5rem); /* Use clamp for fluid font size */
   }
 
   .descriptionBox p,
   .programsBox .programsList li a,
   .projectsBox .list li,
   .facilitiesBox .list li {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 2.5vw, 0.9rem); /* Use clamp for fluid font size */
   }
 }
 
 @media (max-width: 480px) {
   .facultyHeader h1 {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem); /* Use clamp for fluid font size */
   }
 
   .facultyHeader .slogan {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Use clamp for fluid font size */
   }
 
   .bentoBox h2 {
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 3.5vw, 1.3rem); /* Use clamp for fluid font size */
   }
 
   .descriptionBox p,
   .programsBox .programsList li a,
   .projectsBox .list li,
   .facilitiesBox .list li {
-    font-size: 0.85rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.85rem); /* Use clamp for fluid font size */
   }
 }

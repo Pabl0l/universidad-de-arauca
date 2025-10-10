@@ -1,7 +1,7 @@
 .card {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16 / 4;
+  aspect-ratio: 16 / 9; /* Adjusted for mobile-first */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -34,7 +34,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem; /* Adjusted for mobile-first */
   color: var(--color-blanco);
   text-align: center;
   opacity: 0;
@@ -47,29 +47,29 @@
 
 .contentOverlay h3 {
   font-family: var(--font-merriweather);
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.3rem, 4vw, 1.8rem); /* Responsive font size */
+  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
   color: var(--color-blanco);
 }
 
 .contentOverlay .slogan {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responsive font size */
   color: #e0e0e0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
 }
 
 .contentOverlay .dean {
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 2.5vw, 1rem); /* Responsive font size */
   color: #ccc;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Adjusted for mobile-first */
 }
 
 .detailsButton {
   background-color: var(--color-amarillo-sol);
   color: var(--color-negro);
   border: none;
-  padding: 0.7rem 1.2rem;
-  font-size: 1rem;
+  padding: 0.6rem 1rem; /* Adjusted for mobile-first */
+  font-size: clamp(0.8rem, 2.5vw, 1rem); /* Responsive font size */
   font-family: var(--font-montserrat);
   font-weight: bold;
   border-radius: 5px;
@@ -81,4 +81,34 @@
 
 .detailsButton:hover {
   background-color: #e0b000;
+}
+
+@media (min-width: 769px) {
+  .card {
+    aspect-ratio: 16 / 4; /* Revert to original for desktop */
+  }
+
+  .contentOverlay {
+    padding: 1.5rem; /* Revert to original for desktop */
+  }
+
+  .contentOverlay h3 {
+    font-size: 1.8rem; /* Revert to original for desktop */
+    margin-bottom: 0.5rem; /* Revert to original for desktop */
+  }
+
+  .contentOverlay .slogan {
+    font-size: 1.1rem; /* Revert to original for desktop */
+    margin-bottom: 1rem; /* Revert to original for desktop */
+  }
+
+  .contentOverlay .dean {
+    font-size: 1rem; /* Revert to original for desktop */
+    margin-bottom: 1.5rem; /* Revert to original for desktop */
+  }
+
+  .detailsButton {
+    padding: 0.7rem 1.2rem; /* Revert to original for desktop */
+    font-size: 1rem; /* Revert to original for desktop */
+  }
 }

@@ -1,10 +1,10 @@
 .programOfferCard {
   background-color: var(--color-neutro-fondo);
   border-radius: 8px;
-  padding: 20px;
+  padding: 15px; /* Adjusted for mobile-first */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  min-height: 120px;
+  min-height: 100px; /* Adjusted for mobile-first */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@
 .facultyImage {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 4;
+  aspect-ratio: 16 / 4; /* Adjusted for mobile-first */
   object-fit: cover;
   border-radius: 4px;
 }
@@ -28,5 +28,20 @@
 .facultyName {
   color: var(--color-negro);
   font-family: 'Merriweather', serif;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+}
+
+@media (min-width: 769px) {
+  .programOfferCard {
+    padding: 20px; /* Revert to original for desktop */
+    min-height: 120px; /* Revert to original for desktop */
+  }
+
+  .facultyImage {
+    aspect-ratio: 16 / 4; /* Revert to original for desktop */
+  }
+
+  .facultyName {
+    font-size: 1.2rem; /* Revert to original for desktop */
+  }
 }

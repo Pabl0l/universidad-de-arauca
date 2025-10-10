@@ -1,34 +1,34 @@
 .floatingButton {
   position: fixed;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: 1.5rem; /* Adjusted for mobile-first */
+  left: 1.5rem; /* Adjusted for mobile-first */
   background-color: var(--color-amarillo-sol);
   color: var(--color-negro);
   border: none;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 1.5rem;
+  width: 50px; /* Adjusted for mobile-first */
+  height: 50px; /* Adjusted for mobile-first */
+  font-size: 1.3rem; /* Adjusted for mobile-first */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 4px 4px 0 var(--color-negro);
+  box-shadow: 3px 3px 0 var(--color-negro); /* Adjusted shadow */
   z-index: 1000;
 }
 
 .menu {
   position: fixed;
-  bottom: 6.5rem; /* Adjusted position */
-  left: 2rem;
+  bottom: 5.5rem; /* Adjusted for mobile-first */
+  left: 1.5rem; /* Adjusted for mobile-first */
   background-color: var(--color-blanco);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: 0.8rem; /* Adjusted for mobile-first */
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem; /* Adjusted for mobile-first */
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -45,14 +45,37 @@
   background-color: transparent;
   border: none;
   font-family: var(--font-montserrat);
-  font-size: 1rem;
+  font-size: 0.9rem; /* Adjusted for mobile-first */
   color: var(--color-negro);
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.4rem; /* Adjusted for mobile-first */
   text-align: left;
   width: 100%;
 }
 
 .menu button:hover {
   background-color: var(--color-neutro-fondo);
+}
+
+@media (min-width: 769px) {
+  .floatingButton {
+    bottom: 2rem; /* Revert to original for desktop */
+    left: 2rem; /* Revert to original for desktop */
+    width: 60px; /* Revert to original for desktop */
+    height: 60px; /* Revert to original for desktop */
+    font-size: 1.5rem; /* Revert to original for desktop */
+    box-shadow: 4px 4px 0 var(--color-negro); /* Revert to original for desktop */
+  }
+
+  .menu {
+    bottom: 6.5rem; /* Revert to original for desktop */
+    left: 2rem; /* Revert to original for desktop */
+    padding: 1rem; /* Revert to original for desktop */
+    gap: 0.5rem; /* Revert to original for desktop */
+  }
+
+  .menu button {
+    font-size: 1rem; /* Revert to original for desktop */
+    padding: 0.5rem; /* Revert to original for desktop */
+  }
 }

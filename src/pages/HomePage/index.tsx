@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import NewsCard from '../../components/NewsCard';
 import EventCard from '../../components/EventCard';
@@ -21,7 +22,9 @@ const HomePage: React.FC = () => {
           <p>Bienvenido a la Universidad de Arauca (UNAR), una institución pública comprometida con el desarrollo sostenible, la innovación social y la construcción de paz desde el corazón de la Orinoquía.</p>
           <p>Nacimos del sueño de una región que decidió cambiar la violencia por conocimiento, las fronteras por puentes, y los conflictos por oportunidades.</p>
           <p>Hoy formamos profesionales que transforman su territorio con ciencia, cultura y esperanza.</p>
-          <button className={styles.callToAction}>Conoce nuestros programas</button>
+          <Link to="/programas-academicos">
+            <button className={styles.callToAction}>Conoce nuestros programas</button>
+          </Link>
         </header>
       </section>
 

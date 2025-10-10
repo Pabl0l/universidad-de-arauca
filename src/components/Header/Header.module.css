@@ -25,14 +25,14 @@
 }
 
 .unarLogo {
-  height: 75px; 
+  max-height: 60px; /* Adjusted for mobile-first */
   width: auto;
 }
 
 .nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem; /* Adjusted gap for mobile-first */
 }
 
 .nav a {
@@ -41,6 +41,7 @@
   font-family: var(--font-montserrat);
   font-weight: 500;
   transition: color 0.3s ease;
+  font-size: 0.9rem; /* Adjusted font size for mobile-first */
 }
 
 .nav a:hover {
@@ -52,9 +53,27 @@
   background: none;
   border: none;
   color: var(--color-blanco); /* Reverted to white */
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* Adjusted font size for mobile-first */
   cursor: pointer;
   z-index: 1001;
+}
+
+@media (min-width: 769px) {
+  .unarLogo {
+    height: 75px; /* Revert to original height for desktop */
+  }
+
+  .nav ul {
+    gap: 1.5rem; /* Revert to original gap for desktop */
+  }
+
+  .nav a {
+    font-size: 1rem; /* Revert to original font size for desktop */
+  }
+
+  .hamburger {
+    font-size: 1.8rem; /* Revert to original font size for desktop */
+  }
 }
 
 @media (max-width: 768px) {

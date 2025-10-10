@@ -2,7 +2,7 @@
   background-color: var(--color-blanco);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem; /* Adjusted for mobile-first */
   text-align: left;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-family: var(--font-montserrat);
@@ -10,31 +10,60 @@
 
 .card h3 {
   font-family: var(--font-merriweather);
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem); /* Responsive font size */
+  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
   color: var(--color-negro);
 }
 
 .card .slogan {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
   color: #555;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
 }
 
 .card .description,
 .card .uniqueFocus,
 .card .graduateProfile {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Responsive font size */
   color: #666;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
   line-height: 1.5;
 }
 
 .card h4 {
   font-family: var(--font-montserrat);
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
   color: var(--color-negro);
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
+  margin-top: 0.8rem; /* Adjusted for mobile-first */
+  margin-bottom: 0.2rem; /* Adjusted for mobile-first */
   font-weight: bold;
+}
+
+@media (min-width: 769px) {
+  .card {
+    padding: 1.5rem; /* Revert to original for desktop */
+  }
+
+  .card h3 {
+    font-size: 1.4rem; /* Revert to original for desktop */
+    margin-bottom: 0.5rem; /* Revert to original for desktop */
+  }
+
+  .card .slogan {
+    font-size: 1rem; /* Revert to original for desktop */
+    margin-bottom: 1rem; /* Revert to original for desktop */
+  }
+
+  .card .description,
+  .card .uniqueFocus,
+  .card .graduateProfile {
+    font-size: 0.9rem; /* Revert to original for desktop */
+    margin-bottom: 0.5rem; /* Revert to original for desktop */
+  }
+
+  .card h4 {
+    font-size: 1rem; /* Revert to original for desktop */
+    margin-top: 1rem; /* Revert to original for desktop */
+    margin-bottom: 0.3rem; /* Revert to original for desktop */
+  }
 }

@@ -1,11 +1,22 @@
 .container {
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 2rem auto; /* Adjusted for mobile-first */
   padding: 0 1rem;
 }
 
 .newsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for smaller screens */
+  gap: 1rem; /* Adjusted for mobile-first */
+}
+
+@media (min-width: 769px) {
+  .container {
+    margin: 4rem auto; /* Revert to original for desktop */
+  }
+
+  .newsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Revert to original for desktop */
+    gap: 1.5rem; /* Revert to original for desktop */
+  }
 }

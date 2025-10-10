@@ -2,7 +2,7 @@
   background-color: var(--color-blanco);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem; /* Adjusted for mobile-first */
   text-align: left;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-family: var(--font-montserrat);
@@ -13,25 +13,25 @@
 
 .newsImage {
   width: 100%;
-  height: 180px; /* Fixed height for images */
+  height: 150px; /* Adjusted for mobile-first */
   object-fit: cover; /* Cover the area, cropping if necessary */
   border-radius: 4px; /* Slightly less rounded than the card */
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
 }
 
 .card h3 {
   font-family: var(--font-merriweather);
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
   color: var(--color-negro);
 }
 
 .card p {
   font-family: var(--font-montserrat);
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Responsive font size */
   color: #555;
   flex-grow: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
 }
 
 .readMore {
@@ -39,8 +39,8 @@
   background-color: var(--color-negro);
   text-decoration: none;
   font-weight: bold;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Responsive font size */
+  padding: 0.4rem 0.8rem; /* Adjusted for mobile-first */
   border-radius: 5px;
   align-self: flex-start;
   transition: background-color 0.3s ease;
@@ -49,4 +49,30 @@
 
 .readMore:hover {
   background-color: #333333;
+}
+
+@media (min-width: 769px) {
+  .card {
+    padding: 1.5rem; /* Revert to original for desktop */
+  }
+
+  .newsImage {
+    height: 180px; /* Revert to original for desktop */
+    margin-bottom: 1rem; /* Revert to original for desktop */
+  }
+
+  .card h3 {
+    font-size: 1.2rem; /* Revert to original for desktop */
+    margin-bottom: 0.5rem; /* Revert to original for desktop */
+  }
+
+  .card p {
+    font-size: 0.9rem; /* Revert to original for desktop */
+    margin-bottom: 1rem; /* Revert to original for desktop */
+  }
+
+  .readMore {
+    font-size: 0.9rem; /* Revert to original for desktop */
+    padding: 0.5rem 1rem; /* Revert to original for desktop */
+  }
 }

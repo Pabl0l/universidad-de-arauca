@@ -11,11 +11,19 @@ h1{
 .hero {
   background-color: var(--color-amarillo-sol);
   text-align: center;
-  padding: 0 1rem 4rem 1rem; /* Removed top padding */
+  padding: 2rem 1rem; /* Adjusted padding for mobile-first */
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px; /* Adjust as needed */
+  min-height: 300px; /* Adjusted min-height for mobile */
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size for h1 */
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Responsive font size for paragraphs */
 }
 
 .callToAction {
@@ -38,31 +46,63 @@ h1{
 }
 
 .section {
-  padding: 3rem 1rem;
+  padding: 2rem 1rem; /* Adjusted padding for mobile-first */
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .section h2 {
   font-family: var(--font-merriweather);
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 4vw, 2rem); /* Responsive font size */
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Adjusted margin */
   color: var(--color-negro);
 }
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted minmax for smaller screens */
+  gap: 1rem; /* Adjusted gap */
 }
 
 .width{
-  width:50%;
+  width: 100%; /* Full width on mobile */
 }
 
 .homePageHeaderBox {
   max-width: 800px; /* Make it narrower */
   margin: auto;
-  margin-top: 8rem;
+  margin-top: 0; /* Remove fixed margin-top */
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 1rem 6rem 1rem; /* Revert to original padding for desktop */
+    min-height: 400px; /* Revert to original min-height for desktop */
+  }
+
+  .section {
+    padding: 3rem 1rem; /* Revert to original padding for desktop */
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Revert to original minmax for desktop */
+    gap: 1.5rem; /* Revert to original gap for desktop */
+  }
+
+  .width{
+    width:50%; /* Revert to original width for desktop */
+  }
+}
+
+@media (max-width: 768px) {
+  .homePageHeaderBox {
+    padding: 0 1rem; /* Add some horizontal padding on smaller screens */
+  }
+}
+
+@media (min-width: 769px) {
+  .homePageHeaderBox {
+    margin-top: 8rem; /* Apply margin-top only on larger screens */
+  }
 }

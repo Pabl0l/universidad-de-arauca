@@ -1,14 +1,26 @@
 .container {
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 2rem auto; /* Adjusted for mobile-first */
   padding: 0 1rem;
 }
 
 .facultiesGrid {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding-bottom: 3rem; /* Add some space at the bottom */
+  gap: 1.5rem; /* Adjusted for mobile-first */
+  padding-bottom: 2rem; /* Adjusted for mobile-first */
+}
+
+/* Desktop adjustments */
+@media (min-width: 769px) {
+  .container {
+    margin: 4rem auto; /* Revert to original for desktop */
+  }
+
+  .facultiesGrid {
+    gap: 2rem; /* Revert to original for desktop */
+    padding-bottom: 3rem; /* Revert to original for desktop */
+  }
 }
 
 /* Responsive adjustments */
