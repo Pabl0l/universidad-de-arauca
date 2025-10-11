@@ -15,4 +15,5 @@ interface IFaculty {
   programs: IProgram[];
   emblematicProjects?: string[];
   facilities?: string[];
+  imageUrl: string;
 }

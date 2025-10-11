@@ -22,6 +22,7 @@ const FacultadesPage: React.FC = () => {
       <div className={styles.facultiesGrid}>
         {faculties.map((faculty: IFaculty) => (
           <FacultyCard key={faculty.name} faculty={faculty} />
+          
         ))}
       </div>
     </div>

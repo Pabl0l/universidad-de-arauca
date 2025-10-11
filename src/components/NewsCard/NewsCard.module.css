@@ -2,36 +2,52 @@
   background-color: var(--color-blanco);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 1rem; /* Adjusted for mobile-first */
-  text-align: left;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-family: var(--font-montserrat);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow: hidden; /* To keep the image within the card's bounds */
+}
+
+.newsImageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Adjust the height of the image area */
 }
 
 .newsImage {
   width: 100%;
-  height: 150px; /* Adjusted for mobile-first */
-  object-fit: cover; /* Cover the area, cropping if necessary */
-  border-radius: 4px; /* Slightly less rounded than the card */
-  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
+  height: 100%;
+  object-fit: cover;
+}
+
+.newsImageContainer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%; /* Adjust the height of the gradient */
+  background: linear-gradient(to top, var(--color-blanco), transparent);
+}
+
+.content {
+  padding: 1rem;
+  background-color: var(--color-blanco);
 }
 
 .card h3 {
   font-family: var(--font-merriweather);
-  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
-  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin-bottom: 0.4rem;
   color: var(--color-negro);
 }
 
 .card p {
   font-family: var(--font-montserrat);
-  font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Responsive font size */
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
   color: #555;
-  flex-grow: 1;
-  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
+  margin-bottom: 0.8rem;
 }
 
 .readMore {
@@ -39,8 +55,8 @@
   background-color: var(--color-negro);
   text-decoration: none;
   font-weight: bold;
-  font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Responsive font size */
-  padding: 0.4rem 0.8rem; /* Adjusted for mobile-first */
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  padding: 0.4rem 0.8rem;
   border-radius: 5px;
   align-self: flex-start;
   transition: background-color 0.3s ease;
@@ -52,27 +68,26 @@
 }
 
 @media (min-width: 769px) {
-  .card {
-    padding: 1.5rem; /* Revert to original for desktop */
+  .content {
+    padding: 1.5rem;
   }
 
-  .newsImage {
-    height: 180px; /* Revert to original for desktop */
-    margin-bottom: 1rem; /* Revert to original for desktop */
+  .newsImageContainer {
+    height: 250px;
   }
 
   .card h3 {
-    font-size: 1.2rem; /* Revert to original for desktop */
-    margin-bottom: 0.5rem; /* Revert to original for desktop */
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
 
   .card p {
-    font-size: 0.9rem; /* Revert to original for desktop */
-    margin-bottom: 1rem; /* Revert to original for desktop */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
 
   .readMore {
-    font-size: 0.9rem; /* Revert to original for desktop */
-    padding: 0.5rem 1rem; /* Revert to original for desktop */
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
   }
 }

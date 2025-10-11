@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './FacultyDetailPage.module.css';
 import { faculties } from '../../services/facultyService';
@@ -15,10 +15,15 @@ import ProgramListItem from '../../components/ProgramListItem';
  * @returns {JSX.Element} The rendered FacultyDetailPage component.
  */
 const FacultyDetailPage: React.FC = () => {
-  const { facultyName } = useParams<{ facultyName: string }>();
+  const { facultySlug } = useParams<{ facultySlug: string }>();
 
-  const formattedFacultyName = facultyName ? facultyName.replace(/-/g, ' ') : '';
-  const faculty = faculties.find((f: IFaculty) => f.name.toLowerCase() === formattedFacultyName.toLowerCase());
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [facultySlug]);
+
+  const faculty = faculties.find((f: IFaculty) => {
+    return f.slug === facultySlug;
+  });
 
   if (!faculty) {
     return (

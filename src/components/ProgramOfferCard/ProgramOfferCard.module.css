@@ -1,47 +1,50 @@
 .programOfferCard {
-  background-color: var(--color-neutro-fondo);
   border-radius: 8px;
-  padding: 15px; /* Adjusted for mobile-first */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  min-height: 100px; /* Adjusted for mobile-first */
+  min-height: 120px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   transition: transform 0.2s ease-in-out;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.programOfferCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(100, 100, 100, 0.7) 20%, rgba(0,0,0,0) 70%);
+  z-index: 1;
 }
 
 .programOfferCard:hover {
   transform: translateY(-5px);
 }
 
-.facultyImage {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 4; /* Adjusted for mobile-first */
-  object-fit: cover;
-  border-radius: 4px;
-}
-
 .facultyName {
-  color: var(--color-negro);
-  font-family: 'Merriweather', serif;
-  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+  color: var(--color-blanco);
+  font-family: var(--font-montserrat);
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  text-shadow: 2px 1.5px 0px black;
 }
 
 @media (min-width: 769px) {
   .programOfferCard {
-    padding: 20px; /* Revert to original for desktop */
-    min-height: 120px; /* Revert to original for desktop */
-  }
-
-  .facultyImage {
-    aspect-ratio: 16 / 4; /* Revert to original for desktop */
+    min-height: 150px;
   }
 
   .facultyName {
-    font-size: 1.2rem; /* Revert to original for desktop */
+    font-size: 1.5rem;
   }
 }

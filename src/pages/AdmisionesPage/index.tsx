@@ -5,21 +5,6 @@ import { ProgramOfferCard } from '../../components';
 
 import { faculties } from '../../services/facultyService';
 
-export interface IProgramOffer {
-  facultyName: string;
-  facultySlug: string;
-  imageUrl: string;
-}
-
-const generateSlug = (name: string) => name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
-const generateImageUrl = (name: string) => `/assets/faculties/${generateSlug(name)}.webp`; // Assuming images are in public/assets/faculties
-
-const programOffers: IProgramOffer[] = faculties.map(faculty => ({
-  facultyName: faculty.name,
-  facultySlug: generateSlug(faculty.name),
-  imageUrl: generateImageUrl(faculty.name),
-}));
-
 /**
  * @typedef {object} AdmisionesPageProps
  */
@@ -32,7 +17,7 @@ const programOffers: IProgramOffer[] = faculties.map(faculty => ({
 const AdmisionesPage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [highlightInscription, setHighlightInscription] = useState(false);
-  const images = ["/fechas1.webp", "/fechas2.webp", "/fechas3.webp"];
+  const images = ["/images/inscribete_car_admsiones.webp", "/images/examen_car_admsiones.webp", "/images/matriculate_car_admsiones.webp"];
   const alts = ["Flyer con fechas de inscripción", "Flyer con fecha de examen de admisión", "Flyer con fechas de matrícula"];
   const location = useLocation();
 
@@ -104,8 +89,8 @@ const AdmisionesPage: React.FC = () => {
           <h2>Nuestra Oferta Académica</h2>
           <p>Explora nuestras facultades y programas de pregrado y posgrado:</p>
           <div className={styles.programOffersGrid}>
-            {programOffers.map((offer, index) => (
-              <ProgramOfferCard key={index} programOffer={offer} />
+            {faculties.map((faculty, index) => (
+              <ProgramOfferCard key={index} programOffer={{ facultyName: faculty.name, facultySlug: faculty.slug, imageUrl: faculty.imageUrl }} />
             ))}
           </div>
         </section>

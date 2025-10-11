@@ -1,3 +1,12 @@
+const generateSlug = (name: string) => {
+  return name
+    .normalize("NFD") // Normalize to NFD form
+    .replace(/[\u0300-\u036f]/g, "") // Remove diacritical marks
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '');
+};
+
 export const faculties: IFaculty[] = [
   {
     name: 'Ingeniería',
@@ -55,7 +64,8 @@ export const faculties: IFaculty[] = [
         graduateProfile: 'Será un profesional capaz de crear soluciones tecnológicas a medida, liderar proyectos de transformación digital y gestionar sistemas de información complejos, siempre con una visión ética y de servicio a la comunidad.',
       },
     ],
-    slug: ""
+    slug: generateSlug('Ingeniería'),
+    imageUrl: '/images/ingenierias_banner.webp'
   },
   {
     name: 'Artes “Mauricio Lezama”',
@@ -81,7 +91,8 @@ export const faculties: IFaculty[] = [
     emblematicProjects: [
       'Cine por la Paz: Llevando la pantalla donde nace la historia.',
     ],
-    slug: ""
+    slug: generateSlug('Artes “Mauricio Lezama”'),
+    imageUrl: '/images/artes_banner.webp'
   },
   {
     name: 'Ciencias de la Salud',
@@ -134,7 +145,8 @@ export const faculties: IFaculty[] = [
       'Laboratorio de Salud Pública',
       'Consultorios Jurisdiccionales',
     ],
-    slug: ""
+    slug: generateSlug('Ciencias de la Salud'),
+    imageUrl: '/images/medicina_banner.webp'
   },
   {
     name: 'Ciencias Sociales y Jurídicas',
@@ -187,7 +199,8 @@ export const faculties: IFaculty[] = [
       'Archivo Histórico Regional "Arauca Viva"',
       'Salón de Juicios Orales Simulados',
     ],
-    slug: ""
+    slug: generateSlug('Ciencias Sociales y Jurídicas'),
+    imageUrl: '/images/sociales_banner.webp'
   },
   {
     name: 'Educación y Ciencias Básicas',
@@ -233,6 +246,7 @@ export const faculties: IFaculty[] = [
       'Centro de Recursos para la Enseñanza (CRE)',
       'Estudio de Grabación Pedagógico "La Voz del Maestro"',
     ],
-    slug: ""
+    slug: generateSlug('Educación y Ciencias Básicas'),
+    imageUrl: '/images/licenciatura_banner.webp'
   },
 ];

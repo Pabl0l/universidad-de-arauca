@@ -1,114 +1,50 @@
 .card {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9; /* Adjusted for mobile-first */
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  aspect-ratio: 16 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(100, 100, 100, 0.7) 20%, rgba(0,0,0,0) 70%);
+  z-index: 1;
 }
 
 .card:hover {
   transform: translateY(-5px);
 }
 
-.imageContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.contentOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem; /* Adjusted for mobile-first */
+.facultyName {
   color: var(--color-blanco);
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.card:hover .contentOverlay {
-  opacity: 1;
-}
-
-.contentOverlay h3 {
-  font-family: var(--font-merriweather);
-  font-size: clamp(1.3rem, 4vw, 1.8rem); /* Responsive font size */
-  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
-  color: var(--color-blanco);
-}
-
-.contentOverlay .slogan {
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responsive font size */
-  color: #e0e0e0;
-  margin-bottom: 0.8rem; /* Adjusted for mobile-first */
-}
-
-.contentOverlay .dean {
-  font-size: clamp(0.8rem, 2.5vw, 1rem); /* Responsive font size */
-  color: #ccc;
-  margin-bottom: 1rem; /* Adjusted for mobile-first */
-}
-
-.detailsButton {
-  background-color: var(--color-amarillo-sol);
-  color: var(--color-negro);
-  border: none;
-  padding: 0.6rem 1rem; /* Adjusted for mobile-first */
-  font-size: clamp(0.8rem, 2.5vw, 1rem); /* Responsive font size */
   font-family: var(--font-montserrat);
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  box-shadow: 4px 4px 0 var(--color-rojo-guarapo);
-}
-
-.detailsButton:hover {
-  background-color: #e0b000;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  text-shadow: 2px 1.5px 0px black;
 }
 
 @media (min-width: 769px) {
   .card {
-    aspect-ratio: 16 / 4; /* Revert to original for desktop */
+    min-height: 150px;
   }
 
-  .contentOverlay {
-    padding: 1.5rem; /* Revert to original for desktop */
-  }
-
-  .contentOverlay h3 {
-    font-size: 1.8rem; /* Revert to original for desktop */
-    margin-bottom: 0.5rem; /* Revert to original for desktop */
-  }
-
-  .contentOverlay .slogan {
-    font-size: 1.1rem; /* Revert to original for desktop */
-    margin-bottom: 1rem; /* Revert to original for desktop */
-  }
-
-  .contentOverlay .dean {
-    font-size: 1rem; /* Revert to original for desktop */
-    margin-bottom: 1.5rem; /* Revert to original for desktop */
-  }
-
-  .detailsButton {
-    padding: 0.7rem 1.2rem; /* Revert to original for desktop */
-    font-size: 1rem; /* Revert to original for desktop */
+  .facultyName {
+    font-size: 2rem;
   }
 }

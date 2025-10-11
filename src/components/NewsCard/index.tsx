@@ -21,10 +21,14 @@ interface INewsCardProps {
 const NewsCard: React.FC<INewsCardProps> = ({ title, description, imageUrl }) => {
   return (
     <div className={styles.card}>
-      <img src={imageUrl} alt={title} className={styles.newsImage} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <a href="#" className={styles.readMore}>Leer más</a>
+      <div className={styles.newsImageContainer}>
+        <img src={imageUrl} alt={title} className={styles.newsImage} />
+      </div>
+      <div className={styles.content}>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <a href="#" className={styles.readMore}>Leer más</a>
+      </div>
     </div>
   );
 };

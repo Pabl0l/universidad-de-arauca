@@ -180,6 +180,7 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
+  border-radius: 8px;
 }
 
 .carousel {
@@ -196,15 +197,23 @@
 }
 
 .carouselButton {
-  position: absolute;
+position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: transparent;
+  color: var(--color-amarillo-sol);
   border: none;
-  padding: 0.5rem;
+  padding: 0.8rem;
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 8px;
+  text-shadow: 3px 1px 0px var(--color-negro);
+  transition: all 0.2s ease-in-out;
+  font-size: xxx-large;
+}
+
+.carouselButton:hover {
+  background-color: #f5d100; /* A slightly darker yellow */
+  transform: translateY(-50%) scale(1.05);
 }
 
 .prev {
@@ -216,7 +225,7 @@
 }
 
 .fechasImportantesBox {
-    padding: 0;
+    padding: 0 !important;
 }
 
 .highlightInscription {
