@@ -12,6 +12,10 @@
   margin-bottom: 1.5rem; /* Adjusted for mobile-first */
 }
 
+.carouselSection {
+  padding: 0;
+}
+
 .section h2 {
   font-family: var(--font-merriweather);
   font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
@@ -78,6 +82,55 @@
   color: var(--color-negro);
 }
 
+.carouselContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%; /* Changed to 100% */
+  border-radius: 8px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%; /* Added width: 100% */
+  height: 100%;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-amarillo-sol);
+  color: var(--color-negro);
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0px var(--color-negro);
+  transition: all 0.2s ease-in-out;
+}
+
+.carouselButton:hover {
+  background-color: #f5d100; /* A slightly darker yellow */
+  transform: translateY(-50%) scale(1.05);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
 /* Desktop adjustments */
 @media (min-width: 769px) {
   .container {
@@ -85,7 +138,6 @@
   }
 
   .section {
-    padding: 2rem; /* Revert to original padding for desktop */
     margin-bottom: 2rem; /* Revert to original margin for desktop */
   }
 
@@ -120,6 +172,10 @@
 
   .valuesList li {
     font-size: 1rem; /* Revert to original font size for desktop */
+  }
+
+  .carouselContainer {
+    height: 100%; /* Adjust height for desktop */
   }
 }
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import NewsCard from '../../components/NewsCard';
 import EventCard from '../../components/EventCard';
+import { newsItems } from '../../services/newsService';
 
 /**
  * @typedef {object} HomePageProps
@@ -14,6 +15,9 @@ import EventCard from '../../components/EventCard';
  * @returns {JSX.Element} The rendered HomePage component.
  */
 const HomePage: React.FC = () => {
+  // Take the first 3 news items for the homepage
+  const featuredNews = newsItems.slice(0, 3);
+
   return (
     <main className={styles.homePage}>
       <section className={styles.hero}>
@@ -31,18 +35,9 @@ const HomePage: React.FC = () => {
       <section className={styles.section}>
         <h2>Noticias destacadas</h2>
         <div className={styles.gridContainer}>
-          <NewsCard
-            title="UNAR lanza su primer Laboratorio de Energías Limpias"
-            description="El laboratorio promueve la investigación en biogás y energía solar con estudiantes de Ingeniería Mecánica y Ambiental."
-          />
-          <NewsCard
-            title="Convenio con la Universidad Nacional para intercambio de docentes."
-            description="Se fortalecerán programas de Licenciatura y Ciencias Naturales."
-          />
-          <NewsCard
-            title="Proyecto “Paz y Territorio”"
-            description="Jóvenes de comunidades rurales acceden a becas completas gracias a alianzas con la Gobernación de Arauca."
-          />
+          {featuredNews.map((news, index) => (
+            <NewsCard key={index} title={news.title} description={news.description} imageUrl={news.imageUrl} />
+          ))}
         </div>
       </section>
 

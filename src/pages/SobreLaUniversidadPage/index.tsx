@@ -1,6 +1,40 @@
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './SobreLaUniversidadPage.module.css';
 
 export default function SobreLaUniversidadPage(): JSX.Element {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide2, setCurrentSlide2] = useState(3); // Start from the 4th image
+  const images = [
+    "/images/imagen_1.webp",
+    "/images/imagen_2.webp",
+    "/images/imagen_3.webp",
+    "/images/imagen_4.webp",
+    "/images/imagen_5.webp",
+    "/images/imagen_6.webp",
+  ];
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  }, [images.length]);
+
+  const nextSlide2 = useCallback(() => {
+    setCurrentSlide2((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  }, [images.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  useEffect(() => {
+    const interval2 = setInterval(() => {
+      nextSlide2();
+    }, 4000);
+    return () => clearInterval(interval2);
+  }, [nextSlide2]);
+
   return (
     <div className={styles.container}>
       <header className="pageHeaderBox">
@@ -23,8 +57,14 @@ export default function SobreLaUniversidadPage(): JSX.Element {
           </p>
         </section>
 
-        <section className={styles.section}>
-          <h2>Imágenes</h2>
+        <section className={`${styles.section} ${styles.carouselSection}`}>
+          <div className={styles.carouselContainer}>
+            <div className={styles.carousel} style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+              {images.map((src, index) => (
+                <img key={index} src={src} alt={`Imagen ${index + 1}`} />
+              ))}
+            </div>
+          </div>
         </section>
 
         <div className={`${styles.spanThreeColumns} ${styles.subGrid}`}>
@@ -43,8 +83,14 @@ export default function SobreLaUniversidadPage(): JSX.Element {
             </section>
         </div>
 
-        <section className={styles.section}>
-          <h2>Imágenes</h2>
+        <section className={`${styles.section} ${styles.carouselSection}`}>
+          <div className={styles.carouselContainer}>
+            <div className={styles.carousel} style={{ transform: `translateX(-${currentSlide2 * 100}%)` }}>
+              {images.map((src, index) => (
+                <img key={index} src={src} alt={`Imagen ${index + 1}`} />
+              ))}
+            </div>
+          </div>
         </section>
 
         <section className={`${styles.section} ${styles.spanTwoColumns}`}>
