@@ -126,7 +126,10 @@
   left: 0;
 }
 
-
+.linkToPrograms{
+  display: block;
+  margin: 2rem auto;
+}
 
 .callToAction {
   background-color: var(--color-negro);

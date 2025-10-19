@@ -69,7 +69,7 @@ export const faculties: IFaculty[] = [
   },
   {
     name: 'Artes “Mauricio Lezama”',
-    dean: 'Mg. Julián Contreras',
+    dean: 'Mg. Andrés Bernal',
     slogan: 'Donde la creatividad teje el alma del Arauca',
     description: 'La Facultad de Artes “Mauricio Lezama” de la UNAR es un vibrante ecosistema de creación, reflexión y encuentro. Inspirados en el legado del cineasta araucano, quien retrató con profunda humanidad las historias del llano y el conflicto, nuestra misión es formar artistas conscientes y ciudadanos críticos. Creemos firmemente que el arte no es un lujo, sino una herramienta fundamental para la reconstrucción del tejido social, la preservación de la memoria y la proyección de una cultura de paz. Aquí, los estudiantes no solo dominan técnicas y teorías; aprenden a escuchar a su territorio, a dialogar con sus comunidades y a convertir sus vivencias en obras poderosas que interpelen al mundo.',
     programs: [

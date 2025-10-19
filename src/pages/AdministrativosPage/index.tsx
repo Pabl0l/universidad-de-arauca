@@ -1,16 +1,46 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './AdministrativosPage.module.css';
 
-/**
- * @typedef {object} AdministrativosPageProps
- */
+interface Member {
+  name: string;
+  position?: string;
+  faculty?: string;
+  image: string | null;
+}
 
-/**
- * Administrativos page component.
- * @param {AdministrativosPageProps} props - The properties for the AdministrativosPage component.
- * @returns {JSX.Element} The rendered AdministrativosPage component.
- */
 const AdministrativosPage: React.FC = () => {
+  const directivos: Member[] = [
+    { name: 'Ing. Alfredo Cordero', position: 'Rector', image: 'alfredo.webp' },
+    { name: 'Sofía Mendoza', position: 'Vicerrector Académico', image: 'sofia.webp' },
+    { name: 'Jairo Moreno', position: 'Vicerrector Administrativo', image: 'jairo.webp' },
+  ];
+
+  const decanos: Member[] = [
+    { name: 'Dr. Manuel Parra', faculty: 'Ingeniería', image: 'manuel.webp' },
+    { name: 'Mg. Andrés Contreras', faculty: 'Artes', image: 'andres.webp' },
+    { name: 'Dr. Vanessa Rodríguez', faculty: 'Ciencias de la Salud', image: 'vanessa.webp' },
+    { name: 'Dr. Nicolás Torres', faculty: 'Ciencias Sociales y Jurídicas', image: 'nicolas.webp' },
+    { name: 'Dr. Wadeth Mendoza', faculty: 'Educación y Ciencias Básicas', image: 'wadeth.webp' },
+  ];
+
+  const [activeMember, setActiveMember] = useState<Member>(directivos[0]);
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  const handleMemberClick = (member: Member) => {
+    if (member.image) {
+      setActiveMember(member);
+      if (window.innerWidth < 769) {
+        imageRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  };
+
+  const handleMemberHover = (member: Member) => {
+    if (member.image) {
+      setActiveMember(member);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <header className="pageHeaderBox">
@@ -23,23 +53,35 @@ const AdministrativosPage: React.FC = () => {
           <h2>Estructura Jerárquica</h2>
           <p>Conoce a los líderes que guían nuestra institución:</p>
           <ul className={styles.hierarchyList}>
-            <li><strong>Rector:</strong> Ing. Alfredo Cordero</li>
-            <li><strong>Vicerrector Académico:</strong> Sofía Mendoza</li>
-            <li><strong>Vicerrector Administrativo:</strong> Jairo Moreno</li>
-            <li><strong>Secretario General:</strong> Dr. Juan Farfán</li>
+            {directivos.map((directivo) => (
+              <li
+                key={directivo.name}
+                onMouseEnter={() => handleMemberHover(directivo)}
+                onClick={() => handleMemberClick(directivo)}
+                className={activeMember.name === directivo.name ? styles.active : ''}>
+                <strong>{directivo.position}:</strong> {directivo.name}
+              </li>
+            ))}
           </ul>
           <h3>Facultades y Decanos:</h3>
           <ul className={styles.facultyList}>
-            <li><strong>Ingeniería:</strong> Dr. Manuel Parra</li>
-            <li><strong>Artes (Mauricio Lezama):</strong> Mg. Julián Contreras</li>
-            <li><strong>Ciencias de la Salud:</strong> Dr. Vanessa Rodríguez</li>
-            <li><strong>Ciencias Sociales y Jurídicas:</strong> Dr. Nicolás Torres</li>
-            <li><strong>Educación y Ciencias Básicas:</strong> Dr. Wadeth Mendoza</li>
+            {decanos.map((decano) => (
+              <li
+                key={decano.name}
+                onMouseEnter={() => handleMemberHover(decano)}
+                onClick={() => handleMemberClick(decano)}
+                className={activeMember.name === decano.name ? styles.active : ''}>
+                <strong>{decano.faculty}:</strong> {decano.name}
+              </li>
+            ))}
           </ul>
         </section>
 
-        <section className={styles.bentoBox}>
-          <h2>Imagen</h2>
+        <section ref={imageRef} className={`${styles.bentoBox} ${styles.imageContainer}`}>
+          {activeMember.image && (
+            <img src={`/images/${activeMember.image}`} alt={activeMember.name} />
+          )}
+          <div className={styles.imageBanner}>{activeMember.name}</div>
         </section>
 
         <div className={`${styles.spanThreeColumns} ${styles.subGrid}`}>

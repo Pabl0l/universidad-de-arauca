@@ -8,6 +8,11 @@ h1{
   color: var(--color-blanco);
 }
 
+.linkToPrograms{
+  display: block;
+  margin: 2rem auto;
+}
+
 .hero {
   background-color: var(--color-amarillo-sol);
   text-align: center;
@@ -77,7 +82,6 @@ h1{
 
 @media (min-width: 768px) {
   .hero {
-    padding: 4rem 1rem 6rem 1rem; /* Revert to original padding for desktop */
     min-height: 400px; /* Revert to original min-height for desktop */
   }
 
@@ -103,6 +107,6 @@ h1{
 
 @media (min-width: 769px) {
   .homePageHeaderBox {
-    margin-top: 8rem; /* Apply margin-top only on larger screens */
+    margin-top: 2rem; /* Apply margin-top only on larger screens */
   }
 }

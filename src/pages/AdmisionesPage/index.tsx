@@ -25,10 +25,6 @@ const AdmisionesPage: React.FC = () => {
     setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   }, [images.length]);
 
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  }, [images.length]);
-
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -102,8 +98,6 @@ const AdmisionesPage: React.FC = () => {
                 <img key={index} src={src} alt={alts[index]} />
               ))}
             </div>
-            <button onClick={prevSlide} className={`${styles.carouselButton} ${styles.prev}`}>&#10094;</button>
-            <button onClick={nextSlide} className={`${styles.carouselButton} ${styles.next}`}>&#10095;</button>
           </div>
         </section>
 

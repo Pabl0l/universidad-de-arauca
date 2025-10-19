@@ -38,13 +38,68 @@
 }
 
 .bentoBox p,
-.hierarchyList li,
-.facultyList li,
 .contactList li {
   font-family: var(--font-montserrat);
   font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
   line-height: 1.7;
   color: #444;
+}
+
+.hierarchyList li,
+.facultyList li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: var(--font-montserrat);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  line-height: 1.7;
+  color: #444;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+  margin: 0;
+  position: relative;
+}
+
+.hierarchyList li:first-child,
+.facultyList li:first-child {
+  /* This will be handled by a pseudo-element now */
+}
+
+.hierarchyList li::after,
+.facultyList li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 2px;
+  background-color: #eee;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.hierarchyList li:first-child::before,
+.facultyList li:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 1px;
+  background-color: #eee;
+}
+
+.hierarchyList li:hover,
+.facultyList li:hover,
+.hierarchyList li.active {
+  background-color: var(--color-neutro-fondo);
+}
+
+.hierarchyList li:hover::after,
+.facultyList li:hover::after,
+.hierarchyList li.active::after,
+.facultyList li.active::after {
+  background-color: var(--color-negro);
 }
 
 .hierarchyList,
@@ -127,6 +182,22 @@
       grid-template-columns: repeat(2, 1fr); /* Revert to original for desktop */
       gap: 1.5rem; /* Revert to original for desktop */
   }
+
+  .hierarchyList li,
+  .facultyList li {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .hierarchyList li strong,
+  .facultyList li strong {
+    flex-basis: 256px;
+    flex-shrink: 0;
+  }
+
+  .imageBanner {
+    display: none;
+  }
 }
 
 @media (max-width: 992px) {
@@ -150,4 +221,34 @@
   .contactList li {
     font-size: clamp(0.85rem, 2.5vw, 0.95rem); /* Use clamp for fluid font size */
   }
+}
+
+.imageContainer {
+  padding: 0;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  position: relative;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.imageBanner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--color-blanco);
+  padding: 0.75rem;
+  text-align: center;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: opacity 0.3s ease-in-out;
 }

@@ -82,7 +82,7 @@ Programas Académicos
 
 Donde la creatividad teje el alma del Arauca
 
-Decano: Mg. Julián Contreras
+Decano: Mg. Andrés Bernal
 Lema: "La memoria, el lente y la voz para transformar nuestra tierra."
 
 Descripción Ampliada:
