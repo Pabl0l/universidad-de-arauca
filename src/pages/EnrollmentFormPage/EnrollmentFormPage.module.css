@@ -1,0 +1,201 @@
+.enrollmentFormPage {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.enrollmentForm {
+  background-color: var(--color-background);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.formSection {
+  border: none;
+  margin-bottom: 3rem;
+  padding: 0;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-rojo-guarapo);
+  display: block;
+  font-weight: var(--font-weight-bold);
+}
+
+.bentoGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.formGroup {
+  position: relative;
+  background-color: var(--color-surface-1);
+  padding: 1.5rem 1rem 0.5rem 1rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-elevation-small);
+  transition: all 0.3s ease;
+}
+
+.formGroup:focus-within {
+  box-shadow: var(--shadow-elevation-medium);
+  transform: translateY(-2px);
+}
+
+.formGroup label {
+  position: absolute;
+  top: 1.2rem;
+  left: 1rem;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background-color: var(--color-surface-1);
+  padding: 0 0.25rem;
+  border-radius: var(--border-radius-sm);
+}
+
+.formGroup input:focus + label,
+.formGroup input:not(:placeholder-shown) + label,
+.formGroup select:focus + label,
+.formGroup select:not([value=""]) + label,
+.formGroup input[type="date"]:not([value=""]) + label {
+  top: 0.2rem;
+  left: 0.8rem;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  transform: translateY(-50%);
+  background-color: var(--color-surface-1);
+  padding: 0 0.5rem;
+  border-radius: var(--border-radius-sm);
+}
+
+.formGroup input,
+.formGroup select {
+  width: 100%;
+  padding: 0.75rem 0.5rem;
+  border: none;
+  border-bottom: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  border-color: var(--color-primary);
+}
+
+.formGroup input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.formGroup input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+
+.submitButton {
+  display: block;
+  width: fit-content;
+  margin: 3rem auto 0 auto;
+  padding: 1rem 3rem;
+  background-color: var(--color-rojo-guarapo);
+  color: var(--color-on-primary);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: rgba(var(--color-rojo-guarapo-rgb), 0.9);
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .enrollmentForm {
+    padding: 1.5rem;
+  }
+
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formGroup {
+    padding: 1rem 0.8rem 0.5rem 0.8rem;
+  }
+
+  .formGroup label {
+    font-size: 0.9rem;
+    top: 0.9rem;
+    left: 0.8rem;
+  }
+
+  .formGroup input:focus + label,
+  .formGroup input:not(:placeholder-shown) + label,
+  .formGroup select:focus + label,
+  .formGroup select:not([value=""]) + label,
+  .formGroup input[type="date"]:not([value=""]) + label {
+    font-size: 0.7rem;
+    left: 0.6rem;
+  }
+
+  .submitButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .enrollmentFormPage {
+    padding: 1rem 0.5rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+
+  .enrollmentForm {
+    padding: 1rem;
+  }
+}

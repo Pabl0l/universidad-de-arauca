@@ -10,6 +10,7 @@ import ProgramasAcademicosPage from './pages/ProgramasAcademicosPage';
 import ProgramDetailPage from './pages/ProgramDetailPage';
 import SobreLaUniversidadPage from './pages/SobreLaUniversidadPage';
 import AdministrativosPage from './pages/AdministrativosPage';
+import EnrollmentFormPage from './pages/EnrollmentFormPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { AccessibilityMenu } from './components';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/programas-academicos/:programSlug" element={<ProgramDetailPage />} />
           <Route path="/acercade" element={<SobreLaUniversidadPage />} />
           <Route path="/administrativos" element={<AdministrativosPage />} />
+          <Route path="/inscripcion" element={<EnrollmentFormPage />} />
         </Routes>
         <Footer />
       </div>
