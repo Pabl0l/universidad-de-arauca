@@ -4,6 +4,8 @@ interface IProgram {
   description: string;
   uniqueFocus: string;
   graduateProfile: string;
+  slug: string;
+  icon: string;
 }
 
 interface IFaculty {

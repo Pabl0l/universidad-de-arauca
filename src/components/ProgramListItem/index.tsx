@@ -1,28 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProgramListItem.module.css';
+import * as MuiIcons from '@mui/icons-material';
 
-/**
- * @interface IProgramListItemProps
- * @property {string} facultyName - The name of the faculty the program belongs to.
- * @property {IProgram} program - The program data to display.
- */
 interface IProgramListItemProps {
-  facultyName: string;
+  facultySlug: string;
   program: IProgram;
 }
 
-/**
- * ProgramListItem component displays a program name as a link to its detail page.
- * @param {IProgramListItemProps} props - The properties for the ProgramListItem component.
- * @returns {JSX.Element} The rendered ProgramListItem component.
- */
-const ProgramListItem: React.FC<IProgramListItemProps> = ({ facultyName, program }) => {
-  const programPath = `/facultades/${facultyName.replace(/ /g, '-')}/${program.name.replace(/ /g, '-')}`;
+const ProgramListItem: React.FC<IProgramListItemProps> = ({ facultySlug, program }) => {
+  const programPath = `/facultades/${facultySlug}/${program.slug}`;
+
+  const IconComponent = program.icon ? MuiIcons[program.icon as keyof typeof MuiIcons] : null;
 
   return (
     <li className={styles.listItem}>
-      <Link to={programPath}>{program.name}</Link>
+      <Link to={programPath} className={styles.programLink}>
+        {IconComponent && <IconComponent className={styles.programIcon} />}
+        <span>{program.name}</span>
+      </Link>
     </li>
   );
 };

@@ -1,11 +1,75 @@
 .container {
   max-width: 1200px;
-  margin: 2rem auto; /* Adjusted for mobile-first */
+  margin: 2rem auto;
   padding: 0 1rem;
 }
 
+.facultiesList {
+  margin-top: 2rem;
+}
+
+.facultySection {
+  background-color: var(--color-blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.facultySection h2 {
+  font-family: var(--font-merriweather);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--color-negro);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-amarillo-sol);
+  padding-bottom: 0.5rem;
+}
+
+.programList {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.programList li {
+  font-family: var(--font-montserrat);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  line-height: 1.8;
+  color: #444;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.programList li:last-child {
+  border-bottom: none;
+}
+
+.programList li a {
+  color: var(--color-negro);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.programList li a:hover {
+  color: var(--color-amarillo-sol);
+}
+
+/* Responsive adjustments */
 @media (min-width: 769px) {
   .container {
-    margin: 4rem auto; /* Revert to original for desktop */
+    margin: 4rem auto;
+  }
+
+  .facultySection {
+    padding: 2rem;
+  }
+
+  .facultySection h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .programList li {
+    font-size: 1.1rem;
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './NewsCard.module.css';
 
 /**
@@ -27,7 +28,7 @@ const NewsCard: React.FC<INewsCardProps> = ({ title, description, imageUrl }) =>
       <div className={styles.content}>
         <h3>{title}</h3>
         <p>{description}</p>
-        <a href="#" className={styles.readMore}>Leer más</a>
+        <Link to="/noticias" className={styles.readMore}>Leer más</Link>
       </div>
     </div>
   );

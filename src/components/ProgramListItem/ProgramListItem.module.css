@@ -1,42 +1,52 @@
 .listItem {
   list-style: none;
-  margin-bottom: 0.4rem; /* Adjusted for mobile-first */
-  background-color: var(--color-neutro-fondo);
+  margin-bottom: 0.6rem; /* Space between list items */
+  position: relative;
+}
+
+.programLink {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: var(--color-blanco);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 0.8rem; /* Adjusted for mobile-first */
-  text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
-}
-
-.listItem:hover {
-  background-color: var(--color-amarillo-sol);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
-}
-
-.listItem a {
-  font-family: var(--font-montserrat);
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responsive font size */
-  color: var(--color-negro);
   text-decoration: none;
-  display: block; /* Make the entire area clickable */
-  padding: 0.4rem 0; /* Adjusted for mobile-first */
+  color: var(--color-negro);
+  font-family: var(--font-montserrat);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  transition: all 0.5s ease-out;
+  position: relative; /* For potential future pseudo-elements */
+  overflow: hidden; /* Ensures content doesn't spill */
 }
 
-.listItem a:hover {
-  color: var(--color-negro); /* Keep text black on hover */
+.programLink:hover {
+  transform: translateX(5px);
+  color: var(--color-amarillo-sol);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--color-amarillo-sol);
 }
 
+.programIcon {
+  margin-right: 0.75rem;
+  color: var(--color-amarillo-sol);
+  font-size: 1.8rem; /* Larger icon size */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+/* Responsive adjustments */
 @media (min-width: 769px) {
   .listItem {
-    margin-bottom: 0.5rem; /* Revert to original for desktop */
-    padding: 1rem; /* Revert to original for desktop */
+    margin-bottom: 0.8rem;
   }
 
-  .listItem a {
-    font-size: 1.1rem; /* Revert to original for desktop */
-    padding: 0.5rem 0; /* Revert to original for desktop */
+  .programLink {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .programIcon {
+    font-size: 2rem;
   }
 }

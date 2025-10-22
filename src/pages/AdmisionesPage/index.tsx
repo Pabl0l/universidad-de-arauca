@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './AdmisionesPage.module.css';
 import { ProgramOfferCard } from '../../components';
 
@@ -20,6 +20,7 @@ const AdmisionesPage: React.FC = () => {
   const images = ["/images/inscribete_car_admsiones.webp", "/images/examen_car_admsiones.webp", "/images/matriculate_car_admsiones.webp"];
   const alts = ["Flyer con fechas de inscripción", "Flyer con fecha de examen de admisión", "Flyer con fechas de matrícula"];
   const location = useLocation();
+  const navigate = useNavigate();
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -48,6 +49,10 @@ const AdmisionesPage: React.FC = () => {
       }
     }
   }, [location]);
+
+  const handleInscriptionClick = () => {
+    navigate('/inscripcion');
+  };
 
   return (
     <div className={styles.container}>
@@ -78,7 +83,7 @@ const AdmisionesPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div >
         </section>
 
         <section className={`${styles.bentoBox} ${styles.ofertaAcademicaBox} ${styles.spanTwoColumns}`}>
@@ -124,7 +129,7 @@ const AdmisionesPage: React.FC = () => {
               <li>Realiza el pago de los derechos de inscripción.</li>
               <li>Presenta el examen de admisión (si aplica).</li>
             </ol>
-            <button className={styles.callToAction}>Iniciar Proceso de Inscripción</button>
+            <button className={styles.callToAction} onClick={handleInscriptionClick}>Iniciar Proceso de Inscripción</button>
           </section>
         </div>
         

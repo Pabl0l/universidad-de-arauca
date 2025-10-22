@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
           <p>Bienvenido a la Universidad de Arauca (UNAR), una institución pública comprometida con el desarrollo sostenible, la innovación social y la construcción de paz desde el corazón de la Orinoquía.</p>
           <p>Nacimos del sueño de una región que decidió cambiar la violencia por conocimiento, las fronteras por puentes, y los conflictos por oportunidades.</p>
           <p>Hoy formamos profesionales que transforman su territorio con ciencia, cultura y esperanza.</p>
-          <Link to="/programas-academicos" className={styles.linkToPrograms}>
+          <Link to="/facultades" className={styles.linkToPrograms}>
             <button className={styles.callToAction}>Conoce nuestros programas</button>
           </Link>
         </div>

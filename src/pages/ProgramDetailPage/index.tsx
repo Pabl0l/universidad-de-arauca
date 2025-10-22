@@ -13,27 +13,24 @@ import { faculties } from '../../services/facultyService';
  * @returns {JSX.Element} The rendered ProgramDetailPage component.
  */
 const ProgramDetailPage: React.FC = () => {
-  const { facultyName, programName } = useParams<{ facultyName: string; programName: string }>();
+  const { facultySlug, programSlug } = useParams<{ facultySlug: string; programSlug: string }>();
 
-  const formattedFacultyName = facultyName ? facultyName.replace(/-/g, ' ') : '';
-  const formattedProgramName = programName ? programName.replace(/-/g, ' ') : '';
-
-  const faculty = faculties.find(f => f.name.toLowerCase() === formattedFacultyName.toLowerCase());
-  const program = faculty?.programs.find(p => p.name.toLowerCase() === formattedProgramName.toLowerCase());
+  const faculty = faculties.find(f => f.slug === facultySlug);
+  const program = faculty?.programs.find(p => p.slug === programSlug);
 
   if (!faculty || !program) {
     return (
       <div className={styles.container}>
         <h1>Programa no encontrado</h1>
         <p>Lo sentimos, el programa que buscas no existe.</p>
-        <Link to="/facultades" className={styles.backLink}>Volver a Facultades</Link>
+        <Link to="/programas-academicos" className={styles.backLink}>Volver a Programas Académicos</Link>
       </div>
     );
   }
 
   return (
     <div className={styles.container}>
-      <Link to={`/facultades/${facultyName}`} className={styles.backLink}>&larr; Volver a {faculty.name}</Link>
+      <Link to={`/facultades/${faculty.slug}`} className={styles.backLink}>&larr; Volver a {faculty.name}</Link>
       <header className={styles.programHeader}>
         <h1>{program.name}</h1>
         <p className={styles.slogan}>{program.slogan}</p>

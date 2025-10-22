@@ -21,7 +21,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(100, 100, 100, 0.7) 20%, rgba(0,0,0,0) 70%);
+  background-color: rgba(0, 0, 0, 0.5); /* Darken effect */
+  filter: blur(10px); /* Blur effect */
   z-index: 1;
 }
 
@@ -29,13 +30,24 @@
   transform: translateY(-5px);
 }
 
+.textOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  padding: 1rem;
+}
+
 .facultyName {
   color: var(--color-blanco);
   font-family: var(--font-montserrat);
   font-size: clamp(1.2rem, 4vw, 1.5rem);
   position: relative;
-  z-index: 2;
-  padding: 1rem;
   text-shadow: 2px 1.5px 0px black;
 }
 

@@ -28,7 +28,9 @@ const FacultyCard: React.FC<IFacultyCardProps> = ({ faculty }) => {
       onClick={handleClick}
       style={{ backgroundImage: `url(${faculty.imageUrl})` }}
     >
-      <h3 className={styles.facultyName}>{faculty.name}</h3>
+      <div className={styles.textOverlay}>
+        <h3 className={styles.facultyName}>{faculty.name}</h3>
+      </div>
     </div>
   );
 };

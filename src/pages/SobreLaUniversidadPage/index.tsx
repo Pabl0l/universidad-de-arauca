@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, type JSX } from 'react';
 import styles from './SobreLaUniversidadPage.module.css';
 
 export default function SobreLaUniversidadPage(): JSX.Element {
@@ -46,14 +46,16 @@ export default function SobreLaUniversidadPage(): JSX.Element {
         <section className={`${styles.section} ${styles.spanTwoColumns}`}>
           <h2>Historia Institucional</h2>
           <p>
-            Fundada el 13 de octubre de 2025, la Universidad de Arauca (UNAR) nació como una iniciativa ciudadana en el marco de la construcción de paz.
-            Excombatientes, líderes sociales y campesinos participaron en la creación de la universidad como símbolo de reconciliación.
+            La <strong>Universidad de Arauca (UNAR)</strong> emerge como un símbolo de esperanza y reconciliación en los llanos orientales. Su campus, nacido de un juramento colectivo, representa un espacio donde antiguos antagonistas construyen juntos un futuro prometedor.
           </p>
           <p>
-            El ingeniero Alfredo Cordero, primer rector, promovió una institución que combinara la excelencia académica con el desarrollo sostenible y el orgullo cultural llanero.
+            Bajo el liderazgo del ingeniero <strong>Alfredo Cordero</strong>, su primer rector, la UNAR se dedica a formar profesionales con excelencia académica y un profundo compromiso con el desarrollo regional y la cultura llanera.
           </p>
           <p>
-            Actualmente, la UNAR se proyecta como modelo de educación para la paz, integrando ciencia, tecnología y cultura al servicio del oriente colombiano.
+            El campus de la UNAR es un testimonio vivo de transformación. Antiguos puestos de vigilancia ahora albergan la facultad de Ciencias de la Salud, y depósitos se han convertido en laboratorios de biotecnología, cultivando conocimiento para el florecimiento de la región.
+          </p>
+          <p>
+            La UNAR es hoy el corazón de una nueva Arauca, un lugar donde la educación y el conocimiento son las herramientas para un futuro brillante, promoviendo la paz y el respeto a través del aprendizaje compartido.
           </p>
         </section>
 

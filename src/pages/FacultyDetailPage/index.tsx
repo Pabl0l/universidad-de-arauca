@@ -38,10 +38,13 @@ const FacultyDetailPage: React.FC = () => {
   return (
     <div className={styles.container}>
       <Link to="/facultades" className={styles.backLink}>&larr; Volver a Facultades</Link>
-      <header className={styles.facultyHeader}>
-        <h1>Facultad de {faculty.name}</h1>
-        <p className={styles.slogan}>{faculty.slogan}</p>
-        <p className={styles.dean}>Decano: {faculty.dean}</p>
+      <header className={styles.facultyHeader} style={{ backgroundImage: faculty.imageUrl ? `url(${faculty.imageUrl})` : 'none' }}>
+        <div className={styles.backgroundOverlay}></div>
+        <div className={styles.textOverlay}>
+          <h1>Facultad de {faculty.name}</h1>
+          <p className={styles.slogan}>{faculty.slogan}</p>
+          <p className={styles.dean}>Decano: {faculty.dean}</p>
+        </div>
       </header>
 
       <div className={styles.bentoGrid}>
@@ -54,7 +57,7 @@ const FacultyDetailPage: React.FC = () => {
           <h2>Programas Académicos</h2>
           <ul className={styles.programsList}>
             {faculty.programs.map((program) => (
-              <ProgramListItem key={program.name} facultyName={faculty.name} program={program} />
+              <ProgramListItem key={program.name} facultySlug={faculty.slug} program={program} />
             ))}
           </ul>
         </section>
