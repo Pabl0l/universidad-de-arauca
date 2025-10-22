@@ -1,7 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FormField } from '../../components';
 import styles from './EnrollmentFormPage.module.css';
 
 const EnrollmentFormPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    nombres: '',
+    apellidos: '',
+    tipoDocumento: '',
+    numeroDocumento: '',
+    fechaNacimiento: '',
+    genero: '',
+    nacionalidad: '',
+    paisNacimiento: '',
+    provinciaNacimiento: '',
+    ciudadNacimiento: '',
+    cuilCuit: '',
+    calle: '',
+    numero: '',
+    piso: '',
+    departamento: '',
+    codigoPostal: '',
+    ciudad: '',
+    provincia: '',
+    pais: '',
+    telefonoFijo: '',
+    telefonoMovil: '',
+    emailPrincipal: '',
+    emailSecundario: '',
+    carreraInteres: '',
+    turnoPreferencia: '',
+    modalidad: '',
+    anioIngresoPrevisto: '',
+    cicloPeriodoIngreso: '',
+    tituloSecundario: '',
+    promedioNotas: '',
+    nombreInstitucionSecundaria: '',
+    paisInstitucion: '',
+    provinciaInstitucion: '',
+    ciudadInstitucion: '',
+    anioEgreso: '',
+    situacionActual: '',
+    grupoSanguineo: '',
+    coberturaSalud: '',
+    numeroAfiliado: '',
+    contactoEmergenciaNombre: '',
+    contactoEmergenciaApellido: '',
+    contactoEmergenciaParentesco: '',
+    contactoEmergenciaTelefono: '',
+    nombreMadre: '',
+    apellidoMadre: '',
+    nombrePadre: '',
+    apellidoPadre: '',
+    ocupacionPadres: '',
+    nivelEducativoPadres: '',
+    nombreUsuario: '',
+    contrasena: '',
+    confirmarContrasena: '',
+    preguntaSeguridad: '',
+    respuestaSeguridad: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
   return (
     <div className={styles.container}>
       <header className="pageHeaderBox">
@@ -14,60 +77,43 @@ const EnrollmentFormPage: React.FC = () => {
         <fieldset className={styles.formSection}>
           <legend className={styles.sectionTitle}>1. Datos Personales Básicos</legend>
           <div className={styles.bentoGrid}>
-            <div className={styles.formGroup}>
-              <input type="text" id="nombres" name="nombres" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="nombres" className={styles.formLabel}>Nombres</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="apellidos" name="apellidos" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="apellidos" className={styles.formLabel}>Apellidos</label>
-            </div>
-            <div className={styles.formGroup}>
-              <select id="tipoDocumento" name="tipoDocumento" className={styles.formSelect} required defaultValue="">
-                <option value="" disabled>Seleccione</option>
-                <option value="DNI">DNI</option>
-                <option value="Pasaporte">Pasaporte</option>
-                <option value="Cedula">Cédula</option>
-              </select>
-              <label htmlFor="tipoDocumento" className={styles.formLabel}>Tipo de Documento</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="numeroDocumento" name="numeroDocumento" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="numeroDocumento" className={styles.formLabel}>Número de Documento</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="date" id="fechaNacimiento" name="fechaNacimiento" className={styles.formInput} required />
-              <label htmlFor="fechaNacimiento" className={styles.formLabel}>Fecha de Nacimiento</label>
-            </div>
-            <div className={styles.formGroup}>
-              <select id="genero" name="genero" className={styles.formSelect} required defaultValue="">
-                <option value="" disabled>Seleccione</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-                <option value="Otro">Otro</option>
-              </select>
-              <label htmlFor="genero" className={styles.formLabel}>Género</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="nacionalidad" name="nacionalidad" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="nacionalidad" className={styles.formLabel}>Nacionalidad</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="paisNacimiento" name="paisNacimiento" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="paisNacimiento" className={styles.formLabel}>País de Nacimiento</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="provinciaNacimiento" name="provinciaNacimiento" className={styles.formInput} placeholder=" " />
-              <label htmlFor="provinciaNacimiento" className={styles.formLabel}>Provincia/Estado de Nacimiento</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="ciudadNacimiento" name="ciudadNacimiento" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="ciudadNacimiento" className={styles.formLabel}>Ciudad de Nacimiento</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="cuilCuit" name="cuilCuit" className={styles.formInput} placeholder=" " />
-              <label htmlFor="cuilCuit" className={styles.formLabel}>Número de CUIL/CUIT</label>
-            </div>
+            <FormField id="nombres" name="nombres" label="Nombres" required value={formData.nombres} onChange={handleChange} />
+            <FormField id="apellidos" name="apellidos" label="Apellidos" required value={formData.apellidos} onChange={handleChange} />
+            <FormField
+              id="tipoDocumento"
+              name="tipoDocumento"
+              label="Tipo de Documento"
+              type="select"
+              required
+              options={[
+                { value: 'DNI', label: 'DNI' },
+                { value: 'Pasaporte', label: 'Pasaporte' },
+                { value: 'Cedula', label: 'Cédula' },
+              ]}
+              value={formData.tipoDocumento}
+              onChange={handleChange}
+            />
+            <FormField id="numeroDocumento" name="numeroDocumento" label="Número de Documento" required value={formData.numeroDocumento} onChange={handleChange} />
+            <FormField id="fechaNacimiento" name="fechaNacimiento" label="Fecha de Nacimiento" type="date" required value={formData.fechaNacimiento} onChange={handleChange} />
+            <FormField
+              id="genero"
+              name="genero"
+              label="Género"
+              type="select"
+              required
+              options={[
+                { value: 'Masculino', label: 'Masculino' },
+                { value: 'Femenino', label: 'Femenino' },
+                { value: 'Otro', label: 'Otro' },
+              ]}
+              value={formData.genero}
+              onChange={handleChange}
+            />
+            <FormField id="nacionalidad" name="nacionalidad" label="Nacionalidad" required value={formData.nacionalidad} onChange={handleChange} />
+            <FormField id="paisNacimiento" name="paisNacimiento" label="País de Nacimiento" required value={formData.paisNacimiento} onChange={handleChange} />
+            <FormField id="provinciaNacimiento" name="provinciaNacimiento" label="Provincia/Estado de Nacimiento" value={formData.provinciaNacimiento} onChange={handleChange} />
+            <FormField id="ciudadNacimiento" name="ciudadNacimiento" label="Ciudad de Nacimiento" required value={formData.ciudadNacimiento} onChange={handleChange} />
+            <FormField id="cuilCuit" name="cuilCuit" label="Número de CUIL/CUIT" value={formData.cuilCuit} onChange={handleChange} />
           </div>
         </fieldset>
 
@@ -75,54 +121,18 @@ const EnrollmentFormPage: React.FC = () => {
         <fieldset className={styles.formSection}>
           <legend className={styles.sectionTitle}>2. Información de Contacto</legend>
           <div className={styles.bentoGrid}>
-            <div className={styles.formGroup}>
-              <input type="text" id="calle" name="calle" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="calle" className={styles.formLabel}>Calle</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="numero" name="numero" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="numero" className={styles.formLabel}>Número</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="piso" name="piso" className={styles.formInput} placeholder=" " />
-              <label htmlFor="piso" className={styles.formLabel}>Piso</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="departamento" name="departamento" className={styles.formInput} placeholder=" " />
-              <label htmlFor="departamento" className={styles.formLabel}>Departamento</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="codigoPostal" name="codigoPostal" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="codigoPostal" className={styles.formLabel}>Código Postal</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="ciudad" name="ciudad" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="ciudad" className={styles.formLabel}>Ciudad</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="provincia" name="provincia" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="provincia" className={styles.formLabel}>Provincia</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="pais" name="pais" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="pais" className={styles.formLabel}>País</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="tel" id="telefonoFijo" name="telefonoFijo" className={styles.formInput} placeholder=" " />
-              <label htmlFor="telefonoFijo" className={styles.formLabel}>Teléfono Fijo</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="tel" id="telefonoMovil" name="telefonoMovil" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="telefonoMovil" className={styles.formLabel}>Teléfono/Celular Móvil</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="email" id="emailPrincipal" name="emailPrincipal" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="emailPrincipal" className={styles.formLabel}>Correo Electrónico Principal</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="email" id="emailSecundario" name="emailSecundario" className={styles.formInput} placeholder=" " />
-              <label htmlFor="emailSecundario" className={styles.formLabel}>Correo Electrónico Secundario</label>
-            </div>
+            <FormField id="calle" name="calle" label="Calle" required value={formData.calle} onChange={handleChange} />
+            <FormField id="numero" name="numero" label="Número" required value={formData.numero} onChange={handleChange} />
+            <FormField id="piso" name="piso" label="Piso" value={formData.piso} onChange={handleChange} />
+            <FormField id="departamento" name="departamento" label="Departamento" value={formData.departamento} onChange={handleChange} />
+            <FormField id="codigoPostal" name="codigoPostal" label="Código Postal" required value={formData.codigoPostal} onChange={handleChange} />
+            <FormField id="ciudad" name="ciudad" label="Ciudad" required value={formData.ciudad} onChange={handleChange} />
+            <FormField id="provincia" name="provincia" label="Provincia" required value={formData.provincia} onChange={handleChange} />
+            <FormField id="pais" name="pais" label="País" required value={formData.pais} onChange={handleChange} />
+            <FormField id="telefonoFijo" name="telefonoFijo" label="Teléfono Fijo" type="tel" value={formData.telefonoFijo} onChange={handleChange} />
+            <FormField id="telefonoMovil" name="telefonoMovil" label="Teléfono/Celular Móvil" type="tel" required value={formData.telefonoMovil} onChange={handleChange} />
+            <FormField id="emailPrincipal" name="emailPrincipal" label="Correo Electrónico Principal" type="email" required value={formData.emailPrincipal} onChange={handleChange} />
+            <FormField id="emailSecundario" name="emailSecundario" label="Correo Electrónico Secundario" type="email" value={formData.emailSecundario} onChange={handleChange} />
           </div>
         </fieldset>
 
@@ -130,50 +140,51 @@ const EnrollmentFormPage: React.FC = () => {
         <fieldset className={styles.formSection}>
           <legend className={styles.sectionTitle}>3. Datos Académicos y de la Solicitud</legend>
           <div className={styles.bentoGrid}>
-            <div className={styles.formGroup}>
-              <select id="carreraInteres" name="carreraInteres" className={styles.formSelect} required defaultValue="">
-                <option value="" disabled>Seleccione una carrera</option>
-                {/* Opciones de carrera se cargarían dinámicamente */}
-                <option value="Ingenieria de Sistemas">Ingeniería de Sistemas</option>
-                <option value="Licenciatura en Artes">Licenciatura en Artes</option>
-                <option value="Medicina">Medicina</option>
-              </select>
-              <label htmlFor="carreraInteres" className={styles.formLabel}>Carrera o Programa de Interés</label>
-            </div>
-            <div className={styles.formGroup}>
-              <select id="turnoPreferencia" name="turnoPreferencia" className={styles.formSelect} defaultValue="">
-                <option value="" disabled>Seleccione</option>
-                <option value="Mañana">Mañana</option>
-                <option value="Tarde">Tarde</option>
-                <option value="Noche">Noche</option>
-              </select>
-              <label htmlFor="turnoPreferencia" className={styles.formLabel}>Turno de Preferencia</label>
-            </div>
-            <div className={styles.formGroup}>
-              <select id="modalidad" name="modalidad" className={styles.formSelect} required defaultValue="">
-                <option value="" disabled>Seleccione</option>
-                <option value="Presencial">Presencial</option>
-                <option value="Hibrida">Híbrida</option>
-                <option value="Virtual">Virtual</option>
-              </select>
-              <label htmlFor="modalidad" className={styles.formLabel}>Modalidad</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="number" id="anioIngresoPrevisto" name="anioIngresoPrevisto" min="2024" max="2030" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="anioIngresoPrevisto" className={styles.formLabel}>Año de Ingreso Previsto</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="cicloPeriodoIngreso" name="cicloPeriodoIngreso" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="cicloPeriodoIngreso" className={styles.formLabel}>Ciclo/Periodo de Ingreso</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="tituloSecundario" name="tituloSecundario" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="tituloSecundario" className={styles.formLabel}>Título Secundario Obtenido</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="number" id="promedioNotas" name="promedioNotas" step="0.01" min="1" max="10" className={styles.formInput} placeholder=" " />
-              <label htmlFor="promedioNotas" className={styles.formLabel}>Promedio de Notas de la Educación Media</label>
-            </div>
+            <FormField
+              id="carreraInteres"
+              name="carreraInteres"
+              label="Carrera o Programa de Interés"
+              type="select"
+              required
+              options={[
+                { value: 'Ingenieria de Sistemas', label: 'Ingeniería de Sistemas' },
+                { value: 'Licenciatura en Artes', label: 'Licenciatura en Artes' },
+                { value: 'Medicina', label: 'Medicina' },
+              ]}
+              value={formData.carreraInteres}
+              onChange={handleChange}
+            />
+            <FormField
+              id="turnoPreferencia"
+              name="turnoPreferencia"
+              label="Turno de Preferencia"
+              type="select"
+              options={[
+                { value: 'Mañana', label: 'Mañana' },
+                { value: 'Tarde', label: 'Tarde' },
+                { value: 'Noche', label: 'Noche' },
+              ]}
+              value={formData.turnoPreferencia}
+              onChange={handleChange}
+            />
+            <FormField
+              id="modalidad"
+              name="modalidad"
+              label="Modalidad"
+              type="select"
+              required
+              options={[
+                { value: 'Presencial', label: 'Presencial' },
+                { value: 'Hibrida', label: 'Híbrida' },
+                { value: 'Virtual', label: 'Virtual' },
+              ]}
+              value={formData.modalidad}
+              onChange={handleChange}
+            />
+            <FormField id="anioIngresoPrevisto" name="anioIngresoPrevisto" label="Año de Ingreso Previsto" type="number" required value={formData.anioIngresoPrevisto} onChange={handleChange} />
+            <FormField id="cicloPeriodoIngreso" name="cicloPeriodoIngreso" label="Ciclo/Periodo de Ingreso" required value={formData.cicloPeriodoIngreso} onChange={handleChange} />
+            <FormField id="tituloSecundario" name="tituloSecundario" label="Título Secundario Obtenido" required value={formData.tituloSecundario} onChange={handleChange} />
+            <FormField id="promedioNotas" name="promedioNotas" label="Promedio de Notas de la Educación Media" type="number" value={formData.promedioNotas} onChange={handleChange} />
           </div>
         </fieldset>
 
@@ -181,35 +192,25 @@ const EnrollmentFormPage: React.FC = () => {
         <fieldset className={styles.formSection}>
           <legend className={styles.sectionTitle}>4. Información Educativa Previa</legend>
           <div className={styles.bentoGrid}>
-            <div className={styles.formGroup}>
-              <input type="text" id="nombreInstitucionSecundaria" name="nombreInstitucionSecundaria" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="nombreInstitucionSecundaria" className={styles.formLabel}>Nombre de la Institución Secundaria</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="paisInstitucion" name="paisInstitucion" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="paisInstitucion" className={styles.formLabel}>País de la Institución</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="provinciaInstitucion" name="provinciaInstitucion" className={styles.formInput} placeholder=" " />
-              <label htmlFor="provinciaInstitucion" className={styles.formLabel}>Provincia de la Institución</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="ciudadInstitucion" name="ciudadInstitucion" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="ciudadInstitucion" className={styles.formLabel}>Ciudad de la Institución</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="number" id="anioEgreso" name="anioEgreso" min="1900" max="2030" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="anioEgreso" className={styles.formLabel}>Año de Egreso / Finalización</label>
-            </div>
-            <div className={styles.formGroup}>
-              <select id="situacionActual" name="situacionActual" className={styles.formSelect} required defaultValue="">
-                <option value="" disabled>Seleccione</option>
-                <option value="Egresado">Egresado</option>
-                <option value="Cursando ultimo año">Cursando el último año</option>
-                <option value="Abandono">Abandonó</option>
-              </select>
-              <label htmlFor="situacionActual" className={styles.formLabel}>Situación Actual</label>
-            </div>
+            <FormField id="nombreInstitucionSecundaria" name="nombreInstitucionSecundaria" label="Nombre de la Institución Secundaria" required value={formData.nombreInstitucionSecundaria} onChange={handleChange} />
+            <FormField id="paisInstitucion" name="paisInstitucion" label="País de la Institución" required value={formData.paisInstitucion} onChange={handleChange} />
+            <FormField id="provinciaInstitucion" name="provinciaInstitucion" label="Provincia de la Institución" value={formData.provinciaInstitucion} onChange={handleChange} />
+            <FormField id="ciudadInstitucion" name="ciudadInstitucion" label="Ciudad de la Institución" required value={formData.ciudadInstitucion} onChange={handleChange} />
+            <FormField id="anioEgreso" name="anioEgreso" label="Año de Egreso / Finalización" type="number" required value={formData.anioEgreso} onChange={handleChange} />
+            <FormField
+              id="situacionActual"
+              name="situacionActual"
+              label="Situación Actual"
+              type="select"
+              required
+              options={[
+                { value: 'Egresado', label: 'Egresado' },
+                { value: 'Cursando ultimo año', label: 'Cursando el último año' },
+                { value: 'Abandono', label: 'Abandonó' },
+              ]}
+              value={formData.situacionActual}
+              onChange={handleChange}
+            />
           </div>
         </fieldset>
 
@@ -217,44 +218,30 @@ const EnrollmentFormPage: React.FC = () => {
         <fieldset className={styles.formSection}>
           <legend className={styles.sectionTitle}>5. Datos de Salud y Emergencias</legend>
           <div className={styles.bentoGrid}>
-            <div className={styles.formGroup}>
-              <select id="grupoSanguineo" name="grupoSanguineo" className={styles.formSelect} defaultValue="">
-                <option value="" disabled>Seleccione</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-              </select>
-              <label htmlFor="grupoSanguineo" className={styles.formLabel}>Grupo Sanguíneo</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="coberturaSalud" name="coberturaSalud" className={styles.formInput} placeholder=" " />
-              <label htmlFor="coberturaSalud" className={styles.formLabel}>Cobertura de Salud / Obra Social</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="numeroAfiliado" name="numeroAfiliado" className={styles.formInput} placeholder=" " />
-              <label htmlFor="numeroAfiliado" className={styles.formLabel}>Número de Afiliado</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="contactoEmergenciaNombre" name="contactoEmergenciaNombre" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="contactoEmergenciaNombre" className={styles.formLabel}>Nombre Contacto de Emergencia</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="contactoEmergenciaApellido" name="contactoEmergenciaApellido" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="contactoEmergenciaApellido" className={styles.formLabel}>Apellido Contacto de Emergencia</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="contactoEmergenciaParentesco" name="contactoEmergenciaParentesco" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="contactoEmergenciaParentesco" className={styles.formLabel}>Parentesco Contacto de Emergencia</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="tel" id="contactoEmergenciaTelefono" name="contactoEmergenciaTelefono" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="contactoEmergenciaTelefono" className={styles.formLabel}>Teléfono Contacto de Emergencia</label>
-            </div>
+            <FormField
+              id="grupoSanguineo"
+              name="grupoSanguineo"
+              label="Grupo Sanguíneo"
+              type="select"
+              options={[
+                { value: 'A+', label: 'A+' },
+                { value: 'A-', label: 'A-' },
+                { value: 'B+', label: 'B+' },
+                { value: 'B-', label: 'B-' },
+                { value: 'AB+', label: 'AB+' },
+                { value: 'AB-', label: 'AB-' },
+                { value: 'O+', label: 'O+' },
+                { value: 'O-', label: 'O-' },
+              ]}
+              value={formData.grupoSanguineo}
+              onChange={handleChange}
+            />
+            <FormField id="coberturaSalud" name="coberturaSalud" label="Cobertura de Salud / Obra Social" value={formData.coberturaSalud} onChange={handleChange} />
+            <FormField id="numeroAfiliado" name="numeroAfiliado" label="Número de Afiliado" value={formData.numeroAfiliado} onChange={handleChange} />
+            <FormField id="contactoEmergenciaNombre" name="contactoEmergenciaNombre" label="Nombre Contacto de Emergencia" required value={formData.contactoEmergenciaNombre} onChange={handleChange} />
+            <FormField id="contactoEmergenciaApellido" name="contactoEmergenciaApellido" label="Apellido Contacto de Emergencia" required value={formData.contactoEmergenciaApellido} onChange={handleChange} />
+            <FormField id="contactoEmergenciaParentesco" name="contactoEmergenciaParentesco" label="Parentesco Contacto de Emergencia" required value={formData.contactoEmergenciaParentesco} onChange={handleChange} />
+            <FormField id="contactoEmergenciaTelefono" name="contactoEmergenciaTelefono" label="Teléfono Contacto de Emergencia" type="tel" required value={formData.contactoEmergenciaTelefono} onChange={handleChange} />
           </div>
         </fieldset>
 
@@ -262,30 +249,12 @@ const EnrollmentFormPage: React.FC = () => {
         <fieldset className={styles.formSection}>
           <legend className={styles.sectionTitle}>6. Información Familiar (Opcional)</legend>
           <div className={styles.bentoGrid}>
-            <div className={styles.formGroup}>
-              <input type="text" id="nombreMadre" name="nombreMadre" className={styles.formInput} placeholder=" " />
-              <label htmlFor="nombreMadre" className={styles.formLabel}>Nombre de la Madre</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="apellidoMadre" name="apellidoMadre" className={styles.formInput} placeholder=" " />
-              <label htmlFor="apellidoMadre" className={styles.formLabel}>Apellido de la Madre</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="nombrePadre" name="nombrePadre" className={styles.formInput} placeholder=" " />
-              <label htmlFor="nombrePadre" className={styles.formLabel}>Nombre del Padre</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="apellidoPadre" name="apellidoPadre" className={styles.formInput} placeholder=" " />
-              <label htmlFor="apellidoPadre" className={styles.formLabel}>Apellido del Padre</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="ocupacionPadres" name="ocupacionPadres" className={styles.formInput} placeholder=" " />
-              <label htmlFor="ocupacionPadres" className={styles.formLabel}>Ocupación de los Padres</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="nivelEducativoPadres" name="nivelEducativoPadres" className={styles.formInput} placeholder=" " />
-              <label htmlFor="nivelEducativoPadres" className={styles.formLabel}>Nivel Educativo de los Padres</label>
-            </div>
+            <FormField id="nombreMadre" name="nombreMadre" label="Nombre de la Madre" value={formData.nombreMadre} onChange={handleChange} />
+            <FormField id="apellidoMadre" name="apellidoMadre" label="Apellido de la Madre" value={formData.apellidoMadre} onChange={handleChange} />
+            <FormField id="nombrePadre" name="nombrePadre" label="Nombre del Padre" value={formData.nombrePadre} onChange={handleChange} />
+            <FormField id="apellidoPadre" name="apellidoPadre" label="Apellido del Padre" value={formData.apellidoPadre} onChange={handleChange} />
+            <FormField id="ocupacionPadres" name="ocupacionPadres" label="Ocupación de los Padres" value={formData.ocupacionPadres} onChange={handleChange} />
+            <FormField id="nivelEducativoPadres" name="nivelEducativoPadres" label="Nivel Educativo de los Padres" value={formData.nivelEducativoPadres} onChange={handleChange} />
           </div>
         </fieldset>
 
@@ -293,26 +262,11 @@ const EnrollmentFormPage: React.FC = () => {
         <fieldset className={styles.formSection}>
           <legend className={styles.sectionTitle}>7. Configuración de la Cuenta y Seguridad</legend>
           <div className={styles.bentoGrid}>
-            <div className={styles.formGroup}>
-              <input type="text" id="nombreUsuario" name="nombreUsuario" className={styles.formInput} placeholder=" " />
-              <label htmlFor="nombreUsuario" className={styles.formLabel}>Nombre de Usuario</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="password" id="contrasena" name="contrasena" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="contrasena" className={styles.formLabel}>Contraseña</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="password" id="confirmarContrasena" name="confirmarContrasena" className={styles.formInput} placeholder=" " required />
-              <label htmlFor="confirmarContrasena" className={styles.formLabel}>Confirmar Contraseña</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="preguntaSeguridad" name="preguntaSeguridad" className={styles.formInput} placeholder=" " />
-              <label htmlFor="preguntaSeguridad" className={styles.formLabel}>Pregunta de Seguridad</label>
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" id="respuestaSeguridad" name="respuestaSeguridad" className={styles.formInput} placeholder=" " />
-              <label htmlFor="respuestaSeguridad" className={styles.formLabel}>Respuesta de Seguridad</label>
-            </div>
+            <FormField id="nombreUsuario" name="nombreUsuario" label="Nombre de Usuario" value={formData.nombreUsuario} onChange={handleChange} />
+            <FormField id="contrasena" name="contrasena" label="Contraseña" type="password" required value={formData.contrasena} onChange={handleChange} />
+            <FormField id="confirmarContrasena" name="confirmarContrasena" label="Confirmar Contraseña" type="password" required value={formData.confirmarContrasena} onChange={handleChange} />
+            <FormField id="preguntaSeguridad" name="preguntaSeguridad" label="Pregunta de Seguridad" value={formData.preguntaSeguridad} onChange={handleChange} />
+            <FormField id="respuestaSeguridad" name="respuestaSeguridad" label="Respuesta de Seguridad" value={formData.respuestaSeguridad} onChange={handleChange} />
           </div>
         </fieldset>
 

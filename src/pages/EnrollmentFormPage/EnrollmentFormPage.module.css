@@ -34,52 +34,6 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-.formGroup {
-  position: relative;
-}
-
-.formGroup .formInput,
-.formGroup .formSelect {
-  font-family: var(--font-montserrat);
-  font-size: 1rem;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: transparent;
-  width: 100%;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.formGroup .formInput:focus,
-.formGroup .formSelect:focus {
-  outline: none;
-  border-color: var(--color-amarillo-sol);
-  box-shadow: 0 0 0 3px rgba(253, 216, 53, 0.4);
-}
-
-.formGroup .formLabel {
-  font-family: var(--font-montserrat);
-  font-size: 1rem;
-  color: #999;
-  position: absolute;
-  top: 0.85rem;
-  left: 0.75rem;
-  pointer-events: none;
-  transition: all 0.2s ease-in-out;
-}
-
-.formGroup .formInput:focus ~ .formLabel,
-.formGroup .formInput:not(:placeholder-shown) ~ .formLabel,
-.formGroup .formSelect:focus ~ .formLabel,
-.formGroup .formSelect:not(:placeholder-shown) ~ .formLabel {
-  top: -0.7rem;
-  left: 0.5rem;
-  font-size: 0.75rem;
-  color: var(--color-primary);
-  background-color: var(--color-blanco);
-  padding: 0 0.25rem;
-}
-
 .submitButton {
   background-color: var(--color-negro);
   color: var(--color-blanco);
@@ -117,12 +71,6 @@
 
   .sectionTitle {
     font-size: clamp(1.2rem, 5vw, 1.5rem);
-  }
-
-  .formGroup .formInput,
-  .formGroup .formSelect {
-    font-size: 0.9rem;
-    padding: 0.7rem;
   }
 
   .submitButton {
