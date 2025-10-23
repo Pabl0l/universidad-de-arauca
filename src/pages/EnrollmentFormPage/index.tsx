@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormField } from '../../components';
 import styles from './EnrollmentFormPage.module.css';
+import { Country, State, City } from 'country-state-city';
+
+interface Option {
+  value: string;
+  label: string;
+}
 
 const EnrollmentFormPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -34,6 +40,7 @@ const EnrollmentFormPage: React.FC = () => {
     cicloPeriodoIngreso: '',
     tituloSecundario: '',
     promedioNotas: '',
+    numeroRegistroIcfes: '',
     nombreInstitucionSecundaria: '',
     paisInstitucion: '',
     provinciaInstitucion: '',
@@ -59,6 +66,97 @@ const EnrollmentFormPage: React.FC = () => {
     preguntaSeguridad: '',
     respuestaSeguridad: '',
   });
+
+  const [countries, setCountries] = useState<Option[]>([]);
+  const [birthStates, setBirthStates] = useState<Option[]>([]);
+  const [birthCities, setBirthCities] = useState<Option[]>([]);
+  const [addressStates, setAddressStates] = useState<Option[]>([]);
+  const [addressCities, setAddressCities] = useState<Option[]>([]);
+  const [institutionStates, setInstitutionStates] = useState<Option[]>([]);
+  const [institutionCities, setInstitutionCities] = useState<Option[]>([]);
+
+  useEffect(() => {
+    const countryOptions = Country.getAllCountries().map(country => ({
+      value: country.isoCode,
+      label: country.name,
+    }));
+    setCountries(countryOptions);
+  }, []);
+
+  useEffect(() => {
+    if (formData.paisNacimiento) {
+      const stateOptions = State.getStatesOfCountry(formData.paisNacimiento).map(state => ({
+        value: state.isoCode,
+        label: state.name,
+      }));
+      setBirthStates(stateOptions);
+    } else {
+      setBirthStates([]);
+      setBirthCities([]);
+    }
+  }, [formData.paisNacimiento]);
+
+  useEffect(() => {
+    if (formData.provinciaNacimiento && formData.paisNacimiento) {
+      const cityOptions = City.getCitiesOfState(formData.paisNacimiento, formData.provinciaNacimiento).map(city => ({
+        value: city.name,
+        label: city.name,
+      }));
+      setBirthCities(cityOptions);
+    } else {
+      setBirthCities([]);
+    }
+  }, [formData.provinciaNacimiento, formData.paisNacimiento]);
+
+  useEffect(() => {
+    if (formData.pais) {
+      const stateOptions = State.getStatesOfCountry(formData.pais).map(state => ({
+        value: state.isoCode,
+        label: state.name,
+      }));
+      setAddressStates(stateOptions);
+    } else {
+      setAddressStates([]);
+      setAddressCities([]);
+    }
+  }, [formData.pais]);
+
+  useEffect(() => {
+    if (formData.provincia && formData.pais) {
+      const cityOptions = City.getCitiesOfState(formData.pais, formData.provincia).map(city => ({
+        value: city.name,
+        label: city.name,
+      }));
+      setAddressCities(cityOptions);
+    } else {
+      setAddressCities([]);
+    }
+  }, [formData.provincia, formData.pais]);
+
+  useEffect(() => {
+    if (formData.paisInstitucion) {
+      const stateOptions = State.getStatesOfCountry(formData.paisInstitucion).map(state => ({
+        value: state.isoCode,
+        label: state.name,
+      }));
+      setInstitutionStates(stateOptions);
+    } else {
+      setInstitutionStates([]);
+      setInstitutionCities([]);
+    }
+  }, [formData.paisInstitucion]);
+
+  useEffect(() => {
+    if (formData.provinciaInstitucion && formData.paisInstitucion) {
+      const cityOptions = City.getCitiesOfState(formData.paisInstitucion, formData.provinciaInstitucion).map(city => ({
+        value: city.name,
+        label: city.name,
+      }));
+      setInstitutionCities(cityOptions);
+    } else {
+      setInstitutionCities([]);
+    }
+  }, [formData.provinciaInstitucion, formData.paisInstitucion]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -110,9 +208,36 @@ const EnrollmentFormPage: React.FC = () => {
               onChange={handleChange}
             />
             <FormField id="nacionalidad" name="nacionalidad" label="Nacionalidad" required value={formData.nacionalidad} onChange={handleChange} />
-            <FormField id="paisNacimiento" name="paisNacimiento" label="País de Nacimiento" required value={formData.paisNacimiento} onChange={handleChange} />
-            <FormField id="provinciaNacimiento" name="provinciaNacimiento" label="Provincia/Estado de Nacimiento" value={formData.provinciaNacimiento} onChange={handleChange} />
-            <FormField id="ciudadNacimiento" name="ciudadNacimiento" label="Ciudad de Nacimiento" required value={formData.ciudadNacimiento} onChange={handleChange} />
+            <FormField
+              id="paisNacimiento"
+              name="paisNacimiento"
+              label="País de Nacimiento"
+              type="select"
+              required
+              options={countries}
+              value={formData.paisNacimiento}
+              onChange={handleChange}
+            />
+            <FormField
+              id="provinciaNacimiento"
+              name="provinciaNacimiento"
+              label="Provincia/Estado de Nacimiento"
+              type="select"
+              options={birthStates}
+              value={formData.provinciaNacimiento}
+              onChange={handleChange}
+              disabled={!formData.paisNacimiento}
+            />
+            <FormField
+              id="ciudadNacimiento"
+              name="ciudadNacimiento"
+              label="Ciudad de Nacimiento"
+              type="select"
+              options={birthCities}
+              value={formData.ciudadNacimiento}
+              onChange={handleChange}
+              disabled={!formData.provinciaNacimiento}
+            />
             <FormField id="cuilCuit" name="cuilCuit" label="Número de CUIL/CUIT" value={formData.cuilCuit} onChange={handleChange} />
           </div>
         </fieldset>
@@ -126,9 +251,36 @@ const EnrollmentFormPage: React.FC = () => {
             <FormField id="piso" name="piso" label="Piso" value={formData.piso} onChange={handleChange} />
             <FormField id="departamento" name="departamento" label="Departamento" value={formData.departamento} onChange={handleChange} />
             <FormField id="codigoPostal" name="codigoPostal" label="Código Postal" required value={formData.codigoPostal} onChange={handleChange} />
-            <FormField id="ciudad" name="ciudad" label="Ciudad" required value={formData.ciudad} onChange={handleChange} />
-            <FormField id="provincia" name="provincia" label="Provincia" required value={formData.provincia} onChange={handleChange} />
-            <FormField id="pais" name="pais" label="País" required value={formData.pais} onChange={handleChange} />
+            <FormField
+              id="pais"
+              name="pais"
+              label="País"
+              type="select"
+              required
+              options={countries}
+              value={formData.pais}
+              onChange={handleChange}
+            />
+            <FormField
+              id="provincia"
+              name="provincia"
+              label="Provincia"
+              type="select"
+              options={addressStates}
+              value={formData.provincia}
+              onChange={handleChange}
+              disabled={!formData.pais}
+            />
+            <FormField
+              id="ciudad"
+              name="ciudad"
+              label="Ciudad"
+              type="select"
+              options={addressCities}
+              value={formData.ciudad}
+              onChange={handleChange}
+              disabled={!formData.provincia}
+            />
             <FormField id="telefonoFijo" name="telefonoFijo" label="Teléfono Fijo" type="tel" value={formData.telefonoFijo} onChange={handleChange} />
             <FormField id="telefonoMovil" name="telefonoMovil" label="Teléfono/Celular Móvil" type="tel" required value={formData.telefonoMovil} onChange={handleChange} />
             <FormField id="emailPrincipal" name="emailPrincipal" label="Correo Electrónico Principal" type="email" required value={formData.emailPrincipal} onChange={handleChange} />
@@ -181,10 +333,11 @@ const EnrollmentFormPage: React.FC = () => {
               value={formData.modalidad}
               onChange={handleChange}
             />
-            <FormField id="anioIngresoPrevisto" name="anioIngresoPrevisto" label="Año de Ingreso Previsto" type="number" required value={formData.anioIngresoPrevisto} onChange={handleChange} />
+            <FormField id="anioIngresoPrevisto" name="anioIngresoPrevisto" label="Año de Ingreso Previsto" type="text" required value={formData.anioIngresoPrevisto} onChange={handleChange} />
             <FormField id="cicloPeriodoIngreso" name="cicloPeriodoIngreso" label="Ciclo/Periodo de Ingreso" required value={formData.cicloPeriodoIngreso} onChange={handleChange} />
             <FormField id="tituloSecundario" name="tituloSecundario" label="Título Secundario Obtenido" required value={formData.tituloSecundario} onChange={handleChange} />
-            <FormField id="promedioNotas" name="promedioNotas" label="Promedio de Notas de la Educación Media" type="number" value={formData.promedioNotas} onChange={handleChange} />
+            <FormField id="promedioNotas" name="promedioNotas"                 label="Puntaje del ICFES" type="text" value={formData.promedioNotas} onChange={handleChange} />
+            <FormField id="numeroRegistroIcfes" name="numeroRegistroIcfes" label="Número de Registro ICFES" type="text" value={formData.numeroRegistroIcfes} onChange={handleChange} />
           </div>
         </fieldset>
 
@@ -193,10 +346,37 @@ const EnrollmentFormPage: React.FC = () => {
           <legend className={styles.sectionTitle}>4. Información Educativa Previa</legend>
           <div className={styles.bentoGrid}>
             <FormField id="nombreInstitucionSecundaria" name="nombreInstitucionSecundaria" label="Nombre de la Institución Secundaria" required value={formData.nombreInstitucionSecundaria} onChange={handleChange} />
-            <FormField id="paisInstitucion" name="paisInstitucion" label="País de la Institución" required value={formData.paisInstitucion} onChange={handleChange} />
-            <FormField id="provinciaInstitucion" name="provinciaInstitucion" label="Provincia de la Institución" value={formData.provinciaInstitucion} onChange={handleChange} />
-            <FormField id="ciudadInstitucion" name="ciudadInstitucion" label="Ciudad de la Institución" required value={formData.ciudadInstitucion} onChange={handleChange} />
-            <FormField id="anioEgreso" name="anioEgreso" label="Año de Egreso / Finalización" type="number" required value={formData.anioEgreso} onChange={handleChange} />
+            <FormField
+              id="paisInstitucion"
+              name="paisInstitucion"
+              label="País de la Institución"
+              type="select"
+              required
+              options={countries}
+              value={formData.paisInstitucion}
+              onChange={handleChange}
+            />
+            <FormField
+              id="provinciaInstitucion"
+              name="provinciaInstitucion"
+              label="Provincia de la Institución"
+              type="select"
+              options={institutionStates}
+              value={formData.provinciaInstitucion}
+              onChange={handleChange}
+              disabled={!formData.paisInstitucion}
+            />
+            <FormField
+              id="ciudadInstitucion"
+              name="ciudadInstitucion"
+              label="Ciudad de la Institución"
+              type="select"
+              options={institutionCities}
+              value={formData.ciudadInstitucion}
+              onChange={handleChange}
+              disabled={!formData.provinciaInstitucion}
+            />
+            <FormField id="anioEgreso" name="anioEgreso" label="Año de Egreso / Finalización" type="text" required value={formData.anioEgreso} onChange={handleChange} />
             <FormField
               id="situacionActual"
               name="situacionActual"
@@ -265,7 +445,20 @@ const EnrollmentFormPage: React.FC = () => {
             <FormField id="nombreUsuario" name="nombreUsuario" label="Nombre de Usuario" value={formData.nombreUsuario} onChange={handleChange} />
             <FormField id="contrasena" name="contrasena" label="Contraseña" type="password" required value={formData.contrasena} onChange={handleChange} />
             <FormField id="confirmarContrasena" name="confirmarContrasena" label="Confirmar Contraseña" type="password" required value={formData.confirmarContrasena} onChange={handleChange} />
-            <FormField id="preguntaSeguridad" name="preguntaSeguridad" label="Pregunta de Seguridad" value={formData.preguntaSeguridad} onChange={handleChange} />
+            <FormField
+              id="preguntaSeguridad"
+              name="preguntaSeguridad"
+              label="Pregunta de Seguridad"
+              type="select"
+              options={[
+                { value: '', label: 'Selecciona una pregunta' },
+                { value: 'Cual fue el nombre de tu primera mascota?', label: '¿Cuál fue el nombre de tu primera mascota?' },
+                { value: 'Cual es el segundo nombre de tu padre?', label: '¿Cuál es el segundo nombre de tu padre?' },
+                { value: 'Cual fue la ciudad donde naciste?', label: '¿Cuál fue la ciudad donde naciste?' },
+              ]}
+              value={formData.preguntaSeguridad}
+              onChange={handleChange}
+            />
             <FormField id="respuestaSeguridad" name="respuestaSeguridad" label="Respuesta de Seguridad" value={formData.respuestaSeguridad} onChange={handleChange} />
           </div>
         </fieldset>
