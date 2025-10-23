@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# UNAR - Universidad Nacional de la Amazonia y la Orinoquía
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el repositorio del sitio web de la Universidad Nacional de la Amazonia y la Orinoquía (UNAR), una universidad ficticia. El proyecto es una aplicación web moderna, diseñada con un enfoque "mobile-first" y con un fuerte énfasis en la accesibilidad.
 
-Currently, two official plugins are available:
+## Sobre el Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El sitio web de la UNAR sirve como portal principal para estudiantes, aspirantes y personal administrativo. Proporciona información sobre la universidad, sus facultades, programas académicos, noticias y eventos. También incluye un formulario de inscripción completo y una sección de campus virtual.
 
-## React Compiler
+## Características
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Diseño Responsivo:** La interfaz se adapta a cualquier tamaño de pantalla, desde dispositivos móviles hasta computadoras de escritorio.
+- **Accesibilidad:** Incluye un menú de accesibilidad para ajustar el tamaño del texto, el contraste y otras opciones para una mejor experiencia de usuario.
+- **Navegación Intuitiva:** Sistema de enrutamiento claro y fácil de usar para navegar por las diferentes secciones del sitio.
+- **Componentes Reutilizables:** Construido con un sistema de componentes modulares para facilitar el mantenimiento y la escalabilidad.
+- **Formulario de Inscripción Dinámico:** Un formulario de inscripción completo con campos que se actualizan dinámicamente (países, provincias, ciudades).
 
-## Expanding the ESLint configuration
+## Páginas y Secciones
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Inicio:** Página principal con noticias y eventos destacados.
+- **Facultades:** Lista de las facultades de la universidad.
+- **Programas Académicos:** Información detallada sobre los programas ofrecidos.
+- **Noticias:** Sección de noticias y comunicados.
+- **Admisiones:** Información sobre el proceso de admisión y formulario de inscripción.
+- **Campus Virtual:** Enlace al portal del campus virtual.
+- **Sobre la Universidad:** Información general sobre la UNAR.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tecnologías Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React:** Biblioteca de JavaScript para construir interfaces de usuario.
+- **TypeScript:** Superset de JavaScript que añade tipado estático.
+- **Vite:** Herramienta de desarrollo frontend para un desarrollo rápido.
+- **React Router:** Para el enrutamiento del lado del cliente.
+- **CSS Modules:** Para estilos de componentes encapsulados.
+- **country-state-city:** Biblioteca para obtener datos de países, provincias y ciudades.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Cómo Empezar
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1.  **Clona el repositorio:**
+    ```bash
+    git clone <URL_DEL_REPOSITORIO>
+    cd <NOMBRE_DEL_DIRECTORIO>
+    ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2.  **Instala las dependencias:**
+    ```bash
+    npm install
+    ```
+
+3.  **Ejecuta el servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
+    Esto iniciará la aplicación en modo de desarrollo. Abre [http://localhost:5173](http://localhost:5173) para verla en tu navegador.
+
+## Scripts Disponibles
+
+En el archivo `package.json`, encontrarás los siguientes scripts:
+
+- `npm run dev`: Inicia el servidor de desarrollo.
+- `npm run build`: Compila la aplicación para producción.
+- `npm run lint`: Ejecuta el linter de ESLint para revisar el código.
+- `npm run preview`: Inicia un servidor local para previsualizar la compilación de producción.
