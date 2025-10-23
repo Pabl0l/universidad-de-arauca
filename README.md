@@ -1,6 +1,6 @@
 # UNAR - Universidad Nacional de la Amazonia y la Orinoquía
 
-Este es el repositorio del sitio web de la Universidad Nacional de la Amazonia y la Orinoquía (UNAR), una universidad ficticia. El proyecto es una aplicación web moderna, diseñada con un enfoque "mobile-first" y con un fuerte énfasis en la accesibilidad.
+Este es el repositorio del sitio web de la Universidad Nacional de Arauca (UNAR), una universidad ficticia. El proyecto es una aplicación web moderna, diseñada con un enfoque "mobile-first" y con un fuerte énfasis en la accesibilidad.
 
 ## Sobre el Proyecto
 
@@ -32,33 +32,3 @@ El sitio web de la UNAR sirve como portal principal para estudiantes, aspirantes
 - **React Router:** Para el enrutamiento del lado del cliente.
 - **CSS Modules:** Para estilos de componentes encapsulados.
 - **country-state-city:** Biblioteca para obtener datos de países, provincias y ciudades.
-
-## Cómo Empezar
-
-Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
-
-1.  **Clona el repositorio:**
-    ```bash
-    git clone <URL_DEL_REPOSITORIO>
-    cd <NOMBRE_DEL_DIRECTORIO>
-    ```
-
-2.  **Instala las dependencias:**
-    ```bash
-    npm install
-    ```
-
-3.  **Ejecuta el servidor de desarrollo:**
-    ```bash
-    npm run dev
-    ```
-    Esto iniciará la aplicación en modo de desarrollo. Abre [http://localhost:5173](http://localhost:5173) para verla en tu navegador.
-
-## Scripts Disponibles
-
-En el archivo `package.json`, encontrarás los siguientes scripts:
-
-- `npm run dev`: Inicia el servidor de desarrollo.
-- `npm run build`: Compila la aplicación para producción.
-- `npm run lint`: Ejecuta el linter de ESLint para revisar el código.
-- `npm run preview`: Inicia un servidor local para previsualizar la compilación de producción.
