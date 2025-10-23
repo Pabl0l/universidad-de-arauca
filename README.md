@@ -2,9 +2,9 @@
   <img src="./public/images/logo.webp" alt="UNAR Logo" width="200"/>
 </p>
 
-# UNAR - Universidad Nacional de la Amazonia y la Orinoquía
+# UNAR - Universidad de Arauca
 
-Este es el repositorio del sitio web de la Universidad Nacional de la Amazonia y la Orinoquía (UNAR), una universidad ficticia. El proyecto es una aplicación web moderna, diseñada con un enfoque "mobile-first" y con un fuerte énfasis en la accesibilidad.
+Este es el repositorio del sitio web de la Universidad de Arauca (UNAR), una universidad ficticia. El proyecto es una aplicación web moderna, diseñada con un enfoque "mobile-first" y con un fuerte énfasis en la accesibilidad.
 
 ## Sobre el Proyecto
 
