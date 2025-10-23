@@ -38,7 +38,7 @@ export const FormField: React.FC<FormFieldProps> = ({ id, name, label, type = 't
           ))}
         </select>
       ) : (
-        <input {...commonProps} type={type} className={styles.formInput} placeholder=" " />
+        <input {...commonProps} type={type} className={styles.formInput} placeholder={type === 'date' ? 'dd/mm/aa' : ' '} />
       )}
       <label htmlFor={id} className={styles.formLabel}>
         {label}
