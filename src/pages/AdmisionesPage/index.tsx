@@ -116,7 +116,7 @@ const AdmisionesPage: React.FC = () => {
               <li>Documentos de identidad y soportes académicos.</li>
               <li>Cumplir con los requisitos específicos de cada programa.</li>
             </ul>
-            <button className={styles.callToAction}>Ver Requisitos Detallados</button>
+            <a href="/pdfs/requisitos.pdf" target="_blank" rel="noopener noreferrer" className={styles.callToAction}>Ver Requisitos Detallados</a>
           </section>
 
           <section id="proceso-de-inscripcion" className={`${styles.bentoBox} ${styles.procesoInscripcionBox} ${highlightInscription ? styles.highlightInscription : ''}`}>
