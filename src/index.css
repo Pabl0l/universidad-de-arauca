@@ -52,10 +52,6 @@ body.invert-colors img {
   filter: invert(100%) hue-rotate(180deg);
 }
 
-body.invert-colors .unarLogo {
-  filter: none;
-}
-
 body.highlight-links a {
   background-color: #FF00FF;
   color: var(--color-negro);
