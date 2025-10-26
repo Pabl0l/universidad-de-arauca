@@ -65,7 +65,7 @@ const AdmisionesPage: React.FC = () => {
         <section className={`${styles.bentoBox} ${styles.whyUNARBox} ${styles.spanThreeColumns}`}>
           <h2>¿Por qué elegir la UNAR?</h2>
           <div className={styles.whyUNARBoxContent}>
-            <div className={styles.whyUNARImageContainer} style={{ backgroundImage: 'url(/images/logo.webp)' }}>
+            <img src="/images/logo.webp" alt="Logo UNAR" className={styles.whyUNARImageContainer} />
             </div>
             <div className={styles.whyUNARTextContainer}>
               <div className={styles.gridContainer}>
