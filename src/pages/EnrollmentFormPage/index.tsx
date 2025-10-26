@@ -521,7 +521,7 @@ const EnrollmentFormPage: React.FC = () => {
           <div className={styles.bentoGrid}>
             <FormField id="nombreUsuario" name="nombreUsuario" label="Nombre de Usuario" value={formData.nombreUsuario} onChange={handleChange} />
             <FormField id="contrasena" name="contrasena" label="Contraseña" type="password" required value={formData.contrasena} onChange={handleChange} />
-            <div>
+            <div className={styles.passwordFieldContainer}>
               <FormField id="confirmarContrasena" name="confirmarContrasena" label="Confirmar Contraseña" type="password" required value={formData.confirmarContrasena} onChange={handleChange} />
               {passwordMatchError && (
                 <p className={styles.errorMessage}>* Las contraseñas no coinciden.</p>
