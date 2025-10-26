@@ -201,9 +201,17 @@ const EnrollmentFormPage: React.FC = () => {
     }
   }, [formData.facultadInteresSecundaria]);
 
+  const [passwordMatchError, setPasswordMatchError] = useState<boolean>(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFormData((prevData) => {
+      const newData = { ...prevData, [name]: value };
+      if (name === 'contrasena' || name === 'confirmarContrasena') {
+        setPasswordMatchError(newData.contrasena !== newData.confirmarContrasena && newData.confirmarContrasena !== '');
+      }
+      return newData;
+    });
   };
 
   return (
@@ -514,6 +522,9 @@ const EnrollmentFormPage: React.FC = () => {
             <FormField id="nombreUsuario" name="nombreUsuario" label="Nombre de Usuario" value={formData.nombreUsuario} onChange={handleChange} />
             <FormField id="contrasena" name="contrasena" label="Contraseña" type="password" required value={formData.contrasena} onChange={handleChange} />
             <FormField id="confirmarContrasena" name="confirmarContrasena" label="Confirmar Contraseña" type="password" required value={formData.confirmarContrasena} onChange={handleChange} />
+            {passwordMatchError && (
+              <p className={styles.errorMessage}>* Las contraseñas no coinciden.</p>
+            )}
             <FormField
               id="preguntaSeguridad"
               name="preguntaSeguridad"
