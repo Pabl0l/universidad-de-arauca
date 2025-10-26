@@ -244,11 +244,12 @@ const EnrollmentFormPage: React.FC = () => {
               label="Género"
               type="select"
               required
-              options={[
-                { value: 'Masculino', label: 'Masculino' },
-                { value: 'Femenino', label: 'Femenino' },
-                { value: 'Otro', label: 'Otro' },
-              ]}
+                options={[
+                  { value: 'masculino', label: 'Masculino' },
+                  { value: 'femenino', label: 'Femenino' },
+                  { value: 'no_binario', label: 'No binario' },
+                  { value: 'prefiero_no_decir', label: 'Prefiero no decir' },
+                ]}
               value={formData.genero}
               onChange={handleChange}
             />
