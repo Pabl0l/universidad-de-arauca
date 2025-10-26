@@ -66,7 +66,6 @@ const AdmisionesPage: React.FC = () => {
           <h2>¿Por qué elegir la UNAR?</h2>
           <div className={styles.whyUNARBoxContent}>
             <img src="/images/logo.webp" alt="Logo UNAR" className={styles.whyUNARImageContainer} />
-            </div>
             <div className={styles.whyUNARTextContainer}>
               <div className={styles.gridContainer}>
                 <div className={styles.card}>
@@ -83,7 +82,7 @@ const AdmisionesPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div >
+          </div>
         </section>
 
         <section className={`${styles.bentoBox} ${styles.ofertaAcademicaBox} ${styles.spanTwoColumns}`}>
