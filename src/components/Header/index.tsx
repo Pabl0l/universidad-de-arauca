@@ -50,7 +50,7 @@ const Header: React.FC = () => {
     setIsMobileMenuOpen(prev => !prev);
   };
 
-  const bannerSrc = (isHighContrast || isInvertColors) ? "/images/banner_t.webp" : "/images/banner_b.webp";
+  const bannerSrc = isHighContrast ? "/images/banner_t.webp" : "/images/banner_b.webp";
 
   return (
     <header className={`${styles.header} ${!isVisible ? styles.hidden : ''}`}>
