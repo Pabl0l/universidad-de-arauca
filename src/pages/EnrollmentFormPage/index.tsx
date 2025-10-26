@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FormField } from '../../components';
 import styles from './EnrollmentFormPage.module.css';
 import { Country, State, City } from 'country-state-city';
 import { faculties } from '../../services/facultyService';
+import toast from 'react-hot-toast'; // Import toast
 
 interface Option {
   value: string;
@@ -75,12 +76,22 @@ const EnrollmentFormPage: React.FC = () => {
   const [institutionStates, setInstitutionStates] = useState<Option[]>([]);
   const [institutionCities, setInstitutionCities] = useState<Option[]>([]);
 
+  const toastShownRef = useRef(false); // Create a ref to track if toast has been shown
+
   useEffect(() => {
     const countryOptions = Country.getAllCountries().map(country => ({
       value: country.isoCode,
       label: country.name,
     }));
     setCountries(countryOptions);
+
+    if (!toastShownRef.current) { // Check if toast has NOT been shown
+      toast.success('La Universidad de Arauca es un sueño y hay que trabajar duro para hacelo realidad.', {
+        duration: 6000, // Display for 6 seconds
+        position: 'top-center', // Position the toast at the top center
+      });
+      toastShownRef.current = true; // Set ref to true after showing toast
+    }
   }, []);
 
   useEffect(() => {

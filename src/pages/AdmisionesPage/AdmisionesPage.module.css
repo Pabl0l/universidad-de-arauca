@@ -25,6 +25,9 @@
 .requisitosBox, .procesoInscripcionBox, .ofertaAcademicaBox {
   align-items: center;
   background-color: var(--color-blanco);
+  border: 1px solid var(--color-gris-claro); /* Added border */
+  border-radius: 8px; /* Added border-radius for consistency */
+  padding: 1.5rem; /* Added vertical padding */
 }
 
 .bentoBox h2 {
