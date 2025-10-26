@@ -180,9 +180,11 @@ const EnrollmentFormPage: React.FC = () => {
               type="select"
               required
               options={[
-                { value: 'DNI', label: 'DNI' },
-                { value: 'Pasaporte', label: 'Pasaporte' },
-                { value: 'Cedula', label: 'Cédula' },
+                { value: 'CC', label: 'Cédula de Ciudadanía (C.C.)' },
+                { value: 'TI', label: 'Tarjeta de Identidad (T.I.)' },
+                { value: 'CE', label: 'Cédula de Extranjería (C.E.)' },
+                { value: 'PA', label: 'Pasaporte (P.A.)' },
+                { value: 'RC', label: 'Registro Civil (R.C.)' },
               ]}
               value={formData.tipoDocumento}
               onChange={handleChange}
@@ -202,6 +204,36 @@ const EnrollmentFormPage: React.FC = () => {
               ]}
               value={formData.genero}
               onChange={handleChange}
+            />
+            <FormField
+              id="paisNacimiento"
+              name="paisNacimiento"
+              label="País de Nacimiento"
+              type="select"
+              required
+              options={countries}
+              value={formData.paisNacimiento}
+              onChange={handleChange}
+            />
+            <FormField
+              id="provinciaNacimiento"
+              name="provinciaNacimiento"
+              label="Provincia/Estado de Nacimiento"
+              type="select"
+              options={birthStates}
+              value={formData.provinciaNacimiento}
+              onChange={handleChange}
+              disabled={!formData.paisNacimiento}
+            />
+            <FormField
+              id="ciudadNacimiento"
+              name="ciudadNacimiento"
+              label="Ciudad de Nacimiento"
+              type="select"
+              options={birthCities}
+              value={formData.ciudadNacimiento}
+              onChange={handleChange}
+              disabled={!formData.provinciaNacimiento}
             />
 
           </div>
@@ -246,7 +278,10 @@ const EnrollmentFormPage: React.FC = () => {
               onChange={handleChange}
               disabled={!formData.provincia}
             />
-
+            <FormField id="telefonoFijo" name="telefonoFijo" label="Teléfono Fijo" type="tel" value={formData.telefonoFijo} onChange={handleChange} />
+            <FormField id="telefonoMovil" name="telefonoMovil" label="Teléfono/Celular Móvil" type="tel" required value={formData.telefonoMovil} onChange={handleChange} />
+            <FormField id="emailPrincipal" name="emailPrincipal" label="Correo Electrónico Principal" type="email" required value={formData.emailPrincipal} onChange={handleChange} />
+            <FormField id="emailSecundario" name="emailSecundario" label="Correo Electrónico Secundario" type="email" value={formData.emailSecundario} onChange={handleChange} />
           </div>
         </fieldset>
 
