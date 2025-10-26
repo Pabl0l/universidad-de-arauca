@@ -13,10 +13,10 @@ El sitio web de la UNAR sirve como portal principal para estudiantes, aspirantes
 ## Características
 
 - **Diseño Responsivo:** La interfaz se adapta a cualquier tamaño de pantalla, desde dispositivos móviles hasta computadoras de escritorio.
-- **Accesibilidad:** Incluye un menú de accesibilidad para ajustar el tamaño del texto, el contraste y otras opciones para una mejor experiencia de usuario.
+- **Accesibilidad Mejorada:** Incluye un menú de accesibilidad robusto con opciones para ajustar el tamaño del texto, el contraste, escala de grises, inversión de colores (afectando selectivamente imágenes y texto) y resaltado de enlaces para una mejor experiencia de usuario.
 - **Navegación Intuitiva:** Sistema de enrutamiento claro y fácil de usar para navegar por las diferentes secciones del sitio.
 - **Componentes Reutilizables:** Construido con un sistema de componentes modulares para facilitar el mantenimiento y la escalabilidad.
-- **Formulario de Inscripción Dinámico:** Un formulario de inscripción completo con campos que se actualizan dinámicamente (países, provincias, ciudades).
+- **Formulario de Inscripción Dinámico y Validado:** Un formulario de inscripción completo con campos que se actualizan dinámicamente (países, provincias, ciudades), opciones de género inclusivas y validación en tiempo real para campos críticos como la confirmación de contraseña.
 
 ## Páginas y Secciones
 
@@ -30,9 +30,11 @@ El sitio web de la UNAR sirve como portal principal para estudiantes, aspirantes
 
 ## Tecnologías Utilizadas
 
-- **React:** Biblioteca de JavaScript para construir interfaces de usuario.
-- **TypeScript:** Superset de JavaScript que añade tipado estático.
-- **Vite:** Herramienta de desarrollo frontend para un desarrollo rápido.
-- **React Router:** Para el enrutamiento del lado del cliente.
-- **CSS Modules:** Para estilos de componentes encapsulados.
-- **country-state-city:** Biblioteca para obtener datos de países, provincias y ciudades.
+- **React:** Biblioteca de JavaScript para construir interfaces de usuario interactivas.
+- **TypeScript:** Superset de JavaScript que añade tipado estático, mejorando la robustez y mantenibilidad del código.
+- **Vite:** Herramienta de desarrollo frontend de próxima generación para un desarrollo rápido y optimizado.
+- **React Router:** Para la gestión del enrutamiento del lado del cliente, permitiendo una navegación fluida entre las diferentes vistas.
+- **CSS Modules:** Para estilos de componentes encapsulados, evitando conflictos y facilitando el mantenimiento del CSS.
+- **country-state-city:** Biblioteca para obtener datos geográficos (países, provincias y ciudades), utilizada en formularios dinámicos.
+- **Git:** Sistema de control de versiones para la gestión colaborativa del código fuente.
+- **GitHub:** Plataforma de alojamiento de repositorios Git para el control de versiones y colaboración.
