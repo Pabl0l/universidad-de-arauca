@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     return null; // or handle the case where context is not available
   }
 
-  const { isHighContrast, isInvertColors } = accessibilityContext;
+
 
   const handleScroll = () => {
     if (typeof window !== 'undefined') {
