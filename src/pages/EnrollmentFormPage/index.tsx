@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormField } from '../../components';
 import styles from './EnrollmentFormPage.module.css';
 import { Country, State, City } from 'country-state-city';
@@ -76,7 +76,12 @@ const EnrollmentFormPage: React.FC = () => {
   const [institutionStates, setInstitutionStates] = useState<Option[]>([]);
   const [institutionCities, setInstitutionCities] = useState<Option[]>([]);
 
-  const toastShownRef = useRef(false); // Create a ref to track if toast has been shown
+  const displayDreamToast = () => {
+    toast.success('La Universidad de Arauca es un sueño y hay que trabajar duro para hacelo realidad.', {
+      duration: 6000, // Display for 6 seconds
+      position: 'top-center', // Position the toast at the top center
+    });
+  };
 
   useEffect(() => {
     const countryOptions = Country.getAllCountries().map(country => ({
@@ -85,13 +90,7 @@ const EnrollmentFormPage: React.FC = () => {
     }));
     setCountries(countryOptions);
 
-    if (!toastShownRef.current) { // Check if toast has NOT been shown
-      toast.success('La Universidad de Arauca es un sueño y hay que trabajar duro para hacelo realidad.', {
-        duration: 6000, // Display for 6 seconds
-        position: 'top-center', // Position the toast at the top center
-      });
-      toastShownRef.current = true; // Set ref to true after showing toast
-    }
+    displayDreamToast(); // Call toast on mount
   }, []);
 
   useEffect(() => {
@@ -225,6 +224,13 @@ const EnrollmentFormPage: React.FC = () => {
     });
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default form submission
+    displayDreamToast(); // Show toast on submit
+    // In a real application, you would handle form submission logic here
+    console.log('Formulario enviado (simulado):', formData);
+  };
+
   return (
     <div className={styles.container}>
       <header className="pageHeaderBox">
@@ -232,7 +238,7 @@ const EnrollmentFormPage: React.FC = () => {
         <p>Completa el siguiente formulario para iniciar tu proceso de admisión en la UNAR.</p>
       </header>
 
-      <form className={styles.enrollmentForm}>
+      <form className={styles.enrollmentForm} onSubmit={handleSubmit}>
         {/* Sección 1: Datos Personales Básicos */}
         <fieldset className={styles.formSection}>
           <legend className={styles.sectionTitle}>1. Datos Personales Básicos</legend>
