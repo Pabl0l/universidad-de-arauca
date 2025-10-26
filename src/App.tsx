@@ -6,7 +6,6 @@ import FacultyDetailPage from './pages/FacultyDetailPage';
 import NoticiasPage from './pages/NoticiasPage';
 import AdmisionesPage from './pages/AdmisionesPage';
 import CampusVirtualPage from './pages/CampusVirtualPage';
-import ProgramasAcademicosPage from './pages/ProgramasAcademicosPage';
 import ProgramDetailPage from './pages/ProgramDetailPage';
 import SobreLaUniversidadPage from './pages/SobreLaUniversidadPage';
 import AdministrativosPage from './pages/AdministrativosPage';
@@ -15,6 +14,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { AccessibilityMenu } from './components';
 import ScrollToTop from './components/ScrollToTop';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -29,8 +29,7 @@ function App() {
           <Route path="/noticias" element={<NoticiasPage />} />
           <Route path="/admisiones" element={<AdmisionesPage />} />
           <Route path="/campus-virtual" element={<CampusVirtualPage />} />
-          <Route path="/programas-academicos" element={<ProgramasAcademicosPage />} />
-          <Route path="/programas-academicos/:programSlug" element={<ProgramDetailPage />} />
+          <Route path="/facultades/:facultySlug/:programSlug" element={<ProgramDetailPage />} />
           <Route path="/acercade" element={<SobreLaUniversidadPage />} />
           <Route path="/administrativos" element={<AdministrativosPage />} />
           <Route path="/inscripcion" element={<EnrollmentFormPage />} />
@@ -39,6 +38,7 @@ function App() {
       </div>
       <Link to="/admisiones#proceso-de-inscripcion" className="floating-button">¡Inscríbete ahora!</Link>
       <AccessibilityMenu />
+      <Toaster position="bottom-center" />
     </Router>
   );
 }
