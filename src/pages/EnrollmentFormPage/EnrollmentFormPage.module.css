@@ -55,26 +55,4 @@
   background-color: #333333;
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin: 1rem auto;
-  }
 
-  .enrollmentForm {
-    padding: 1rem;
-  }
-
-  .bentoGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .sectionTitle {
-    font-size: clamp(1.2rem, 5vw, 1.5rem);
-  }
-
-  .submitButton {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
-  }
-}

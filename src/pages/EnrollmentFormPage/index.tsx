@@ -16,11 +16,9 @@ const EnrollmentFormPage: React.FC = () => {
     numeroDocumento: '',
     fechaNacimiento: '',
     genero: '',
-    nacionalidad: '',
     paisNacimiento: '',
     provinciaNacimiento: '',
     ciudadNacimiento: '',
-    cuilCuit: '',
     calle: '',
     numero: '',
     piso: '',
@@ -29,10 +27,8 @@ const EnrollmentFormPage: React.FC = () => {
     ciudad: '',
     provincia: '',
     pais: '',
-    telefonoFijo: '',
     telefonoMovil: '',
     emailPrincipal: '',
-    emailSecundario: '',
     carreraInteres: '',
     turnoPreferencia: '',
     modalidad: '',
@@ -207,38 +203,7 @@ const EnrollmentFormPage: React.FC = () => {
               value={formData.genero}
               onChange={handleChange}
             />
-            <FormField id="nacionalidad" name="nacionalidad" label="Nacionalidad" required value={formData.nacionalidad} onChange={handleChange} />
-            <FormField
-              id="paisNacimiento"
-              name="paisNacimiento"
-              label="País de Nacimiento"
-              type="select"
-              required
-              options={countries}
-              value={formData.paisNacimiento}
-              onChange={handleChange}
-            />
-            <FormField
-              id="provinciaNacimiento"
-              name="provinciaNacimiento"
-              label="Provincia/Estado de Nacimiento"
-              type="select"
-              options={birthStates}
-              value={formData.provinciaNacimiento}
-              onChange={handleChange}
-              disabled={!formData.paisNacimiento}
-            />
-            <FormField
-              id="ciudadNacimiento"
-              name="ciudadNacimiento"
-              label="Ciudad de Nacimiento"
-              type="select"
-              options={birthCities}
-              value={formData.ciudadNacimiento}
-              onChange={handleChange}
-              disabled={!formData.provinciaNacimiento}
-            />
-            <FormField id="cuilCuit" name="cuilCuit" label="Número de CUIL/CUIT" value={formData.cuilCuit} onChange={handleChange} />
+
           </div>
         </fieldset>
 
@@ -281,10 +246,7 @@ const EnrollmentFormPage: React.FC = () => {
               onChange={handleChange}
               disabled={!formData.provincia}
             />
-            <FormField id="telefonoFijo" name="telefonoFijo" label="Teléfono Fijo" type="tel" value={formData.telefonoFijo} onChange={handleChange} />
-            <FormField id="telefonoMovil" name="telefonoMovil" label="Teléfono/Celular Móvil" type="tel" required value={formData.telefonoMovil} onChange={handleChange} />
-            <FormField id="emailPrincipal" name="emailPrincipal" label="Correo Electrónico Principal" type="email" required value={formData.emailPrincipal} onChange={handleChange} />
-            <FormField id="emailSecundario" name="emailSecundario" label="Correo Electrónico Secundario" type="email" value={formData.emailSecundario} onChange={handleChange} />
+
           </div>
         </fieldset>
 
