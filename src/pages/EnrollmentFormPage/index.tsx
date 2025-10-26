@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FormField } from '../../components';
 import styles from './EnrollmentFormPage.module.css';
 import { Country, State, City } from 'country-state-city';
+import { faculties } from '../../services/facultyService';
 
 interface Option {
   value: string;
@@ -29,7 +30,8 @@ const EnrollmentFormPage: React.FC = () => {
     pais: '',
     telefonoMovil: '',
     emailPrincipal: '',
-    carreraInteres: '',
+    facultadInteresPrincipal: '',
+    carreraInteresPrincipal: '',
     turnoPreferencia: '',
     modalidad: '',
     anioIngresoPrevisto: '',
@@ -56,6 +58,8 @@ const EnrollmentFormPage: React.FC = () => {
     apellidoPadre: '',
     ocupacionPadres: '',
     nivelEducativoPadres: '',
+    facultadInteresSecundaria: '',
+    carreraInteresSecundaria: '',
     nombreUsuario: '',
     contrasena: '',
     confirmarContrasena: '',
@@ -153,6 +157,49 @@ const EnrollmentFormPage: React.FC = () => {
       setInstitutionCities([]);
     }
   }, [formData.provinciaInstitucion, formData.paisInstitucion]);
+
+  const [primaryProgramOptions, setPrimaryProgramOptions] = useState<Option[]>([]);
+  const [secondaryProgramOptions, setSecondaryProgramOptions] = useState<Option[]>([]);
+
+  useEffect(() => {
+    if (formData.facultadInteresPrincipal) {
+      const selectedFaculty = faculties.find(
+        (faculty) => faculty.slug === formData.facultadInteresPrincipal
+      );
+      if (selectedFaculty) {
+        setPrimaryProgramOptions(
+          selectedFaculty.programs.map((program) => ({
+            value: program.slug,
+            label: program.name,
+          }))
+        );
+      } else {
+        setPrimaryProgramOptions([]);
+      }
+    } else {
+      setPrimaryProgramOptions([]);
+    }
+  }, [formData.facultadInteresPrincipal]);
+
+  useEffect(() => {
+    if (formData.facultadInteresSecundaria) {
+      const selectedFaculty = faculties.find(
+        (faculty) => faculty.slug === formData.facultadInteresSecundaria
+      );
+      if (selectedFaculty) {
+        setSecondaryProgramOptions(
+          selectedFaculty.programs.map((program) => ({
+            value: program.slug,
+            label: program.name,
+          }))
+        );
+      } else {
+        setSecondaryProgramOptions([]);
+      }
+    } else {
+      setSecondaryProgramOptions([]);
+    }
+  }, [formData.facultadInteresSecundaria]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -278,10 +325,8 @@ const EnrollmentFormPage: React.FC = () => {
               onChange={handleChange}
               disabled={!formData.provincia}
             />
-            <FormField id="telefonoFijo" name="telefonoFijo" label="Teléfono Fijo" type="tel" value={formData.telefonoFijo} onChange={handleChange} />
             <FormField id="telefonoMovil" name="telefonoMovil" label="Teléfono/Celular Móvil" type="tel" required value={formData.telefonoMovil} onChange={handleChange} />
             <FormField id="emailPrincipal" name="emailPrincipal" label="Correo Electrónico Principal" type="email" required value={formData.emailPrincipal} onChange={handleChange} />
-            <FormField id="emailSecundario" name="emailSecundario" label="Correo Electrónico Secundario" type="email" value={formData.emailSecundario} onChange={handleChange} />
           </div>
         </fieldset>
 
@@ -290,18 +335,44 @@ const EnrollmentFormPage: React.FC = () => {
           <legend className={styles.sectionTitle}>3. Datos Académicos y de la Solicitud</legend>
           <div className={styles.bentoGrid}>
             <FormField
-              id="carreraInteres"
-              name="carreraInteres"
-              label="Carrera o Programa de Interés"
+              id="facultadInteresPrincipal"
+              name="facultadInteresPrincipal"
+              label="Facultad de Interés Principal"
               type="select"
               required
-              options={[
-                { value: 'Ingenieria de Sistemas', label: 'Ingeniería de Sistemas' },
-                { value: 'Licenciatura en Artes', label: 'Licenciatura en Artes' },
-                { value: 'Medicina', label: 'Medicina' },
-              ]}
-              value={formData.carreraInteres}
+              options={faculties.map(faculty => ({ value: faculty.slug, label: faculty.name }))}
+              value={formData.facultadInteresPrincipal}
               onChange={handleChange}
+            />
+            <FormField
+              id="carreraInteresPrincipal"
+              name="carreraInteresPrincipal"
+              label="Carrera o Programa de Interés Principal"
+              type="select"
+              required
+              options={primaryProgramOptions}
+              value={formData.carreraInteresPrincipal}
+              onChange={handleChange}
+              disabled={!formData.facultadInteresPrincipal}
+            />
+            <FormField
+              id="facultadInteresSecundaria"
+              name="facultadInteresSecundaria"
+              label="Facultad de Interés Secundaria (Opcional)"
+              type="select"
+              options={faculties.map(faculty => ({ value: faculty.slug, label: faculty.name }))}
+              value={formData.facultadInteresSecundaria}
+              onChange={handleChange}
+            />
+            <FormField
+              id="carreraInteresSecundaria"
+              name="carreraInteresSecundaria"
+              label="Carrera o Programa de Interés Secundaria (Opcional)"
+              type="select"
+              options={secondaryProgramOptions}
+              value={formData.carreraInteresSecundaria}
+              onChange={handleChange}
+              disabled={!formData.facultadInteresSecundaria}
             />
             <FormField
               id="turnoPreferencia"
