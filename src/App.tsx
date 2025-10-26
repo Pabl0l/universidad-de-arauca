@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import HomePage from './pages/HomePage';
 import FacultadesPage from './pages/FacultadesPage';
@@ -12,7 +12,7 @@ import AdministrativosPage from './pages/AdministrativosPage';
 import EnrollmentFormPage from './pages/EnrollmentFormPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { AccessibilityMenu } from './components';
+import { AccessibilityMenu, FloatingEnrollButton } from './components';
 import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from 'react-hot-toast';
 
@@ -36,7 +36,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
-      <Link to="/admisiones#proceso-de-inscripcion" className="floating-button">¡Inscríbete ahora!</Link>
+      <FloatingEnrollButton />
       <AccessibilityMenu />
       <Toaster position="bottom-center" />
     </Router>

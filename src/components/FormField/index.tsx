@@ -11,9 +11,10 @@ interface FormFieldProps {
   options?: { value: string; label: string }[];
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  disabled?: boolean;
 }
 
-export const FormField: React.FC<FormFieldProps> = ({ id, name, label, type = 'text', required = false, options, value, onChange }) => {
+export const FormField: React.FC<FormFieldProps> = ({ id, name, label, type = 'text', required = false, options, value, onChange, disabled = false }) => {
   const { isFloating, handleFocus, handleBlur } = useFloatingLabel(value || '');
 
   const commonProps = {
@@ -24,6 +25,7 @@ export const FormField: React.FC<FormFieldProps> = ({ id, name, label, type = 't
     onBlur: handleBlur,
     onChange,
     value,
+    disabled,
   };
 
   return (

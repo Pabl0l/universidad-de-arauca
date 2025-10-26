@@ -1,4 +1,4 @@
-import React, { createContext, useState, useMemo, ReactNode } from 'react';
+import React, { createContext, useState, useMemo, type ReactNode } from 'react';
 
 interface IAccessibilityContext {
   isHighContrast: boolean;

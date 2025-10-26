@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './EventCard.module.css';
 
 /**
@@ -24,7 +25,7 @@ const EventCard: React.FC<IEventCardProps> = ({ date, title, description }) => {
       <p className={styles.date}>{date}</p>
       <h3>{title}</h3>
       <p>{description}</p>
-      <a href="#" className={styles.details}>Ver detalles</a>
+      <Link to="/noticias" className={styles.details}>Ver detalles</Link>
     </div>
   );
 };

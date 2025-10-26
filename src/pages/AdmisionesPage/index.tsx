@@ -123,7 +123,6 @@ const AdmisionesPage: React.FC = () => {
             <h2>Proceso de Inscripción</h2>
             <p>Sigue estos sencillos pasos para postularte:</p>
             <ol className={styles.processList}>
-              <li>Crea tu usuario en nuestro portal de admisiones.</li>
               <li>Diligencia el formulario de inscripción.</li>
               <li>Adjunta los documentos requeridos.</li>
               <li>Realiza el pago de los derechos de inscripción.</li>

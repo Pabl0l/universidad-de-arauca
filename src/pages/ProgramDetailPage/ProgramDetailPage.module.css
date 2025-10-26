@@ -26,6 +26,29 @@
   background-color: var(--color-blanco);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  overflow: hidden; /* To contain the pseudo-element */
+}
+
+.programHeader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+.programHeader > * {
+  position: relative;
+  z-index: 2;
 }
 
 .programHeader h1 {
@@ -37,10 +60,14 @@
 
 .programHeader .slogan {
   font-family: var(--font-montserrat);
-  color: #555;
+  color: white;
   margin-bottom: 0.8rem; /* Adjusted for mobile-first */
   font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive font size */
   font-style: italic;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: inline-block;
 }
 
 .contentGrid {

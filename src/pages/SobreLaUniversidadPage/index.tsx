@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, type JSX } from 'react';
+import { useState, useEffect, useCallback, type JSX } from 'react';
 import styles from './SobreLaUniversidadPage.module.css';
 
 export default function SobreLaUniversidadPage(): JSX.Element {

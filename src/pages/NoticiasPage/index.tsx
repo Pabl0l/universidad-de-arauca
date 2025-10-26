@@ -21,7 +21,7 @@ const NoticiasPage: React.FC = () => {
       </header>
       <div className={styles.newsGrid}>
         {newsItems.map((news, index) => (
-          <NewsCard key={index} title={news.title} description={news.description} imageUrl={news.imageUrl} />
+          <NewsCard key={index} title={news.title} description={news.description} imageUrl={news.imageUrl} showReadMoreButton={false} />
         ))}
       </div>
     </div>

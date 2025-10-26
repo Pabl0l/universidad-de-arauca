@@ -20,6 +20,42 @@ const ProgramDetailPage: React.FC = () => {
   const faculty = faculties.find(f => f.slug === facultySlug);
   const program = faculty?.programs.find(p => p.slug === programSlug);
 
+  const getProgramImage = (programSlug: string | undefined) => {
+    if (!programSlug) return undefined;
+  
+    const imageMap: { [key: string]: string } = {
+      'ingenieria-agronoma': 'ing-agronoma.webp',
+      'ingenieria-mecanica': 'ing-mecanica.webp',
+      'ingenieria-civil': 'ing-civil.webp',
+      'ingenieria-electrica': 'ing-electrica.webp',
+      'ingenieria-industrial': 'ing-industrial.webp',
+      'ingenieria-quimica': 'ing-quimica.webp',
+      'ingenieria-de-sistemas': 'ing-sistemas.webp',
+      'artes-audiovisuales': 'artes-audiovisuales.webp',
+      'artes-plasticas': 'artes-plasticas.webp',
+      'musica': 'musica.webp',
+      'diseno-grafico': 'diseno-grafico.webp',
+      'diseno-uiux': 'diseno-ui-ux.webp',
+      'medicina': 'medicina.webp',
+      'enfermeria': 'enfermeria.webp',
+      'odontologia': 'odontologia.webp',
+      'bacteriologia': 'bacteriologia.webp',
+      'medicina-veterinaria-y-zootecnia': 'veterinaria.webp',
+      'derecho': 'derecho.webp',
+      'ciencias-politicas': 'ciencias-politicas.webp',
+      'periodismo': 'periodismo.webp',
+      'antropologia': 'antropologia.webp',
+      'historia': 'historia.webp',
+      'licenciatura-en-ciencias-naturales': 'lic-ciencias.webp',
+      'licenciatura-en-matematicas': 'lic-matematicas.webp',
+      'licenciatura-en-lengua-castellana': 'lic-lengua.webp',
+      'licenciatura-en-ciencias-sociales': 'lic-sociales.webp',
+    };
+  
+    const imageName = imageMap[programSlug];
+    return imageName ? `/images/${imageName}` : undefined;
+  };
+
   if (!faculty || !program) {
     return (
       <div className={styles.container}>
@@ -30,10 +66,15 @@ const ProgramDetailPage: React.FC = () => {
     );
   }
 
+  const programImage = getProgramImage(program.slug);
+
   return (
     <div className={styles.container}>
       <Link to={`/facultades/${faculty.slug}`} className={styles.backLink}>&larr; Volver a {faculty.name}</Link>
-      <header className={styles.programHeader}>
+      <header 
+        className={styles.programHeader}
+        style={programImage ? { backgroundImage: `url(${programImage})` } : {}}
+      >
         <h1>{program.name}</h1>
         <p className={styles.slogan}>{program.slogan}</p>
       </header>

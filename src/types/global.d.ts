@@ -6,6 +6,8 @@ interface IProgram {
   graduateProfile: string;
   slug: string;
   icon: string;
+  duration: string;
+  studyPlan: any[];
 }
 
 interface IFaculty {

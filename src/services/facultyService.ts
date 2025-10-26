@@ -113,6 +113,17 @@ export const faculties: IFaculty[] = [
         icon: 'Videocam',
       },
       {
+        name: 'Artes Plásticas',
+        slogan: 'El color y la forma, un diálogo con la tierra y el cielo del Arauca.',
+        description: 'Formamos artistas visuales con una sólida base conceptual y técnica en diversas disciplinas como pintura, escultura, grabado, dibujo y nuevas expresiones artísticas. El programa fomenta la experimentación, la investigación y la reflexión crítica sobre el arte y su relación con el contexto social y cultural. Los estudiantes desarrollarán un lenguaje artístico propio y explorarán las posibilidades del arte como medio de expresión y transformación.',
+        uniqueFocus: 'Arte y Naturaleza en el Llano, explorando la riqueza paisajística y cultural del Arauca como fuente de inspiración y material para la creación artística, con énfasis en el arte efímero, el land art y las instalaciones que dialogan con el entorno natural.',
+        graduateProfile: 'Será un artista plástico con capacidad para desarrollar una obra personal, participar en exposiciones, gestionar proyectos culturales, impartir talleres de arte y contribuir al enriquecimiento del patrimonio artístico y cultural de la región.',
+        duration: '8 semestres',
+        studyPlan: [],
+        slug: generateSlug('Artes Plásticas'),
+        icon: 'Palette',
+      },
+      {
         name: 'Música',
         slogan: 'Donde el corrío llanero dialoga con el jazz y la sinfonía.',
         description: 'Nuestra Escuela de Música entiende que el llano es una tierra de ricas sonoridades. Formamos músicos integrales que, partiendo de las raíces del joropo, el corrío y el pasaje, se abren a los lenguajes universales de la música. El programa ofrece énfasis en Interpretación (arpa, cuatro, maracas, voz, y instrumentos sinfónicos), Composición y Arreglos y Producción Musical.',
@@ -144,17 +155,6 @@ export const faculties: IFaculty[] = [
         studyPlan: [],
         slug: generateSlug('Diseño UI/UX'),
         icon: 'DesignServices',
-      },
-      {
-        name: 'Artes Plásticas',
-        slogan: 'El color y la forma, un diálogo con la tierra y el cielo del Arauca.',
-        description: 'Formamos artistas visuales con una sólida base conceptual y técnica en diversas disciplinas como pintura, escultura, grabado, dibujo y nuevas expresiones artísticas. El programa fomenta la experimentación, la investigación y la reflexión crítica sobre el arte y su relación con el contexto social y cultural. Los estudiantes desarrollarán un lenguaje artístico propio y explorarán las posibilidades del arte como medio de expresión y transformación.',
-        uniqueFocus: 'Arte y Naturaleza en el Llano, explorando la riqueza paisajística y cultural del Arauca como fuente de inspiración y material para la creación artística, con énfasis en el arte efímero, el land art y las instalaciones que dialogan con el entorno natural.',
-        graduateProfile: 'Será un artista plástico con capacidad para desarrollar una obra personal, participar en exposiciones, gestionar proyectos culturales, impartir talleres de arte y contribuir al enriquecimiento del patrimonio artístico y cultural de la región.',
-        duration: '8 semestres',
-        studyPlan: [],
-        slug: generateSlug('Artes Plásticas'),
-        icon: 'Palette',
       },
     ],
     emblematicProjects: [
@@ -189,7 +189,7 @@ export const faculties: IFaculty[] = [
         duration: '8 semestres',
         studyPlan: [],
         slug: generateSlug('Enfermería'),
-        icon: 'MedicalServices',
+        icon: 'Vaccines',
       },
       {
         name: 'Odontología',
@@ -200,7 +200,7 @@ export const faculties: IFaculty[] = [
         duration: '10 semestres',
         studyPlan: [],
         slug: generateSlug('Odontología'),
-        icon: 'DentalCare',
+        icon: 'MedicalServices',
       },
       {
         name: 'Bacteriología',
@@ -274,6 +274,7 @@ export const faculties: IFaculty[] = [
         duration: '8 semestres',
         studyPlan: [],
         slug: generateSlug('Periodismo'),
+        icon: 'Article',
       },
       {
         name: 'Antropología',
